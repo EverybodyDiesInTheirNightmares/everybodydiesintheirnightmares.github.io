@@ -1,1 +1,184 @@
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;user-scalable&#x3D;no&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;うるさいですね ...&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        body &#123;</span><br><span class="line">            margin: 0;</span><br><span class="line">            display: flex;</span><br><span class="line">            height: 100vh;</span><br><span class="line">            background: aliceblue;</span><br><span class="line">            align-items: center;</span><br><span class="line">        &#125;</span><br><span class="line">        main &#123;</span><br><span class="line">            margin: auto;</span><br><span class="line">            display: flex;</span><br><span class="line">            flex-direction: column;</span><br><span class="line">            align-items: center;</span><br><span class="line">        &#125;</span><br><span class="line">        #icon-wrapper &#123;</span><br><span class="line">            width: 50vh;</span><br><span class="line">            height: 50vh;</span><br><span class="line">            position: relative;</span><br><span class="line">        &#125;</span><br><span class="line">        #icon &#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100%;</span><br><span class="line">            border-radius: 50%;</span><br><span class="line">        &#125;</span><br><span class="line">        #icon-border &#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100%;</span><br><span class="line">            border: 2vh solid ghostwhite;</span><br><span class="line">            position: absolute;</span><br><span class="line">            left: 0;</span><br><span class="line">            top: 0;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            border-radius: 50%;</span><br><span class="line">            filter: drop-shadow(0 0 10px slategrey);</span><br><span class="line">            box-shadow: 0 0 5px slategrey;</span><br><span class="line">        &#125;</span><br><span class="line">        h1 &#123;</span><br><span class="line">            font-family: serif;</span><br><span class="line">            text-shadow: 1px 1px 3px darkgrey;</span><br><span class="line">            color: slategray;</span><br><span class="line">            font-size: 10vh;</span><br><span class="line">        &#125;</span><br><span class="line">        @media (max-aspect-ratio: 1&#x2F;1) &#123;</span><br><span class="line">            #icon-wrapper &#123;</span><br><span class="line">                width: 50vw;</span><br><span class="line">                height: 50vw;</span><br><span class="line">            &#125;</span><br><span class="line">            #icon-border &#123;</span><br><span class="line">                border: 2vw solid ghostwhite;</span><br><span class="line">            &#125;</span><br><span class="line">            h1 &#123;</span><br><span class="line">                font-size: 10vw;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;main&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;icon-wrapper&quot;&gt;</span><br><span class="line">            &lt;img id&#x3D;&quot;icon&quot; src&#x3D;&quot;icon.png&quot;&gt;</span><br><span class="line">            &lt;div id&#x3D;&quot;icon-border&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;h1&gt;うるさいですね ...&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;&#x2F;main&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    
+    <title> - 热河</title>
+    <meta charset="utf-8">
+    
+    <meta name="title" content=" - 热河">
+    <meta name="description" content="">
+    <meta property="og:image" content="/favicon.png">
+    <meta property="og:image:width" content="200" />
+    <meta property="og:image:height" content="200" />
+    
+    <link href="https://fonts.loli.net/css2?family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Serif Pro', 'Source Han Serif SC', 'Noto Serif CJK SC', 'Noto Serif SC', serif;
+        }
+    </style>
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    <link rel="stylesheet"
+        href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/arduino-light.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="热河" type="application/atom+xml">
+</head>
+
+<body>
+    <header class="header">
+    <div class="blog-title">
+        <a href="/" class="logo">热河</a>
+    </div>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/" class="menu-item-link">主页</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/archives" class="menu-item-link">归档</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/about" class="menu-item-link">关于</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/rss" class="menu-item-link">订阅</a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <article class="post">
+    <div class="post-title">
+        <h1 class="title"></h2>
+    </div>
+    <div class="post-content">
+        <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no" />
+    <title>うるさいですね ...</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            background: aliceblue;
+            align-items: center;
+        }
+        main {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #icon-wrapper {
+            width: 50vh;
+            height: 50vh;
+            position: relative;
+        }
+        #icon {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        #icon-border {
+            width: 100%;
+            height: 100%;
+            border: 2vh solid ghostwhite;
+            position: absolute;
+            left: 0;
+            top: 0;
+            box-sizing: border-box;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 10px slategrey);
+            box-shadow: 0 0 5px slategrey;
+        }
+        h1 {
+            font-family: serif;
+            text-shadow: 1px 1px 3px darkgrey;
+            color: slategray;
+            font-size: 10vh;
+        }
+        @media (max-aspect-ratio: 1/1) {
+            #icon-wrapper {
+                width: 50vw;
+                height: 50vw;
+            }
+            #icon-border {
+                border: 2vw solid ghostwhite;
+            }
+            h1 {
+                font-size: 10vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div id="icon-wrapper">
+            <img id="icon" src="icon.png">
+            <div id="icon-border"></div>
+        </div>
+        <h1>うるさいですね ...</h1>
+    </main>
+</body>
+</html>
+    </div>
+    <div class="post-meta">
+        
+    <span class="post-time">二〇二〇年八月三十一日</span>
+    </div>
+</article>
+
+<div class="prev_next">
+    <nav id="prev_next">
+
+</nav>
+</div>
+
+<div class="post-comment">
+    
+
+
+
+</div>
+
+    </main>
+</body>
+
+</html>
