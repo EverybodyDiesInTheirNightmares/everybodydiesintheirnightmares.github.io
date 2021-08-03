@@ -85,30 +85,6 @@
     
     <article class="post">
         <div class="post-title">
-            <a class="post-title-link" href="/2021/05/19/clj/">法定妻子</a>
-        </div>
-        <div class="post-content">
-            
-            <blockquote>
-<p>想吃酸奶，想喝泡鲁达，想起第二天️透过玻璃射进房间，想波光粼粼的湖面，想夕阳余晖撒在人来人往的大街上，想灯光照在行驶在山间的上，想阳光照射在我每一寸肌肤，想半个城市失去光明客厅总有盏灯在角落亮起，想模糊不清的每个片段，想小猫悄悄站在我的背后，想你，想脑壳贴在肩膀上，下次也要想和🦐哈酒。</p>
-</blockquote>
-<p>首先要说明的是「法定妻子」并非事实存在，也非一种客观上的诱使，只是在三月和四月突然想到的题目，当然，也非仅是题目。</p>
-<p>上次在「呕吐物」中说到没有人帮我拔头发，时隔一年又半载，我找到了帮我拔头发的人。时至今日，她对我的意义早已超越拔头发。</p>
-<p>这一年，「走过了人性的背后和白云苍狗」，「答案」也许终于「出现在了下一个车站」。没变的是我还在老地方，不过我即将「起程」，结束自己冗长的学生生涯，就在一月之后，写来还感到一阵清新的气息。</p>
-<p>相识在依旧燥热的九月，奇怪虽然是同专业同学却从未曾谋面，</p>
-<p>懒散的笔跟不上快速转动的粉丝木马，只好许愿美丽少点消逝，多点重聚。</p>
-<p>最后，「法定妻子」于此只是「tattletale」的一个系列，是「北京小妞」，是「玉兔」，但于我而言，更是一种「希冀」。</p>
-
-            
-        </div>
-        <div class="post-meta">
-            
-            <span class="post-time">二〇二一年五月十九日</span>
-        </div>
-    </article>
-    
-    <article class="post">
-        <div class="post-title">
             <a class="post-title-link" href="/2020/12/05/jotting/">一次闲聊</a>
         </div>
         <div class="post-content">
@@ -623,109 +599,43 @@
         </div>
     </article>
     
+    <article class="post">
+        <div class="post-title">
+            <a class="post-title-link" href="/2019/10/17/acceleration-for-githubPages/">github pages加速方案</a>
+        </div>
+        <div class="post-content">
+            
+            <h1 id="优化之路道阻且长"><a href="#优化之路道阻且长" class="headerlink" title="优化之路道阻且长"></a>优化之路道阻且长</h1><blockquote>
+<p>本站采用Hexo(NexT)+GitHub pages+aliyun OSS呈现，连通性和访问速度取决于Github，由于其服务器架设的物理位置位于美国遂访问速度较慢，并不排除随时关站的可能。</p>
+</blockquote>
+<h2 id="资金极其匮乏"><a href="#资金极其匮乏" class="headerlink" title="资金极其匮乏"></a>资金极其匮乏</h2><p>wdnmd要是有钱还会用GitHub pages和.online域名吗…</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571327993364&di=a12ac0ac283f059a58f550f8937fca41&imgtype=0&src=http://i0.hdslb.com/bfs/article/bb4c14cb8c5a3a7ea86286886e613b4fb7d59525.jpg" alt="qz"></p>
+<h2 id="Sakura-frp暴露80端口内网穿透"><a href="#Sakura-frp暴露80端口内网穿透" class="headerlink" title="Sakura frp暴露80端口内网穿透"></a><em>Sakura frp暴露80端口内网穿透</em></h2><p><em>题外话，本站在采用Hexo+Github pages之前，是通过暴露本机80端口并结合Sakura frp内网穿透实现外部网络的访问。这种方法虽然节省了一大笔服务器开销以及相关云产品的支出，但其劣势也是很明显的：相关主机(我的笔记本)必须保持7x24x365(理想状态)开机，这显然是不可能的。再加上网络带宽的原因，这显然不是一个建站的最佳解决方案。</em></p>
+<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/1.PNG" alt="sakura frp"></p>
+<h2 id="GitHub-pages"><a href="#GitHub-pages" class="headerlink" title="GitHub pages"></a>GitHub pages</h2><p>由于 GitHub Pages 服务器在国外，静态博客页面在国内访问速度可能会非常慢。本站优化前在多个终端下的访问速度动辄十几二十几秒，用户体验极差。</p>
+<p>解决方案选型:</p>
+<ul>
+<li>换用国内Coding pages</li>
+<li>部署CDN</li>
+</ul>
+<p>遗憾的是，由于国内严苛的备案条件，我无法完成域名的国内备案。毫无疑问，这会导致本站长期处于一个不稳定的状态，并且就与Coding pages和国内CDN无缘了。</p>
+<h2 id="最终采用cloudflare实现全站cdn和https"><a href="#最终采用cloudflare实现全站cdn和https" class="headerlink" title="最终采用cloudflare实现全站cdn和https"></a>最终采用cloudflare实现全站cdn和https</h2><p>效果拔群~<br><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/4.PNG" alt="效果"></p>
+<p>详细步骤请参考@qhh0205 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qianghaohao/article/details/83714575">基于 Hexo 的 GitHub Pages 配置 CloudFlare CDN</a></p>
+<p>cloudflare “active”<br><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/2.PNG" alt="cloudflare"></p>
+<p>修改dns</p>
+<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/3.PNG" alt="修改dns服务器"></p>
+<p>另外，不要忘了修改域名服务商处的原始解析。</p>
+<p>完。</p>
+
+            
+        </div>
+        <div class="post-meta">
+            
+            <span class="post-time">二〇一九年十月十七日</span>
+        </div>
+    </article>
+    
 </section>
-
-<script>
-    var Home = location.href,
-    xhr,
-    xhrUrl = '';
-
-    var Diaspora = {
-        L: function(url, f, err) {
-            if (url == xhrUrl) {
-                return false;
-            }
-            xhrUrl = url;
-            if (xhr) {
-                xhr.abort();
-            }
-            xhr = $.ajax({
-                type: 'GET',
-                url: url,
-                timeout: 10000,
-                success: function(data) {
-                    f(data);
-                    xhrUrl = '';
-                },
-                error: function(a, b, c) {
-                    if (b == 'abort') {
-                        err && err()
-                    } else {
-                        window.location.href = url;
-                    }
-                    xhrUrl = '';
-                }
-            });
-        },
-        loading: function() {
-            var w = window.innerWidth;
-            var css = '<style class="loaderstyle" id="loaderstyle'+ w +'">'+
-                '@-moz-keyframes loader'+ w +'{100%{background-position:'+ w +'px 0}}'+
-                '@-webkit-keyframes loader'+ w +'{100%{background-position:'+ w +'px 0}}'+
-                '.loader'+ w +'{-webkit-animation:loader'+ w +' 3s linear infinite;-moz-animation:loader'+ w +' 3s linear infinite;}'+
-                '</style>';
-            $('.loaderstyle').remove()
-            $('head').append(css)
-            $('#loader').removeClass().addClass('loader'+ w).show()
-        },
-        loaded: function() {
-            $('#loader').removeClass().hide()
-        }
-    };
-
-    $(function() {
-        $('body').on('click', function(e) {
-            var tag = $(e.target).attr('class') || '',
-                rel = $(e.target).attr('rel') || '';
-            if (!tag && !rel) return;
-            switch (true) {
-                // next page
-                case (tag.indexOf('more') != -1):
-                    tag = $('.more');
-                    if (tag.data('status') == 'loading') {
-                        return false
-                    }
-                    var num = parseInt(tag.data('page')) || 1;
-                    if (num == 1) {
-                        tag.data('page', 1)
-                    }
-                    tag.html("加载中...").data('status', 'loading')
-                    Diaspora.loading()
-                    Diaspora.L(tag.attr('href'), function(data) {
-                        tag.hide();
-                        $('.license').hide();
-                        var link = $(data).find('.more').attr('href');
-                        if (link != undefined) {
-                            tag.attr('href', link).html("旧文").data('status', 'loaded')
-                            tag.data('page', parseInt(tag.data('page')) + 1)
-                        } else {
-                            $('body').remove()
-                        }
-                        var tempScrollTop = $(window).scrollTop();
-                        $('body').append($(data).find('.posts'))
-                        $(window).scrollTop(tempScrollTop + 100);
-                        Diaspora.loaded()
-                        //$('html,body').animate({ scrollTop: tempScrollTop + 400 }, 500);
-                        if (link !== '/') {
-                            $('body').append($(data).find('.page-nav'))
-                        }
-                        $('body').append($(data).find('.license'))
-                    }, function() {
-                        tag.html("旧文").data('status', 'loaded')
-                    })
-                    return false;
-                    break;
-                default:
-                    return true;
-                    break;
-            }
-        });
-    })
-</script>
-
-<nav class="page-nav">
-  <a href="/page/2/" class="more">旧文</a>
-</nav>
 
 <p class="license">本站文章使用 CC BY-NC-SA 4.0 许可证</p>
     </main>
