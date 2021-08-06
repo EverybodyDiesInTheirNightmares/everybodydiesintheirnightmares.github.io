@@ -86,12 +86,25 @@
         <h1 class="title"></h2>
     </div>
     <div class="post-content">
-        <p>「这里是沙盒，用来测试一些实验性功能」</p>
-
+        <html>
+	<head>
+	  <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+	  </head>
+	<body>
+	  <div id="waline"></div>
+	  <script>
+	    Waline({
+	      el: '#waline',
+	      serverURL: 'https://comment.hismaplestory.online/',
+	    });
+	  </script>
+	</body>
+	
+</html>
     </div>
     <div class="post-meta">
         
-    <span class="post-time">二〇二一年八月三日</span>
+    <span class="post-time">二〇二一年八月六日</span>
     </div>
 </article>
 
