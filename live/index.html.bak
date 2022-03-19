@@ -1,0 +1,15 @@
+<script src="https://cdn.bootcss.com/flv.js/1.3.3/flv.min.js"></script>
+<video id="videoElement" controls></video>
+
+<script>//js标签开始
+    if (flvjs.isSupported()) {//检查flvjs能否正常使用
+        var videoElement = document.getElementById('videoElement');//使用id选择器找到第二步设置的dom元素
+        var flvPlayer = flvjs.createPlayer({//创建一个新的flv播放器对象
+            type: 'flv',//类型flv
+            url: 'https://d1--cn-gotcha03.bilivideo.com/live-bvc/558792/live_86358016_1682054.flv?cdn=cn-gotcha03&expires=1647665411&len=0&oi=1974354864&pt=web&qn=10000&trid=1000449b90ec2530498ab943a5745dded7d1&sigparams=cdn,expires,len,oi,pt,qn,trid&sign=6a4a6aca902e86c177d76b5a1fb9eed8&ptype=0&src=4&sl=1&sk=302b437a7314383f3b6e796a5413fc44&order=4'//flv文件地址
+        });
+        flvPlayer.attachMediaElement(videoElement);//将flv视频装载进video元素内
+        flvPlayer.load();//载入视频
+        flvPlayer.play();//播放视频，如果不想要自动播放，去掉本行
+    }
+</script>
