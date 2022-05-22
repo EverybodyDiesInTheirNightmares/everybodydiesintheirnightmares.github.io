@@ -123,7 +123,7 @@
     <link href="https://numb.tech/2020/08/31/20200831-update-record/"/>
     <id>https://numb.tech/2020/08/31/20200831-update-record/</id>
     <published>2020-08-31T07:18:35.000Z</published>
-    <updated>2020-08-31T07:28:20.612Z</updated>
+    <updated>2020-08-31T07:11:20.000Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>之前shiftDelete了博客主体文件，只好手动将网站恢复到了误删前的状态。</p><p>将saki.li更新到了最新的Seje。</p><p>移除了手动暗色模式按钮，Seje做了媒体查询和相关暗色模式适配。移除了pjax。部署了新的404页面。</p>]]></content>
     
