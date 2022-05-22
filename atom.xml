@@ -6,7 +6,7 @@
   <link href="https://numb.tech/atom.xml" rel="self"/>
   
   <link href="https://numb.tech/"/>
-  <updated>2021-12-30T07:22:56.738Z</updated>
+  <updated>2022-05-22T14:30:09.808Z</updated>
   <id>https://numb.tech/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>重构</title>
+    <link href="https://numb.tech/2022/03/23/remake/"/>
+    <id>https://numb.tech/2022/03/23/remake/</id>
+    <published>2022-03-23T10:09:13.000Z</published>
+    <updated>2022-05-22T14:30:09.808Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>001 | 重构</p><p>我的生活在二〇二一年六月发生了改变，准确来说还应该更早，不过在去年六月我正式从各种意义上脱离象牙塔，我离开了家和学校来到现有的住处。除去无关人员和我，现阶段我的住所仅有二人来过，他们分别是我的伴侣和挚友，我想这种状况将会持续到我离开这里。</p><p>我经历了过渡期的六月，放荡的七月，在八月似乎没有什么特别映像，除了八月年岁的刻度增长。我在八月和九月完成了人生最多次数的烹饪和家务，不可否认的是我确实制作出了令人愉悦的食物。在九月的最后一天我以「见习者」的身份来到了某单位，我在这里度过了职业生涯的前三个月，在这里有很多的经历和想法都未曾记录，不过以后肯定会有所展开。在二〇二一年的最后一天，我选择了离开，我认识了很多年长者，我学习到了很多，也体会了很多，这三个月总的来说，或许不能说是「令人愉悦」，但绝对是「不虚此行」。</p><p>紧接着是二〇二二年，写到这里不如先略过一月和二月，或许是因为计时单位由月变为了「年」，我的第一反应竟是对「二〇二二」下一个定义，尽管目前只是三月底，我不知道这样究竟是对还是错还是你想的怎么样。不过好在这里是「双绞麻痹」，噫嘘唏！</p><p>二〇二二是变化、令人沮丧、支离破碎。（又或许是说二月底三月以及对一月的回溯）对应我和脑子里唯二的「俄乌战争」和「322东航MU5735坠机」。我似乎向来对突发事件异常敏感。无论是马航MH370还是最初的疫情吹哨又或许是俄军的早期攻势，以及过去发生的不可计数的公共事件，我都花了大量的时间去跟踪，特别是在事件的早期，我几乎把所有的时间和精力都置于其中。</p><p>以上内容作为草稿写于三月，两个月已然过去。和这篇文章的停滞一样，我的一切仍是老样子，似乎已经没有什么力量能把我抽离出当下这种状况，我想别无他法，我只能在这里找寻「重构」的力量。</p><p>正如我及我身边的所有人所见，思考陷入停滞是极为可怕的。我只得依靠谎言去编造我的生活，我的形体和思想被本就见豕负涂的互联网吞噬，更何况我身处「简体中文」。当然，关于简中，日后还有得扯。</p><p>我决定在每周发表至少三篇文章，以免大脑过于生锈，更是为了重构如果不加干预便会在可预见的未来有相当可能继续腐烂的我的人生。</p><p>另外，我的博客新增了一个分类，又或许说只是一个方便检索的入口。我想把文章分为技术性和非技术性写作。按照惯例，我的第一反应是「套接字」，但是对仗不太工整，于是是「handle」，最后便是「句柄」。在「归档」，可以查看这里的所有文章；在「句柄」则可以查看所有的技术性文章。当然，「句柄」的更新频率在当下会很低。</p><p>此外，jsdelivr正式被污染了，意味着本博客访问速度会变得较慢，在以后的某天会实施措施。</p><p>最后，希望我能获得某种真正的，「指引」。</p><p>成文于二〇二二年五月廿二日</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>A simple smart home practice</title>
@@ -241,7 +261,7 @@
     <link href="https://numb.tech/2019/10/17/acceleration-for-githubPages/"/>
     <id>https://numb.tech/2019/10/17/acceleration-for-githubPages/</id>
     <published>2019-10-17T01:11:20.000Z</published>
-    <updated>2020-08-31T01:13:29.159Z</updated>
+    <updated>2022-05-18T08:05:47.614Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="优化之路道阻且长"><a href="#优化之路道阻且长" class="headerlink" title="优化之路道阻且长"></a>优化之路道阻且长</h1><blockquote><p>本站采用Hexo(NexT)+GitHub pages+aliyun OSS呈现，连通性和访问速度取决于Github，由于其服务器架设的物理位置位于美国遂访问速度较慢，并不排除随时关站的可能。</p></blockquote><h2 id="资金极其匮乏"><a href="#资金极其匮乏" class="headerlink" title="资金极其匮乏"></a>资金极其匮乏</h2><p>wdnmd要是有钱还会用GitHub pages和.online域名吗…</p><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571327993364&di=a12ac0ac283f059a58f550f8937fca41&imgtype=0&src=http://i0.hdslb.com/bfs/article/bb4c14cb8c5a3a7ea86286886e613b4fb7d59525.jpg" alt="qz"></p><h2 id="Sakura-frp暴露80端口内网穿透"><a href="#Sakura-frp暴露80端口内网穿透" class="headerlink" title="Sakura frp暴露80端口内网穿透"></a><em>Sakura frp暴露80端口内网穿透</em></h2><p><em>题外话，本站在采用Hexo+Github pages之前，是通过暴露本机80端口并结合Sakura frp内网穿透实现外部网络的访问。这种方法虽然节省了一大笔服务器开销以及相关云产品的支出，但其劣势也是很明显的：相关主机(我的笔记本)必须保持7x24x365(理想状态)开机，这显然是不可能的。再加上网络带宽的原因，这显然不是一个建站的最佳解决方案。</em></p><p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/1.PNG" alt="sakura frp"></p><h2 id="GitHub-pages"><a href="#GitHub-pages" class="headerlink" title="GitHub pages"></a>GitHub pages</h2><p>由于 GitHub Pages 服务器在国外，静态博客页面在国内访问速度可能会非常慢。本站优化前在多个终端下的访问速度动辄十几二十几秒，用户体验极差。</p><p>解决方案选型:</p><ul><li>换用国内Coding pages</li><li>部署CDN</li></ul><p>遗憾的是，由于国内严苛的备案条件，我无法完成域名的国内备案。毫无疑问，这会导致本站长期处于一个不稳定的状态，并且就与Coding pages和国内CDN无缘了。</p><h2 id="最终采用cloudflare实现全站cdn和https"><a href="#最终采用cloudflare实现全站cdn和https" class="headerlink" title="最终采用cloudflare实现全站cdn和https"></a>最终采用cloudflare实现全站cdn和https</h2><p>效果拔群~<br><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/4.PNG" alt="效果"></p><p>详细步骤请参考@qhh0205 <a href="https://blog.csdn.net/qianghaohao/article/details/83714575">基于 Hexo 的 GitHub Pages 配置 CloudFlare CDN</a></p><p>cloudflare “active”<br><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/2.PNG" alt="cloudflare"></p><p>修改dns</p><p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/3.PNG" alt="修改dns服务器"></p><p>另外，不要忘了修改域名服务商处的原始解析。</p><p>完。</p>]]></content>
     
