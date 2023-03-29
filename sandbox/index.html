@@ -78,29 +78,275 @@
         <h1 class="title"></h2>
     </div>
     <div class="post-content">
-        <html>
-	<head>
-	  <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
-	  </head>
-	<body>
-<!-- 	<h2>欢迎来到评论区，您可自行选择登录与否，不合时宜的评论或被隐藏，发言请遵守当地法律。</h2>
- -->	  <div id="waline"></div>
-	  	  <script>
-	    Waline({
-	      el: '#waline',
-	      serverURL: 'https://comment.numb.tech',
-		  dark: 'auto',
-		  avatar: 'robohash',
-		  
-	    });
-	  </script>
-	</body>
-	
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>日期选择器</title>
+	<style>
+		/* Reset styles */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		/* Global styles */
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			color: #333;
+			line-height: 1.5;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		h1 {
+			font-size: 32px;
+			font-weight: bold;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+
+		/* Date picker styles */
+		.date-picker {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 20px;
+		}
+
+		.date-picker label {
+			font-size: 20px;
+			margin-right: 10px;
+		}
+
+		.date-picker input[type="date"] {
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			background-color: #fff;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+			font-size: 16px;
+			color: #333;
+			cursor: pointer;
+			outline: none;
+		}
+
+		/* Standard selector styles */
+		.standard-selector {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 20px;
+		}
+
+		.standard-selector label {
+			font-size: 20px;
+			margin-right: 10px;
+		}
+
+		.standard-selector input[type="radio"] {
+			display: none;
+		}
+
+		.standard-selector label span {
+			display: inline-block;
+			padding: 10px 20px;
+			border-radius: 5px;
+			background-color: #fff;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+			font-size: 16px;
+			color: #333;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.standard-selector input[type="radio"]:checked + label span {
+			background-color: #333;
+			color: #fff;
+		}
+
+		.standard-selector input[type="text"] {
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			background-color: #fff;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+			font-size: 16px;
+			color: #333;
+			margin-left: 20px;
+			flex-grow: 1;
+			outline: none;
+		}
+
+		/* Personnel selector styles */
+		.personnel-selector {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 20px;
+			flex-wrap: wrap;
+		}
+
+		.personnel-selector label {
+			font-size: 20px;
+			margin-right: 10px;
+		}
+
+		.personnel-selector input[type="checkbox"] {
+			display: none;
+		}
+
+		.personnel-selector label span {
+			display: inline-block;
+			padding: 10px 20px;
+			border-radius: 5px;
+			background-color: #fff;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+			font-size: 16px;
+			color: #333;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.personnel-selector input[type="checkbox"]:checked + label span {
+			background-color: #333;
+			color: #fff;
+		}
+
+		/* Results styles */
+		.results {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.results p {
+			font-size: 20px;
+			margin-right: 10px;
+			margin-bottom: 10px;
+		}
+
+		.results span {
+			display: inline-block;
+			padding: 10px 20px;
+			border-radius: 5px;
+			background-color: #fff;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+			font-size: 16px;
+			color: #333;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>日期选择器</h1>
+		<div class="date-picker">
+			<label for="date">请选择日期：</label>
+			<input type="date" id="date">
+		</div>
+		<div class="standard-selector">
+			<label for="standard">请选择标准：</label>
+			<input type="radio" id="county-in" name="standard" value="county-in" checked>
+			<label for="county-in"><span>县内</span></label>
+			<input type="radio" id="county-out" name="standard" value="county-out">
+			<label for="county-out"><span>县外</span></label>
+			<input type="text" id="specific" placeholder="请输入具体事项">
+		</div>
+		<div class="personnel-selector">
+			<label for="personnel">请选择人员：</label>
+			<input type="checkbox" id="person-1" name="personnel" value="person-1">
+			<label for="person-1"><span>人员1</span></label>
+			<input type="checkbox" id="person-2" name="personnel" value="person-2">
+			<label for="person-2"><span>人员2</span></label>
+			<input type="checkbox" id="person-3" name="personnel" value="person-3">
+			<label for="person-3"><span>人员3</span></label>
+			<input type="checkbox" id="person-4" name="personnel" value="person-4">
+			<label for="person-4"><span>人员4</span></label>
+			<input type="checkbox" id="person-5" name="personnel" value="person-5">
+			<label for="person-5"><span>人员5</span></label>
+			<input type="checkbox" id="person-6" name="personnel" value="person-6">
+			<label for="person-6"><span>人员6</span></label>
+			<input type="checkbox" id="person-7" name="personnel" value="person-7">
+			<label for="person-7"><span>人员7</span></label>
+			<input type="checkbox" id="person-8" name="personnel" value="person-8">
+			<label for="person-8"><span>人员8</span></label>
+			<input type="checkbox" id="person-9" name="personnel" value="person-9">
+			<label for="person-9"><span>人员9</span></label>
+			<input type="checkbox" id="person-10" name="personnel" value="person-10">
+			<label for="person-10"><span>人员10</span></label>
+			<input type="checkbox" id="person-11" name="personnel" value="person-11">
+			<label for="person-11"><span>人员11</span></label>
+			<input type="checkbox" id="person-12" name="personnel" value="person-12">
+			<label for="person-12"><span>人员12</span></label>
+			<input type="checkbox" id="person-13" name="personnel" value="person-13">
+			<label for="person-13"><span>人员13</span></label>
+			<input type="checkbox" id="person-14" name="personnel" value="person-14">
+			<label for="person-14"><span>人员14</span></label>
+		</div>
+		<div class="results">
+			<p>您选择的日期是：</p>
+			<span id="date-result"></span>
+			<p>您选择的标准是：</p>
+			<span id="standard-result"></span>
+			<p>您选择的人员是：</p>
+			<span id="personnel-result"></span>
+		</div>
+	</div>
+	<script>
+		// Get elements
+		const dateInput = document.getElementById('date');
+		const countyInInput = document.getElementById('county-in');
+		const countyOutInput = document.getElementById('county-out');
+		const specificInput = document.getElementById('specific');
+		const personnelInputs = document.querySelectorAll('input[name="personnel"]');
+		const dateResult = document.getElementById('date-result');
+		const standardResult = document.getElementById('standard-result');
+		const personnelResult = document.getElementById('personnel-result');
+
+		// Add event listeners
+		dateInput.addEventListener('change', updateResults);
+		countyInInput.addEventListener('change', updateResults);
+		countyOutInput.addEventListener('change', updateResults);
+		specificInput.addEventListener('input', updateResults);
+		personnelInputs.forEach(input => {
+			input.addEventListener('change', updateResults);
+		});
+
+		// Update results function
+		function updateResults() {
+			dateResult.innerText = dateInput.value;
+			if (countyInInput.checked) {
+				standardResult.innerText = '县内';
+			} else {
+				standardResult.innerText = '县外';
+			}
+			if (specificInput.value) {
+				standardResult.innerText += ' - ' + specificInput.value;
+			}
+			let selectedPersonnel = [];
+			personnelInputs.forEach(input => {
+				if (input.checked) {
+					selectedPersonnel.push(input.value);
+				}
+			});
+			personnelResult.innerText = selectedPersonnel.join(', ');
+		}
+	</script>
+</body>
 </html>
     </div>
     <div class="post-meta">
         
-    <span class="post-time">二〇二二年一月廿二日</span>
+    <span class="post-time">二〇二三年三月廿九日</span>
     </div>
 </article>
 
