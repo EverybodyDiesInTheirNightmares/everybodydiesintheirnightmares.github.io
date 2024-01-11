@@ -1,265 +1,169 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    
+    <title> - 双绞麻痹</title>
+    <meta charset="utf-8">
+    
+    <meta name="title" content=" - 双绞麻痹">
+    <meta name="description" content="">
+    <meta property="og:image" content="/favicon.png">
+    <meta property="og:image:width" content="200" />
+    <meta property="og:image:height" content="200" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Serif Pro', 'Source Han Serif SC', 'Noto Serif CJK SC', 'Noto Serif SC', serif;
+        }
+    </style>
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    <link rel="stylesheet"
+        href="https://version2.oss-cn-hangzhou.aliyuncs.com/source/js/arduino-light.min.css">
+    <script src="https://version2.oss-cn-hangzhou.aliyuncs.com/source/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="双绞麻痹" type="application/atom+xml">
+</head>
+
+<body>
+    <header class="header">
+    <div class="blog-title">
+        <a href="/" class="logo">双绞麻痹</a>
+    </div>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/archives" class="menu-item-link">归档</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/categories/handle" class="menu-item-link">句柄</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/about" class="menu-item-link">关于</a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <article class="post">
+    <div class="post-title">
+        <h1 class="title"></h2>
+    </div>
+    <div class="post-content">
+        <!DOCTYPE html>
+<html>
+<head>
+	<title>MyTube</title>
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>差旅快记</title>
-	<style>
-		/* Reset styles */
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
-
-		/* Global styles */
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #f2f2f2;
-			color: #333;
-			line-height: 1.5;
-		}
-
-		.container {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 20px;
-		}
-
-		h1 {
-			font-size: 32px;
-			font-weight: bold;
-			margin-bottom: 20px;
-			text-align: center;
-		}
-
-		/* Date picker styles */
-		.date-picker {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin-bottom: 20px;
-		}
-
-		.date-picker label {
-			font-size: 20px;
-			margin-right: 10px;
-		}
-
-		.date-picker input[type="date"] {
-			padding: 10px;
-			border-radius: 5px;
-			border: none;
-			background-color: #fff;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-			font-size: 16px;
-			color: #333;
-			cursor: pointer;
-			outline: none;
-		}
-
-		/* Standard selector styles */
-		.standard-selector {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin-bottom: 20px;
-		}
-
-		.standard-selector label {
-			font-size: 20px;
-			margin-right: 10px;
-		}
-
-		.standard-selector input[type="radio"] {
-			display: none;
-		}
-
-		.standard-selector label span {
-			display: inline-block;
-			padding: 10px 20px;
-			border-radius: 5px;
-			background-color: #fff;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-			font-size: 16px;
-			color: #333;
-			cursor: pointer;
-			transition: all 0.3s ease;
-		}
-
-		.standard-selector input[type="radio"]:checked + label span {
-			background-color: #333;
-			color: #fff;
-		}
-
-		.standard-selector input[type="text"] {
-			padding: 10px;
-			border-radius: 5px;
-			border: none;
-			background-color: #fff;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-			font-size: 16px;
-			color: #333;
-			margin-left: 20px;
-			flex-grow: 1;
-			outline: none;
-		}
-
-		/* Personnel selector styles */
-		.personnel-selector {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin-bottom: 20px;
-			flex-wrap: wrap;
-		}
-
-		.personnel-selector label {
-			font-size: 20px;
-			margin-right: 10px;
-		}
-
-		.personnel-selector input[type="checkbox"] {
-			display: none;
-		}
-
-		.personnel-selector label span {
-			display: inline-block;
-			padding: 10px 20px;
-			border-radius: 5px;
-			background-color: #fff;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-			font-size: 16px;
-			color: #333;
-			cursor: pointer;
-			transition: all 0.3s ease;
-		}
-
-		.personnel-selector input[type="checkbox"]:checked + label span {
-			background-color: #333;
-			color: #fff;
-		}
-
-		/* Results styles */
-		.results {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-wrap: wrap;
-		}
-
-		.results p {
-			font-size: 20px;
-			margin-right: 10px;
-			margin-bottom: 10px;
-		}
-
-		.results span {
-			display: inline-block;
-			padding: 10px 20px;
-			border-radius: 5px;
-			background-color: #fff;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-			font-size: 16px;
-			color: #333;
-			margin-bottom: 10px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div class="container">
-		<h1>差旅快记</h1>
-		<div class="date-picker">
-			<label for="date">请选择日期：</label>
-			<input type="date" id="date">
-		</div>
-		<div class="standard-selector">
-			<label for="standard">请选择标准：</label>
-			<input type="radio" id="county-in" name="standard" value="county-in" checked>
-			<label for="county-in"><span>县内</span></label>
-			<input type="radio" id="county-out" name="standard" value="county-out">
-			<label for="county-out"><span>县外</span></label>
-			<input type="text" id="specific" placeholder="请输入具体事项">
-		</div>
-		<div class="personnel-selector">
-			<label for="personnel">请选择人员：</label>
-			<input type="checkbox" id="person-1" name="personnel" value="person-1">
-			<label for="person-1"><span>人员1</span></label>
-			<input type="checkbox" id="person-2" name="personnel" value="person-2">
-			<label for="person-2"><span>人员2</span></label>
-			<input type="checkbox" id="person-3" name="personnel" value="person-3">
-			<label for="person-3"><span>人员3</span></label>
-			<input type="checkbox" id="person-4" name="personnel" value="person-4">
-			<label for="person-4"><span>人员4</span></label>
-			<input type="checkbox" id="person-5" name="personnel" value="person-5">
-			<label for="person-5"><span>人员5</span></label>
-			<input type="checkbox" id="person-6" name="personnel" value="person-6">
-			<label for="person-6"><span>人员6</span></label>
-			<input type="checkbox" id="person-7" name="personnel" value="person-7">
-			<label for="person-7"><span>人员7</span></label>
-			<input type="checkbox" id="person-8" name="personnel" value="person-8">
-			<label for="person-8"><span>人员8</span></label>
-			<input type="checkbox" id="person-9" name="personnel" value="person-9">
-			<label for="person-9"><span>人员9</span></label>
-			<input type="checkbox" id="person-10" name="personnel" value="person-10">
-			<label for="person-10"><span>人员10</span></label>
-			<input type="checkbox" id="person-11" name="personnel" value="person-11">
-			<label for="person-11"><span>人员11</span></label>
-			<input type="checkbox" id="person-12" name="personnel" value="person-12">
-			<label for="person-12"><span>人员12</span></label>
-			<input type="checkbox" id="person-13" name="personnel" value="person-13">
-			<label for="person-13"><span>人员13</span></label>
-			<input type="checkbox" id="person-14" name="personnel" value="person-14">
-			<label for="person-14"><span>人员14</span></label>
-		</div>
-		<div class="results">
-			<p>您选择的日期是：</p>
-			<span id="date-result"></span>
-			<p>您选择的标准是：</p>
-			<span id="standard-result"></span>
-			<p>您选择的人员是：</p>
-			<span id="personnel-result"></span>
-		</div>
-	</div>
-	<script>
-		// Get elements
-		const dateInput = document.getElementById('date');
-		const countyInInput = document.getElementById('county-in');
-		const countyOutInput = document.getElementById('county-out');
-		const specificInput = document.getElementById('specific');
-		const personnelInputs = document.querySelectorAll('input[name="personnel"]');
-		const dateResult = document.getElementById('date-result');
-		const standardResult = document.getElementById('standard-result');
-		const personnelResult = document.getElementById('personnel-result');
-
-		// Add event listeners
-		dateInput.addEventListener('change', updateResults);
-		countyInInput.addEventListener('change', updateResults);
-		countyOutInput.addEventListener('change', updateResults);
-		specificInput.addEventListener('input', updateResults);
-		personnelInputs.forEach(input => {
-			input.addEventListener('change', updateResults);
-		});
-
-		// Update results function
-		function updateResults() {
-			dateResult.innerText = dateInput.value;
-			if (countyInInput.checked) {
-				standardResult.innerText = '县内';
-			} else {
-				standardResult.innerText = '县外';
-			}
-			if (specificInput.value) {
-				standardResult.innerText += ' - ' + specificInput.value;
-			}
-			let selectedPersonnel = [];
-			personnelInputs.forEach(input => {
-				if (input.checked) {
-					selectedPersonnel.push(input.value);
-				}
-			});
-			personnelResult.innerText = selectedPersonnel.join(', ');
-		}
-	</script>
+	<header>
+		<h1>MyTube</h1>
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Trending</a></li>
+				<li><a href="#">Subscriptions</a></li>
+				<li><a href="#">Library</a></li>
+			</ul>
+		</nav>
+		<form>
+			<input type="text" placeholder="Search">
+			<button type="submit">Search</button>
+		</form>
+	</header>
+	<main>
+		<section>
+			<h2>Trending Videos</h2>
+			<div class="video-grid">
+				<div class="video">
+					<a href="#">
+						<img src="https://via.placeholder.com/300x200.png?text=Video+1" alt="Video 1">
+						<h3>Video 1</h3>
+					</a>
+				</div>
+				<div class="video">
+					<a href="#">
+						<img src="https://via.placeholder.com/300x200.png?text=Video+2" alt="Video 2">
+						<h3>Video 2</h3>
+					</a>
+				</div>
+				<div class="video">
+					<a href="#">
+						<img src="https://via.placeholder.com/300x200.png?text=Video+3" alt="Video 3">
+						<h3>Video 3</h3>
+					</a>
+				</div>
+				<div class="video">
+					<a href="#">
+						<img src="https://via.placeholder.com/300x200.png?text=Video+4" alt="Video 4">
+						<h3>Video 4</h3>
+					</a>
+				</div>
+				<div class="video">
+					<a href="#">
+						<img src="https://via.placeholder.com/300x200.png?text=Video+5" alt="Video 5">
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<p>&copy; MyTube 2021</p>
+	</footer>
 </body>
+</html>
+
+    </div>
+    <div class="post-meta">
+        
+    <span class="post-time">二〇二三年三月三十日</span>
+    </div>
+</article>
+
+<div class="prev_next">
+    <nav id="prev_next">
+
+</nav>
+</div>
+
+<div class="post-comment">
+    
+
+
+
+</div>
+
+    </main>
+</body>
+
 </html>
