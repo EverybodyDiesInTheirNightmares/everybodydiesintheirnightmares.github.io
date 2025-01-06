@@ -202,7 +202,7 @@ layout: false
             align-items: center;
             justify-content: center;
             position: fixed;
-            bottom: -40px;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
         }
@@ -269,8 +269,8 @@ layout: false
             <p>您选择的人员是：</p>
             <span id="personnel-result"></span>
         </div>
+        <div class="copy-button" onclick="copyResults()"><i class="fas fa-copy"></i>复制结果</div>
         <div class="tooltip" id="tooltip">复制成功！</div>
-        <button class="copy-button" onclick="copyResults()"><i class="fas fa-copy"></i>复制结果</button>
     </div>
     <script>
         // 获取元素
