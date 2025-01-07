@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    
+    <title>双绞麻痹</title>
+    <meta charset="utf-8">
+    
+    <meta name="title" content="双绞麻痹">
+    <meta name="description" content="">
+    <meta property="og:image" content="/favicon.png">
+    <meta property="og:image:width" content="200" />
+    <meta property="og:image:height" content="200" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Serif Pro', 'Source Han Serif SC', 'Noto Serif CJK SC', 'Noto Serif SC', serif;
+        }
+    </style>
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    <link rel="stylesheet"
+        href="https://version2.oss-cn-hangzhou.aliyuncs.com/source/js/arduino-light.min.css">
+    <script src="https://version2.oss-cn-hangzhou.aliyuncs.com/source/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="双绞麻痹" type="application/atom+xml">
+</head>
+
+<body>
+    <header class="header">
+    <div class="blog-title">
+        <a href="/" class="logo">双绞麻痹</a>
+    </div>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/archives" class="menu-item-link">归档</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/categories/handle" class="menu-item-link">句柄</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/about" class="menu-item-link">关于</a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <section class="posts">
+    
+    <article class="post">
+        <div class="post-title">
+            <a class="post-title-link" href="/2021/12/28/A-simple-smart-home-practice/">A simple smart home practice</a>
+        </div>
+        <div class="post-content">
+            
+            <blockquote>
+<p>Hey Siri,turn on my doge light and switch it to 100 percent.</p>
+<p>Hey Siri,help me disconnect the power pls.</p>
+<p><strong>Mirror mirror</strong> tell me, who is the <strong>most beautiful</strong> in the world?</p>
+</blockquote>
+<p>It’s been a really long time since I wrote my last technical article.I graduated successfully with my graduation project 《The design and implementation of the Raspberry Pi and MagicMirror based daily intelligent helper》.As for that project,the abstract of my paper says so:</p>
+<blockquote>
+<p>With the continuous development of society and technology, more and<br>more new items are getting involved in people’s family life. Under the<br>continuous leadership of national policies, the smart home industry is<br>developing strongly. However, the high price of smart devices and the<br>complicated technical details of them also make the threshold of smart home<br>rise.</p>
+<p>This paper first explores the development status of the smart home<br>industry and proposes an innovative and practical way to implement a daily<br>smart assistant that transforms existing devices on its basis; and describes<br>the corresponding feasibility and requirement analysis; finally, it introduces<br>the related technology and development process in detail.</p>
+<p>This project is rooted in the Raspberry Pi platform, combined with the <em>MagicMirror</em> framework, which is currently open source, with a large number of users and a good developer environment, supplemented by various hardware devices, to design and make a low-cost, low-threshold, low-power daily intelligent assistant.</p>
+</blockquote>
+<p>But today Im goona talk about two other smart home scenarios:</p>
+<h1 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h1><p>Note:This article just provides a general idea of smart home practice that everybody could afford and does not involve any actual coding part.It is quite friendly to non-specialists.So just take your first step and enjoy it!</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li><p><u>Scenario 1</u>: As an OCD sufferer,i am ALWAYS aware of the power condition of all the outlets in my house,especially the chargers.When the battery of various devices is charged to 100%,i always want to unplug it manually.</p>
+</li>
+<li><p><u>Scenario 2</u>: When your room doesn’t equip with a bedside light switch,all you can do is turn off the light switch by the door then reach your bed in the dark SADLY.</p>
+</li>
+</ul>
+<p>As a developer or an internet explorer you should always believe in that <em>science and technology is the first productive force</em>. Without further ado,let’s move on.</p>
+<h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><h3 id="Hardwares"><a href="#Hardwares" class="headerlink" title="Hardwares"></a>Hardwares</h3><p>I use iOS devices,so i chose <em>works with Apple HomeKit</em> devices.</p>
+<ul>
+<li><p>Yeelight smart LED filament bulb(IEEE 802.11 b/g/n 2.4GHz)</p>
+</li>
+<li><p>DoHome smart outlet(IEEE 802.11 b/g/n 2.4GHz)</p>
+</li>
+<li><p>A Cute puppy(BY FEELING LONG HAIR DOG LAMP gift for my girlfriend lol)</p>
+</li>
+</ul>
+<h3 id="Operating-Environment"><a href="#Operating-Environment" class="headerlink" title="Operating Environment"></a>Operating Environment</h3><ul>
+<li><p>iOS 15.1</p>
+</li>
+<li><p>Apple HomeKit</p>
+</li>
+<li><p>iOS Shortcuts</p>
+</li>
+<li><p>IEEE 802.11 b/g/n 2.4GHz WLAN</p>
+</li>
+</ul>
+<h3 id="Installation-Configuration"><a href="#Installation-Configuration" class="headerlink" title="Installation/Configuration"></a>Installation/Configuration</h3><p>Ensure the network is running at 2.4GHz and <strong>Take relevant safety precautions.</strong> Such as strong passcodes or MAC address whitelist or disable public network access.</p>
+<h4 id="For-Scenario-1"><a href="#For-Scenario-1" class="headerlink" title="For Scenario 1:"></a>For Scenario 1:</h4><ul>
+<li><p>Simply power up the smart outlet.</p>
+</li>
+<li><p>Download DoHome app on your iOS devices.</p>
+</li>
+<li><p>Initialize the outlet according to DoHome app guide and add it to Apple Home.</p>
+</li>
+<li><p>Open Shortcuts app,tap <em>Automation</em>,tap <em>+</em>,press <em>Create Personal Automation</em>,swipe down and tap <em>Battery Level—–When Battery Level Equals 100%—–Next—–Add Action—–serch Home—–control–outlet’s name—–Selected—–Turn off—–done—–Unselect Ask Before Running</em> <strong>DONE!</strong></p>
+</li>
+</ul>
+<h4 id="For-Scenario-2"><a href="#For-Scenario-2" class="headerlink" title="For Scenario 2"></a>For Scenario 2</h4><ul>
+<li><p>Simply put the bulb into the lamp holder and power it up.</p>
+</li>
+<li><p>Download Yeelight app on your iOS devices.</p>
+</li>
+<li><p>Initialize the bulb according to Yeelight app guide and add it to Apple Home.</p>
+</li>
+</ul>
+<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><p>「Hey Siri, turn on my doge light」:</p>
+<div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?aid=892655219&bvid=BV1bP4y1J7up&cid=471543323&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
+</div>
+
+            
+        </div>
+        <div class="post-meta">
+            
+            <span class="post-time">二〇二一年十二月廿八日</span>
+        </div>
+    </article>
+    
+    <article class="post">
+        <div class="post-title">
+            <a class="post-title-link" href="/2021/10/29/emostop/">喀纳斯</a>
+        </div>
+        <div class="post-content">
+            
+            <p>今天是十月廿九日，这里难得的出太阳了。今天不想工作，也不想学习。屏幕解锁后发现昨晚没有完成充电，好在工作也不多，就给了磨洋工正大光明的借口。罢了，写博客罢。</p>
+<p>最近的牢骚多了很多。但是「闲言流语不能帮助任何人。那写博客也算是闲言流语吗？我想是的，但又不太一样。博客的每一篇闲语都有标题，而标题是要想的」。这是博客中的闲语比评论区的牢骚更好的地方。</p>
+<p>在此地工作已有一月，其实根本算不上「入职」，或许是「供职」。目前的状态似乎与预想不太一致。「天气不似预期」但更没有再抱怨任何的理由，因为「必须接受结束，必须接受是在这里，而不是在别的任何地方，是在做这个而不是别的什么事情，现在，永远，永远……必须接受这份生活，唯它而已。」</p>
+<p>这是我第一次工作。省级机关的职能部门，工作远没有想象中的那么轻松，虽说不涉及太深入的专业知识，但事务确是繁杂的。但繁杂远非繁忙，更非「压榨」。事实上，只有一天加班到17:30，而这一周我也屡次在9：05后就座。但长时间的通勤以及不间断的事务仍让我感到疲累。</p>
+<p>其实也说不上「身心俱疲」，在早晨和夜里我仍有充足的时间去复习，基本可以做到一天一套真题。好景不长，随着「学徒之心」逐渐消退，我的意志也逐渐消磨。我不再早起，每天都让闹钟在7.30响起；我也不再晚间学习，似乎又回到了一个月前。我用工作带来的倦意做挡箭牌，饮鸩止渴罢。</p>
+<p>我的情绪变得不稳定起来，我又开始自言自语。在情绪稳定时还能做题学习，一旦心中泛起波澜，就会进入到「奶头乐」的循环以期转移视线。日复一日，我终于还是落入了过去是那么嗤之以鼻的「监视资本主义」陷阱。</p>
+<p>我渴望像「李如一、Mag Mell」等前辈一样，他们在「<a target="_blank" rel="noopener" href="https://eatradish.github.io/let-fuck-the-evil-century">恶世纪</a>」中是那么的与众不同，在他们的文字中我真切的感受到人性光辉。价值观的输出向来是一件难事。我想我不能将所有的失败、沮丧和一切消极归因于消费主义，像「Mag Mell」一样，我正「在生活中迷失，被常年累积以来的虚无、盲目、失败，加上消费主义对于我的异化，使我失明。昼夜颠倒，人魂出离。」</p>
+<p>但基调不变也不能变：「在颓败氛围同时势，仍然保持美态咁解。」这也正是这篇博客存在的意义，我正尝试振作自己。</p>
+<p>当然，也不全是坏事。父亲的手术还算顺利，这在相当程度上带来了慰藉。<br>现在是周五的16:55:47，我要去到「喀纳斯」了，希望你也是。<br>周末愉快。</p>
+
+            
+        </div>
+        <div class="post-meta">
+            
+            <span class="post-time">二〇二一年十月廿九日</span>
+        </div>
+    </article>
+    
+</section>
+
+<script>
+    var Home = location.href,
+    xhr,
+    xhrUrl = '';
+
+    var Diaspora = {
+        L: function(url, f, err) {
+            if (url == xhrUrl) {
+                return false;
+            }
+            xhrUrl = url;
+            if (xhr) {
+                xhr.abort();
+            }
+            xhr = $.ajax({
+                type: 'GET',
+                url: url,
+                timeout: 10000,
+                success: function(data) {
+                    f(data);
+                    xhrUrl = '';
+                },
+                error: function(a, b, c) {
+                    if (b == 'abort') {
+                        err && err()
+                    } else {
+                        window.location.href = url;
+                    }
+                    xhrUrl = '';
+                }
+            });
+        },
+        loading: function() {
+            var w = window.innerWidth;
+            var css = '<style class="loaderstyle" id="loaderstyle'+ w +'">'+
+                '@-moz-keyframes loader'+ w +'{100%{background-position:'+ w +'px 0}}'+
+                '@-webkit-keyframes loader'+ w +'{100%{background-position:'+ w +'px 0}}'+
+                '.loader'+ w +'{-webkit-animation:loader'+ w +' 3s linear infinite;-moz-animation:loader'+ w +' 3s linear infinite;}'+
+                '</style>';
+            $('.loaderstyle').remove()
+            $('head').append(css)
+            $('#loader').removeClass().addClass('loader'+ w).show()
+        },
+        loaded: function() {
+            $('#loader').removeClass().hide()
+        }
+    };
+
+    $(function() {
+        $('body').on('click', function(e) {
+            var tag = $(e.target).attr('class') || '',
+                rel = $(e.target).attr('rel') || '';
+            if (!tag && !rel) return;
+            switch (true) {
+                // next page
+                case (tag.indexOf('more') != -1):
+                    tag = $('.more');
+                    if (tag.data('status') == 'loading') {
+                        return false
+                    }
+                    var num = parseInt(tag.data('page')) || 1;
+                    if (num == 1) {
+                        tag.data('page', 1)
+                    }
+                    tag.html("加载中...").data('status', 'loading')
+                    Diaspora.loading()
+                    Diaspora.L(tag.attr('href'), function(data) {
+                        tag.hide();
+                        $('.license').hide();
+                        var link = $(data).find('.more').attr('href');
+                        if (link != undefined) {
+                            tag.attr('href', link).html("旧文").data('status', 'loaded')
+                            tag.data('page', parseInt(tag.data('page')) + 1)
+                        } else {
+                            $('body').remove()
+                        }
+                        var tempScrollTop = $(window).scrollTop();
+                        $('body').append($(data).find('.posts'))
+                        $(window).scrollTop(tempScrollTop + 100);
+                        Diaspora.loaded()
+                        //$('html,body').animate({ scrollTop: tempScrollTop + 400 }, 500);
+                        if (link !== '/') {
+                            $('body').append($(data).find('.page-nav'))
+                        }
+                        $('body').append($(data).find('.license'))
+                    }, function() {
+                        tag.html("旧文").data('status', 'loaded')
+                    })
+                    return false;
+                    break;
+                default:
+                    return true;
+                    break;
+            }
+        });
+    })
+</script>
+
+<nav class="page-nav">
+  <a href="/page/5/" class="more">旧文</a>
+</nav>
+
+<p class="license">本站文章使用 CC BY-NC-SA 4.0 许可证</p>
+    </main>
+</body>
+
+</html>
