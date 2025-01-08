@@ -335,6 +335,7 @@
                     Diaspora.L(tag.attr('href'), function(data) {
                         tag.hide();
                         $('.license').hide();
+			$('.thanks').hide(); 
                         var link = $(data).find('.more').attr('href');
                         if (link != undefined) {
                             tag.attr('href', link).html("旧文").data('status', 'loaded')
@@ -351,6 +352,7 @@
                             $('body').append($(data).find('.page-nav'))
                         }
                         $('body').append($(data).find('.license'))
+			$('body').append($(data).find('.thanks'))
                     }, function() {
                         tag.html("旧文").data('status', 'loaded')
                     })
@@ -369,6 +371,9 @@
 </nav>
 
 <p class="license">本站文章使用 CC BY-NC-SA 4.0 许可证</p>
+
+<p class="thanks">感谢阁下转载前的联系</p>
+
     </main>
 </body>
 
