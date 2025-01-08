@@ -211,6 +211,12 @@ body {
   border-style: solid none none none;
   border: 1px #ddd;
 }
+.thanks {
+  display: flex;
+  justify-content: center;
+  border-style: solid none none none;
+  border: 1px #ddd;
+}
 .posts .post-title {
   font-size: 1.5em;
   line-height: 1.2em;
