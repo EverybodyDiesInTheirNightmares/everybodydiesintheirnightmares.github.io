@@ -1,0 +1,24 @@
+<head>
+  <!-- ... -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+  />
+  <!-- ... -->
+</head>
+<body>
+  <!-- ... -->
+  <div id="waline"></div>
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
+    init({
+      el: '#waline',
+      serverURL: 'https://comments.numb.tech',
+	  dark: 'auto',
+	  locale: {
+		  placeholder: 'ÄãºÃ',
+		  },
+    });
+  </script>
+</body>
