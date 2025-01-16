@@ -1,4 +1,10 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!DOCTYPE html>
+---
+title: 404 Not Found
+toc: false
+layout: false
+permalink: /404
+---
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -52,7 +58,7 @@
 <body>
     <div id="error">404</div>
     <h1>未找到相关页面</h1>
-    <p>该页面不存在。</p>
+    <p>抱歉，您访问的页面可能不存在或者被删除！</p>
     <a href="https://numb.tech" target="_blank" >返回首页</a>
 
 </body>
