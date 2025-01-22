@@ -17,15 +17,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: -apple-system, Noto Serif SC, Noto Sans SC, serif, 'Source Serif Pro', 'Source Han Serif TC', 'Noto Serif CJK TC', 'Noto Serif TC', serif;
+            font-family: Noto Serif SC, serif, 'Source Serif Pro', 'Source Han Serif TC', 'Noto Serif CJK TC', 'Noto Serif TC', serif;
         }
     </style>
     <link rel="shortcut icon" href="/favicon.png">
-    
-    <link rel="stylesheet"
-        href="https://version2.oss-cn-hangzhou.aliyuncs.com/source/js/arduino-light.min.css">
-    <script src="https://version2.oss-cn-hangzhou.aliyuncs.com/source/js/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
     
     
     
@@ -173,35 +168,46 @@
 <p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200403/image-20200403203132739.png" alt="image-20200403203132739"></p>
 <blockquote>
 <p>Run the following command once <code>LxRunOffline</code> is registered to the OS:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LxRunOffline i -n UF -d c:\WSL\UFull -f  -s</span><br></pre></td></tr></table></figure>
+<pre><code>LxRunOffline i -n UF -d c:\WSL\UFull -f  -s</code></pre>
 </blockquote>
 <p><strong>安装</strong></p>
 <p>使用powershell或其他终端输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxrunoffline i -n &lt;WSL名称&gt; -d &lt;安装路径&gt; -f &lt;安装包路径&gt;.tar.gz</span><br></pre></td></tr></table></figure>
-
+<pre><code>lxrunoffline i -n &lt;WSL名称&gt; -d &lt;安装路径&gt; -f &lt;安装包路径&gt;.tar.gz</code></pre>
 <p>eg：在「D:\Ubuntu」中安装名为「Ubuntu1804」且安装包位于「D:\Ubuntu\prep\」之下的镜像，其命令为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxrunoffline i -n Ubuntu1804 -d D:\Ubuntu -f D:\Ubuntu\prep\install.tar.gz</span><br></pre></td></tr></table></figure>
-
+<pre><code>lxrunoffline i -n Ubuntu1804 -d D:\Ubuntu -f D:\Ubuntu\prep\install.tar.gz</code></pre>
 <p>等待片刻，即可完成自定义安装Ubuntu。</p>
 <p><strong>设置密码</strong></p>
 <p>在此，我采用默认root用户进行操作，输入以下命令设置密码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd</span><br></pre></td></tr></table></figure>
-
+<pre><code>sudo passwd</code></pre>
 <p><strong>换源</strong></p>
 <p>在换源之前我挂了全局代理，奇怪的是速度依然跑不上去。无奈换源</p>
 <p>备份源文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br></pre></td></tr></table></figure>
-
+<pre><code>sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</code></pre>
 <p>修改源为国内阿里云</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-
+<pre><code>sudo vim /etc/apt/sources.list
+deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</code></pre>
 <p>在此可以通过「Everything」或「uTools」快速定位*<strong>sources.list*</strong></p>
 <p><strong>更新和升级</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo apt-get autoremove</span><br></pre></td></tr></table></figure>
-
+<pre><code>sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get autoremove</code></pre>
 <p><strong>安装xfce和xrdp并修改端口</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install xorg</span><br><span class="line">sudo apt-get install xfce4</span><br><span class="line">sudo apt-get install xrdp</span><br><span class="line">sudo sed -i &#39;s&#x2F;port&#x3D;3389&#x2F;port&#x3D;3390&#x2F;g&#39; &#x2F;etc&#x2F;xrdp&#x2F;xrdp.ini</span><br><span class="line">sudo echo xfce4-session &gt;~&#x2F;.xsession</span><br><span class="line">sudo service xrdp restart</span><br></pre></td></tr></table></figure>
-
+<pre><code>sudo apt-get update
+sudo apt-get install xorg
+sudo apt-get install xfce4
+sudo apt-get install xrdp
+sudo sed -i &#39;s/port=3389/port=3390/g&#39; /etc/xrdp/xrdp.ini
+sudo echo xfce4-session &gt;~/.xsession
+sudo service xrdp restart</code></pre>
 <p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200403/image-20200403205653292.png" alt="image-20200403205653292"></p>
 <hr>
 <h2 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a><strong>参考文章：</strong></h2><p><a target="_blank" rel="noopener" href="http://www.fanyingjie.com/cn/2019/11/win_linux/">http://www.fanyingjie.com/cn/2019/11/win_linux/</a></p>

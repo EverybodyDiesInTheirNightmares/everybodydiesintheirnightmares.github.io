@@ -17,15 +17,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: -apple-system, Noto Serif SC, Noto Sans SC, serif, 'Source Serif Pro', 'Source Han Serif TC', 'Noto Serif CJK TC', 'Noto Serif TC', serif;
+            font-family: Noto Serif SC, serif, 'Source Serif Pro', 'Source Han Serif TC', 'Noto Serif CJK TC', 'Noto Serif TC', serif;
         }
     </style>
     <link rel="shortcut icon" href="/favicon.png">
-    
-    <link rel="stylesheet"
-        href="https://version2.oss-cn-hangzhou.aliyuncs.com/source/js/arduino-light.min.css">
-    <script src="https://version2.oss-cn-hangzhou.aliyuncs.com/source/js/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
     
     
     
@@ -228,23 +223,44 @@
 <p>The goal of MF is to learn latent user preferences and item attributes from known ratings. Then use those variable to predict unknown ratings through the dot product of the latent features of users and items.</p>
 <p>Matrix factorization restructures the user-item matrix into a low-rank matrix. You can represent it by the multiplication of two low-rank matrices, where the rows contain a vector of latent variables. You want this matrix to approximate the original matrix, as closely as possible, by multiplying the low-rank matrices together. That way, you predict the missing entries in the original matrix.</p>
 </blockquote>
-<h6 id="引用第三方库"><a href="#引用第三方库" class="headerlink" title="引用第三方库"></a>引用第三方库</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import graphlab as gl</span><br><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line">import math</span><br><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line">from sklearn.metrics import accuracy_score</span><br><span class="line">from math import sqrt</span><br><span class="line">from sklearn.metrics import mean_squared_error</span><br></pre></td></tr></table></figure>
-
+<h6 id="引用第三方库"><a href="#引用第三方库" class="headerlink" title="引用第三方库"></a>引用第三方库</h6><pre><code>import graphlab as gl
+import pandas as pd
+import numpy as np
+import math
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from math import sqrt
+from sklearn.metrics import mean_squared_error</code></pre>
 <h6 id="导入last-fm数据集并作预处理"><a href="#导入last-fm数据集并作预处理" class="headerlink" title="导入last.fm数据集并作预处理"></a>导入last.fm数据集并作预处理</h6><p>使用pd.read_csv()导入user_artists.dat和artists.dat，并将两个dframe合并为一个新的dframe:「ap」，并将weight重命名为playcount。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">plays &#x3D; pd.read_csv(&#39;C:\Users\Eric000\dataSets\dat\user_artists.dat&#39;, sep&#x3D;&#39;\t&#39;)</span><br><span class="line">artists &#x3D; pd.read_csv(&#39;artists.dat&#39;,sep&#x3D;&#39;\t&#39;)</span><br><span class="line"></span><br><span class="line">ap &#x3D; pd.merge(</span><br><span class="line">  artists, plays,</span><br><span class="line">  how&#x3D;&quot;inner&quot;,</span><br><span class="line">  left_on&#x3D;&quot;id&quot;,</span><br><span class="line">  right_on&#x3D;&quot;artistID&quot;</span><br><span class="line">)</span><br><span class="line">ap &#x3D; ap.rename(columns&#x3D;&#123;&quot;weight&quot;: &quot;playCount&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code>plays = pd.read_csv(&#39;C:\Users\Eric000\dataSets\dat\user_artists.dat&#39;, sep=&#39;\t&#39;)
+artists = pd.read_csv(&#39;artists.dat&#39;,sep=&#39;\t&#39;)
 
+ap = pd.merge(
+  artists, plays,
+  how=&quot;inner&quot;,
+  left_on=&quot;id&quot;,
+  right_on=&quot;artistID&quot;
+)
+ap = ap.rename(columns=&#123;&quot;weight&quot;: &quot;playCount&quot;&#125;)</code></pre>
 <h6 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h6><p>通过pandas的groupby()对播放量的相关信息进行处理，并按照playCount降序排列。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">artist_rank &#x3D; ap.groupby([&#39;name&#39;]) \</span><br><span class="line">  .agg(&#123;&#39;userID&#39; : &#39;count&#39;, &#39;playCount&#39; : &#39;sum&#39;&#125;) \</span><br><span class="line">  .rename(columns&#x3D;&#123;&quot;userID&quot; : &#39;totalUniqueUsers&#39;, &quot;playCount&quot; : &quot;totalArtistPlays&quot;&#125;) \</span><br><span class="line">  .sort_values([&#39;totalArtistPlays&#39;], ascending&#x3D;False)</span><br><span class="line">artist_rank[&#39;avgUserPlays&#39;] &#x3D; artist_rank[&#39;totalArtistPlays&#39;] &#x2F; artist_rank[&#39;totalUniqueUsers&#39;]</span><br><span class="line"></span><br><span class="line">ap &#x3D; ap.join(artist_rank, on&#x3D;&quot;name&quot;, how&#x3D;&quot;inner&quot;) \</span><br><span class="line">  .sort_values([&#39;playCount&#39;], ascending&#x3D;False)</span><br></pre></td></tr></table></figure>
+<pre><code>artist_rank = ap.groupby([&#39;name&#39;]) \
+  .agg(&#123;&#39;userID&#39; : &#39;count&#39;, &#39;playCount&#39; : &#39;sum&#39;&#125;) \
+  .rename(columns=&#123;&quot;userID&quot; : &#39;totalUniqueUsers&#39;, &quot;playCount&quot; : &quot;totalArtistPlays&quot;&#125;) \
+  .sort_values([&#39;totalArtistPlays&#39;], ascending=False)
+artist_rank[&#39;avgUserPlays&#39;] = artist_rank[&#39;totalArtistPlays&#39;] / artist_rank[&#39;totalUniqueUsers&#39;]
 
+ap = ap.join(artist_rank, on=&quot;name&quot;, how=&quot;inner&quot;) \
+  .sort_values([&#39;playCount&#39;], ascending=False)</code></pre>
 <h6 id="graphlab入场"><a href="#graphlab入场" class="headerlink" title="graphlab入场"></a>graphlab入场</h6><p>使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ap.to_csv(&#39;artistsANDplays.csv&#39;)</span><br><span class="line"></span><br><span class="line">sf &#x3D; gl.SFrame(&#39;artistsANDplays.csv&#39;)</span><br><span class="line">sf.remove_columns([&#39;X1&#39;,&#39;id&#39;,&#39;url&#39;, &#39;pictureURL&#39;])</span><br></pre></td></tr></table></figure>
+<pre><code>ap.to_csv(&#39;artistsANDplays.csv&#39;)
 
+sf = gl.SFrame(&#39;artistsANDplays.csv&#39;)
+sf.remove_columns([&#39;X1&#39;,&#39;id&#39;,&#39;url&#39;, &#39;pictureURL&#39;])</code></pre>
 <p>将dfrmae输出为「artistsANDplays.csv」并实例化一个sFrme对象sf，通过remove_columns()删除暂时用不到的数据。</p>
 <p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/1.png" alt="1"></p>
 <h6 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h6><p>通过graphlab的canvas，我们可以非常容易地对数据进行可视化处理，这将及其简化我们的工作，不得不再次感叹python强大的工具库。</p>
 <p>我们只需要将处理后的数据实例化为一个SFrame对象，即可通过鼠标的交互得到我们想要的可视化结果，免于手动使用代码绘制图像。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sf.show()</span><br></pre></td></tr></table></figure>
-
+<pre><code>sf.show()</code></pre>
 <p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/2.png" alt="2"></p>
 <p>总览</p>
 <p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/3.png" alt="3"></p>
@@ -255,32 +271,87 @@
 <p>通过独立用户和总播放量的对应关系基本可以看出歌手的流行程度</p>
 <p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/image-20200602220506766.png" alt="image-20200602220506766"></p>
 <h6 id="推荐系统实现"><a href="#推荐系统实现" class="headerlink" title="推荐系统实现"></a>推荐系统实现</h6><p>为了实现协同过滤，我们将ap中的playCount转换为了一个矩阵，在处理过playCount以及通过assign和pivot两个方法后重新塑造dataframe后，「ratings」的概念逐渐清晰，我们将ratings赋值与[0-1]之间，基于原始数据的playCount构建了一个评价体系，并用0补齐数据缺失的地方。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pc &#x3D; ap.playCount</span><br><span class="line">play_count_scaled &#x3D; (pc - pc.min()) &#x2F; (pc.max() - pc.min())</span><br><span class="line">ap &#x3D; ap.assign(playCountScaled&#x3D;play_count_scaled)</span><br><span class="line"></span><br><span class="line">ratings_df &#x3D; ap.pivot(</span><br><span class="line">    index&#x3D;&#39;userID&#39;,</span><br><span class="line">    columns&#x3D;&#39;artistID&#39;,</span><br><span class="line">    values&#x3D;&#39;playCountScaled&#39;</span><br><span class="line">)</span><br><span class="line">ratings &#x3D; ratings_df.fillna(0).values</span><br></pre></td></tr></table></figure>
+<pre><code>pc = ap.playCount
+play_count_scaled = (pc - pc.min()) / (pc.max() - pc.min())
+ap = ap.assign(playCountScaled=play_count_scaled)
 
+ratings_df = ap.pivot(
+    index=&#39;userID&#39;,
+    columns=&#39;artistID&#39;,
+    values=&#39;playCountScaled&#39;
+)
+ratings = ratings_df.fillna(0).values</code></pre>
 <p>计算ratings矩阵的稀疏度</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sparsity &#x3D; float(len(ratings.nonzero()[0]))</span><br><span class="line">sparsity &#x2F;&#x3D; (ratings.shape[0] * ratings.shape[1])</span><br><span class="line">sparsity *&#x3D; 100</span><br><span class="line">print(&#39;&#123;:.2f&#125;%&#39;.format(sparsity))</span><br></pre></td></tr></table></figure>
-
+<pre><code>sparsity = float(len(ratings.nonzero()[0]))
+sparsity /= (ratings.shape[0] * ratings.shape[1])
+sparsity *= 100
+print(&#39;&#123;:.2f&#125;%&#39;.format(sparsity))</code></pre>
 <p>接下来我们通过重写后的sklearn.model_selection的train_test_split将ratings分为「训练组」和「校验组」，并用0代替了一些参考价值不大的rating。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">train, val &#x3D; train_test_split(ratings)</span><br><span class="line"></span><br><span class="line">MIN_USER_RATINGS &#x3D; 35</span><br><span class="line">DELETE_RATING_COUNT &#x3D; 15</span><br><span class="line">def train_test_split(ratings):</span><br><span class="line">    validation &#x3D; np.zeros(ratings.shape)</span><br><span class="line">    train &#x3D; ratings.copy()</span><br><span class="line">    for user in np.arange(ratings.shape[0]):</span><br><span class="line">        if len(ratings[user,:].nonzero()[0]) &gt;&#x3D; MIN_USER_RATINGS:</span><br><span class="line">            val_ratings &#x3D; np.random.choice(</span><br><span class="line">              ratings[user, :].nonzero()[0],</span><br><span class="line">              size&#x3D;DELETE_RATING_COUNT,</span><br><span class="line">              replace&#x3D;False</span><br><span class="line">            )</span><br><span class="line">            train[user, val_ratings] &#x3D; 0</span><br><span class="line">            validation[user, val_ratings] &#x3D; ratings[user, val_ratings]</span><br><span class="line">    return train, validation</span><br></pre></td></tr></table></figure>
+<pre><code>train, val = train_test_split(ratings)
 
+MIN_USER_RATINGS = 35
+DELETE_RATING_COUNT = 15
+def train_test_split(ratings):
+    validation = np.zeros(ratings.shape)
+    train = ratings.copy()
+    for user in np.arange(ratings.shape[0]):
+        if len(ratings[user,:].nonzero()[0]) &gt;= MIN_USER_RATINGS:
+            val_ratings = np.random.choice(
+              ratings[user, :].nonzero()[0],
+              size=DELETE_RATING_COUNT,
+              replace=False
+            )
+            train[user, val_ratings] = 0
+            validation[user, val_ratings] = ratings[user, val_ratings]
+    return train, validation</code></pre>
 <h6 id="测量误差"><a href="#测量误差" class="headerlink" title="测量误差"></a>测量误差</h6><p>我们采用「RMSE」即「均方根误差」来测量误差，通过这一算法，我们对真值和预测值的偏差有了一个大概的认识。</p>
 <p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/image-20200602220925621.png" alt="image-20200602220925621"></p>
 <h6 id="训练推荐系统"><a href="#训练推荐系统" class="headerlink" title="训练推荐系统"></a>训练推荐系统</h6><p>使用「SGD」即「随机梯度下降」训练，赋予未知对象预测值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">def fit(self, X_train, X_val):</span><br><span class="line">  m, n &#x3D; X_train.shape</span><br><span class="line">  self.P &#x3D; 3 * np.random.rand(self.n_latent_features, m)</span><br><span class="line">  self.Q &#x3D; 3 * np.random.rand(self.n_latent_features, n)</span><br><span class="line">  self.train_error &#x3D; []</span><br><span class="line">  self.val_error &#x3D; []</span><br><span class="line">  users, items &#x3D; X_train.nonzero()</span><br><span class="line">  for epoch in range(self.n_epochs):</span><br><span class="line">      for u, i in zip(users, items):</span><br><span class="line">          error &#x3D; X_train[u, i] - self.predictions(self.P[:,u], self.Q[:,i])</span><br><span class="line">          self.P[:, u] +&#x3D; self.learning_rate * \</span><br><span class="line">           (error * self.Q[:, i] - self.lmbda * self.P[:, u])</span><br><span class="line">          self.Q[:, i] +&#x3D; self.learning_rate * \</span><br><span class="line">           (error * self.P[:, u] - self.lmbda * self.Q[:, i])</span><br><span class="line">      train_rmse &#x3D; rmse(self.predictions(self.P, self.Q), X_train)</span><br><span class="line">      val_rmse &#x3D; rmse(self.predictions(self.P, self.Q), X_val)</span><br><span class="line">      self.train_error.append(train_rmse)</span><br><span class="line">      self.val_error.append(val_rmse)</span><br></pre></td></tr></table></figure>
-
+<pre><code>def fit(self, X_train, X_val):
+  m, n = X_train.shape
+  self.P = 3 * np.random.rand(self.n_latent_features, m)
+  self.Q = 3 * np.random.rand(self.n_latent_features, n)
+  self.train_error = []
+  self.val_error = []
+  users, items = X_train.nonzero()
+  for epoch in range(self.n_epochs):
+      for u, i in zip(users, items):
+          error = X_train[u, i] - self.predictions(self.P[:,u], self.Q[:,i])
+          self.P[:, u] += self.learning_rate * \
+           (error * self.Q[:, i] - self.lmbda * self.P[:, u])
+          self.Q[:, i] += self.learning_rate * \
+           (error * self.P[:, u] - self.lmbda * self.Q[:, i])
+      train_rmse = rmse(self.predictions(self.P, self.Q), X_train)
+      val_rmse = rmse(self.predictions(self.P, self.Q), X_val)
+      self.train_error.append(train_rmse)
+      self.val_error.append(val_rmse)</code></pre>
 <h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><h6 id="评估推荐结果"><a href="#评估推荐结果" class="headerlink" title="评估推荐结果"></a>评估推荐结果</h6><p>在使用RMSE比较训练组和校验组，并且通过SGD训练模型之后，我们很直观的发现两个对照组之间的差距越来越小，训练时间与预测误差呈反比例关系，即训练时间越长，误差就越小。这也是我们推荐系统的<strong>评价标准</strong>，简而言之，当「训练组」和「校验组」的差距越来越小（即二者的重合程度越来越大时），我们的推荐系统也就越精确，即项目要求文档中的「<strong>推荐的精确度</strong>」。</p>
 <p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/image-20200603100501243.png" alt="image-20200603100501243">·</p>
 <h6 id="做出最后的推荐"><a href="#做出最后的推荐" class="headerlink" title="做出最后的推荐"></a>做出最后的推荐</h6><p>还记得上文中我们将矩阵中的一些对象置零吗，接下来，我们将用推荐系统获得的预测值将这些稀疏矩阵填充。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def predict(self, X_train, user_index):</span><br><span class="line">  y_hat &#x3D; self.predictions(self.P, self.Q)</span><br><span class="line">  predictions_index &#x3D; np.where(X_train[user_index, :] &#x3D;&#x3D; 0)[0]</span><br><span class="line">  return y_hat[user_index, predictions_index].flatten()</span><br></pre></td></tr></table></figure>
-
+<pre><code>def predict(self, X_train, user_index):
+  y_hat = self.predictions(self.P, self.Q)
+  predictions_index = np.where(X_train[user_index, :] == 0)[0]
+  return y_hat[user_index, predictions_index].flatten()</code></pre>
 <p>这是预测前的结果</p>
 <p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/image-20200602220555572.png" alt="image-20200602220555572"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">user_id &#x3D; 999</span><br><span class="line">user_index &#x3D; ratings_df.index.get_loc(user_id)</span><br><span class="line">predictions_index &#x3D; np.where(train[user_index, :] &#x3D;&#x3D; 0)[0]</span><br><span class="line">rating_predictions &#x3D; recommender.predict(train, user_index)</span><br><span class="line">existing_ratings_index &#x3D; np.where(train[user_index, :] &gt; 0)[0]</span><br><span class="line">existing_ratings &#x3D; train[user_index, existing_ratings_index]</span><br><span class="line">create_artist_ratings(</span><br><span class="line">  artists,</span><br><span class="line">  existing_ratings_index,</span><br><span class="line">  existing_ratings</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
+<pre><code>user_id = 999
+user_index = ratings_df.index.get_loc(user_id)
+predictions_index = np.where(train[user_index, :] == 0)[0]
+rating_predictions = recommender.predict(train, user_index)
+existing_ratings_index = np.where(train[user_index, :] &gt; 0)[0]
+existing_ratings = train[user_index, existing_ratings_index]
+create_artist_ratings(
+  artists,
+  existing_ratings_index,
+  existing_ratings
+)</code></pre>
 <p>这是预测后的结果</p>
 <p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/image-20200602220616046.png" alt="image-20200602220616046"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create_artist_ratings(</span><br><span class="line">  artists,</span><br><span class="line">  predictions_index,</span><br><span class="line">  rating_predictions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
+<pre><code>create_artist_ratings(
+  artists,
+  predictions_index,
+  rating_predictions
+)</code></pre>
 <p>可以看出，id为999的用户，说不定不只是ColdPlay的忠实听众，Minnie Riperton或许也能让他在某个暗流涌动的寂寞之夜产生感官的愉悦。</p>
 <p>「伟大的推荐系统诞生了」。</p>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] pandas-docs <a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs">https://pandas.pydata.org/pandas-docs</a></p>
