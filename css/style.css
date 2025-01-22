@@ -496,7 +496,7 @@ body {
   flex-direction: unset;
 }
 .header .blog-title .logo {
-  font-family: 'Source Serif Pro', 'Noto Serif TC', serif;
+  font-family: -apple-system, Noto Serif SC, Noto Sans SC, serif;
   color: #000;
   font-size: 1.2em;
   text-decoration: none;
