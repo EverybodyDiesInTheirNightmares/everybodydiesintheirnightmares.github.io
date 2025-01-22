@@ -496,7 +496,7 @@ body {
   flex-direction: unset;
 }
 .header .blog-title .logo {
-  font-family: LXGW Wenkai Screen, Noto Serif SC, Noto Sans SC, serif;
+  font-family: Noto Serif SC, Noto Sans SC, serif;
   color: #000;
   font-size: 1.2em;
   text-decoration: none;
