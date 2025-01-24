@@ -6,7 +6,7 @@
   <link href="https://numb.tech/atom.xml" rel="self"/>
   
   <link href="https://numb.tech/"/>
-  <updated>2025-01-23T14:14:32.590Z</updated>
+  <updated>2025-01-24T03:42:45.260Z</updated>
   <id>https://numb.tech/</id>
   
   <author>
@@ -17,13 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>旧版本iPhone输错密码停用的自救记录和恢复包括微信记录的iCloud云备份及请尽力帮助他人</title>
+    <title>语言声音和阴影</title>
+    <link href="https://numb.tech/2025/01/24/language-sound-shadow/"/>
+    <id>https://numb.tech/2025/01/24/language-sound-shadow/</id>
+    <published>2025-01-24T03:40:42.000Z</published>
+    <updated>2025-01-24T03:42:45.260Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>除了感受外，好似还有语言和声音的「天资」。</p><p>关于语言，掌握了普通话、四川话、英文。四川话作为西南官话的一大分支，又衍生很多口音。家乡口音当然不在话下，与生俱来。成长中，发现能较快地掌握某种语言或口音。不论成都、绵阳又或停留时间较长的川内其他地区，往往都能「如法炮制」，甚得当地人高度评价，且能在口音间快速切换。不过近来说得少了，有所退化。量化的话，现今常说的似是不带甚口音的「四川话」。</p><p>小学教育期间，语文老师是班主任，打下坚实基础，若参与普通话等级考试，应能获得前段评级。在四川视角下，有较为标准的普通话发音，屡得旁人赞赏。在各地视角下，至少「不拖后腿」。普通话作为推广汉语，应如此，也正如此。量化的话，曾完成近满分「言语理解」答卷。常无病呻吟、装腔作势。但各地方言口音，更应下力气保护、拾掇。</p><p>幼年时，接受初级双语教育，初级得很。不过算良好开端，英文听说读写差强人意。脱离英文环境较长时间，各方面大幅退化。但慢速基本能够听懂，大部分应为东施效颦的American accent，能写一点简单东西。量化的话，除了毫无准备的大学英语六级500+，和来自美国的Yelly及Mattew的评价，再无其他。其他语言，<em>Merci</em>、<em>C’est la vie</em> 、<del><em>сука блять</em></del>、<em>お水を一杯ください</em>。</p><p>关于声音，即使样本容量不大，得不同性别及年龄对「音色」的肯定。量化的话，被吉他老师评价过「声音条件好」。声音是记录信息的良好介质，优于视频。但未曾利用，也许今后会录制播客？但太空洞，又或配音之流，望得引荐。</p><p>人类侥幸获得语言，发展语言，又摧毁。</p><p>祖先的阴影。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>旧版本iPhone输错密码停用的自救记录</title>
     <link href="https://numb.tech/2025/01/23/iPhone-reconnected_and-if-u-need-help/"/>
     <id>https://numb.tech/2025/01/23/iPhone-reconnected_and-if-u-need-help/</id>
     <published>2025-01-23T13:13:52.000Z</published>
-    <updated>2025-01-23T14:14:32.590Z</updated>
+    <updated>2025-01-24T03:39:59.671Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>注意：这是一篇过去发布在小红书上的「教程笔记」。今天和此前收到了感谢的反馈，很开心，想帮到更多的人，于是在这里发表，今后也许会同步其他平台的发表。由此想到了很多，本文由两大部分组成。</p><h2 id="一、教程"><a href="#一、教程" class="headerlink" title="一、教程"></a>一、教程</h2><h2 id="（一）输错密码停用"><a href="#（一）输错密码停用" class="headerlink" title="（一）输错密码停用"></a>（一）输错密码停用</h2><p>背景：iPhone SE 第三代，运行iOS15.4，已「巨魔」故不更新系统。不知何故的数字密码错误，导致iPhone不可用。此时WiFi断开，希望在不更新系统的情况下拿回控制权。</p><p>条件：完全属于自己的iPhone，sim卡及蜂窝功能正常，有同Apple id的其他iOS设备。</p><p>警告：以下操作会抹除iPhone。</p><p>步骤：很简单。在同id的其他iOS设备下对不可用的iPhone进行「查找-抹除」操作。接下来是最关键的一步：在不可用的iPhone上点击紧急情况，此时iPhone应该会打开蜂窝网络，随后自动进入上述的抹除程序。完毕</p><p>此方法属于非官方的「旁门左道」，是我在咨询Apple Support无果后自己摸索得出，操作前请务必谨慎。</p><h2 id="（二）恢复包括微信记录的iCloud云备份"><a href="#（二）恢复包括微信记录的iCloud云备份" class="headerlink" title="（二）恢复包括微信记录的iCloud云备份"></a>（二）恢复包括微信记录的iCloud云备份</h2><p>拿回控制权后，往往还需要恢复。iCloud成功恢复了除微信记录外的设置、外观、app等，但始终无法完整恢复聊天记录，更换网络环境、多次抹除还原激活均无果。此时需要联系「apple support高级顾问」，通过其后台刷新备份包的操作，应该可以恢复所有iCloud云备份。</p><h2 id="二、随想"><a href="#二、随想" class="headerlink" title="二、随想"></a>二、随想</h2><p>注意：此文写于酒后，但非「乱性」。</p><p>即使「他人即地狱」，即使常伤害他人，也请尽力帮助他人。我在帮助他人后，会获得快感，必须坦白承认，我享受这种感觉，这是有私心的。</p><p>但在需要接受帮助时，我总是犹豫，总是希望独立解决问题，也许接受帮助也是一种美德。</p><p>接上文，说到小红书及其他众多社交媒体，除了微信和长毛象外，我的使用频率已经很低了，完全不看短视频，但仍然无法逃脱奶头乐和监视资本主义。因工作和一些其他原因，我完全离不开微信，这不妨碍我对微信的憎恶。我完全无力控制，甚至做出微小贡献，这是可悲的，这也是「废话」。</p><p>流媒体太轻了，而文字是有力量的。希望这里能产出有力量的文字。</p><p>打住，说了那么多无关主题的话。若条件允许，请尽力帮助他人。</p><p>「纯爱战士」ready to serve.</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文原标题：旧版本iPhone输错密码停用的自救记录和恢复包括微信记录的iCloud云备份及请尽力帮助他人</p><p>注意：这是一篇过去发布在小红书上的「教程笔记」。今天和此前收到了感谢的反馈，很开心，想帮到更多的人，于是在这里发表，今后也许会同步其他平台的发表。由此想到了很多，本文由两大部分组成。</p><h2 id="一、教程"><a href="#一、教程" class="headerlink" title="一、教程"></a>一、教程</h2><h2 id="（一）输错密码停用"><a href="#（一）输错密码停用" class="headerlink" title="（一）输错密码停用"></a>（一）输错密码停用</h2><p>背景：iPhone SE 第三代，运行iOS15.4，已「巨魔」故不更新系统。不知何故的数字密码错误，导致iPhone不可用。此时WiFi断开，希望在不更新系统的情况下拿回控制权。</p><p>条件：完全属于自己的iPhone，sim卡及蜂窝功能正常，有同Apple id的其他iOS设备。</p><p>警告：以下操作会抹除iPhone。</p><p>步骤：很简单。在同id的其他iOS设备下对不可用的iPhone进行「查找-抹除」操作。接下来是最关键的一步：在不可用的iPhone上点击紧急情况，此时iPhone应该会打开蜂窝网络，随后自动进入上述的抹除程序。完毕</p><p>此方法属于非官方的「旁门左道」，是我在咨询Apple Support无果后自己摸索得出，操作前请务必谨慎。</p><h2 id="（二）恢复包括微信记录的iCloud云备份"><a href="#（二）恢复包括微信记录的iCloud云备份" class="headerlink" title="（二）恢复包括微信记录的iCloud云备份"></a>（二）恢复包括微信记录的iCloud云备份</h2><p>拿回控制权后，往往还需要恢复。iCloud成功恢复了除微信记录外的设置、外观、app等，但始终无法完整恢复聊天记录，更换网络环境、多次抹除还原激活均无果。此时需要联系「apple support高级顾问」，通过其后台刷新备份包的操作，应该可以恢复所有iCloud云备份。</p><h2 id="二、随想"><a href="#二、随想" class="headerlink" title="二、随想"></a>二、随想</h2><p>注意：此文写于酒后，但非「乱性」。</p><p>即使「他人即地狱」，即使常伤害他人，也请尽力帮助他人。我在帮助他人后，会获得快感，必须坦白承认，我享受这种感觉，这是有私心的。</p><p>但在需要接受帮助时，我总是犹豫，总是希望独立解决问题，也许接受帮助也是一种美德。</p><p>接上文，说到小红书及其他众多社交媒体，除了微信和长毛象外，我的使用频率已经很低了，完全不看短视频，但仍然无法逃脱奶头乐和监视资本主义。因工作和一些其他原因，我完全离不开微信，这不妨碍我对微信的憎恶。我完全无力控制，甚至做出微小贡献，这是可悲的，这也是「废话」。</p><p>流媒体太轻了，而文字是有力量的。希望这里能产出有力量的文字。</p><p>打住，说了那么多无关主题的话。若条件允许，请尽力帮助他人。</p><p>「纯爱战士」ready to serve.</p>]]></content>
     
     
       
@@ -386,26 +406,6 @@
     <updated>2021-08-17T14:31:40.639Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文题「衰老」取自Andre Gorz的《衰老》。正如译者袁筱一女士所言，「没有读过他的作品，甚至没有听过他的名。零星的资料告诉我，他是一个出色的记者，法国政论性刊物《新观察家》的“创建者”之一。」在豆瓣简单检索后并未发现书名一致的书籍，故无法用写作的第一语言标注。</p><p>时年二十三周岁整，在我人生的前二十三年，我一直自诩，或者说是在内心里标榜自己「非池中之物」，这个表述的作用范围并非普世的价值判断。不去探讨这个命题在现阶段或是在以后的任何时刻成立，就今天或者说是就现在的情况来看，我正在「衰老」，事实上这是一句废话，不过这令我欣喜。</p><blockquote><p>放弃德勒兹-伽塔利后来所谓的“欲望的无休无止”以及乔治，巴塔耶所谓的“可能性无处不在”，这种放弃只有通过对于所有限定的根本拒绝才能够达及：想要什么也不是的愿望与想要成为一切的愿望彼此混淆。在《衰老》的结尾，是这样一段自我勉励：“必须接受结束，必须接受是在这里，而不是在别的任何地方，是在做这个而不是别的什么事情，现在，永远，永远……必须接受这份生活，唯它而已。”</p></blockquote><p>我想这确是值得欣喜的，在过去或许从未或是极少有过物质生活的窘境，总是给自己制造逃避现实的「法拉第笼」，原本以为学生生涯结束会带来转机，但实际情况并非如此。</p><blockquote><p>用整体性的视角观察当代社会、技术文化以及商业风景，对抗消费主义导向的论述，强调对技术与艺术的敏锐感受力、以及精神与肉体上的强健。</p></blockquote><p>对技术与艺术的敏锐感受力、以及精神与肉体上的强健。是时候了。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>一次闲聊</title>
-    <link href="https://numb.tech/2020/12/05/jotting/"/>
-    <id>https://numb.tech/2020/12/05/jotting/</id>
-    <published>2020-12-05T05:51:23.000Z</published>
-    <updated>2025-01-11T04:04:50.574Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><blockquote><p>感谢陈老让我有机会跟大家聊聊我大学期间的一些经历和经验，包括但不限于「大学四年的规划，每一年的学习，考证，比赛以及四六级考试，公务员准备」。当然，写作这篇博客的目的完全不是出于说教，大家权当看个故事。</p></blockquote><h3 id="规划"><a href="#规划" class="headerlink" title="规划"></a>规划</h3><p><strong>首先我个人认为大家应该先想清楚毕业以后从事什么样的工作，这一点至关重要。</strong>如果现在还没有一个明确的职业规划也没关系，我自己也是在大三才想清楚以后到底要干什么，不过能够越早<strong>开始</strong>规划就越好。这涉及到多方面的因素，故不做建议。我在大三之前都想做一个程序员，并且将主要精力放在了专业相关的事情上。后来由于种种因素，我决定考公务员或者事业编。</p><h3 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h3><p>如果你想从事本专业相关的工作并且打算深耕，我个人认为你需要将「算法、数据结构、计算机组成原理、操作系统、计算机网络」扎实地掌握，另外，你还需要花大量的时间编码和提高你的英文水平。我自己没有做到上述这些所以给不出太多的建议。</p><p>如果你想从事java（后端）开发，以下摘自实际岗位描述：</p><p>熟练使用Struts2/Spring/SpringMVC/MyBatis等常见框架；精通spring及相关生态组件，熟练掌握mybatis；精通socket编程、熟悉TCP、UDP网络通信协议；对JVM性能优化有深入认知；有多线程、高并发项目经验者优先。熟悉前端相关知识（html，javascript，Jquery）。<br>熟练掌握SQL server、Oracle、MySql等主流数据库。<br>熟悉消息中间件（ActiveMQ、RocketMQ、RabbitMQ、Kafka）等框架并且对原理有一定了解，缓存（Redis/Memcached/Ehcache）系统的机制以及使用，研究过源代码并有实际项目应用经验。<br>至少熟悉一种大数据处理技术，如Hadoop、Spark；掌握HBase、Redis、Elastic Search等开源大数据存储技术的开发实践，能够独立和带领团队进行项目开发，并能结合不同的业务场景深入使用。<br>精通常用的Linux命令;熟练配置和维护Nginx/Apache，Tomcat等Web或应用服务器。<br>掌握各类技术文档的编写和整理。有设计,调试接口的相关经验。</p><h3 id="考证"><a href="#考证" class="headerlink" title="考证"></a>考证</h3><p>我个人觉得没必要考太多证，如果你有这方面的需求且与计算机专业强相关，可以了解一下「ACM/MCM」，或者是在leetcode上多刷点题，或者在github上多提交几段代码。</p><p>另外，我推荐大家在大学期间取得「机动车驾驶证」和「红十字救护员证」。</p><h3 id="比赛"><a href="#比赛" class="headerlink" title="比赛"></a>比赛</h3><p>首当其冲推荐的是「ACM」即「国际大学生程序设计竞赛」，在计算机领域具有相当的含金量和相当的难度，如果你已经有所涉猎那么本文对你毫无价值。</p><p>紧接着是「蓝桥杯」，学院每年都会组织参加蓝桥杯，大家如果想参加比赛建议可以积极准备一下蓝桥杯。</p><p>其他比赛大家如果有精力也可以多多参与，出去长长见识总没坏处的。</p><h3 id="四六级考试"><a href="#四六级考试" class="headerlink" title="四六级考试"></a>四六级考试</h3><p>建议大家越早通过越好，且一定要有足够的重视，至少要通过四级。即使你不从事计算机行业，英文也很重要。关于英文的学习我也没有太多<strong>具体</strong>的建议，因为我学得比较早，所以感觉只要你投入相当程度的时间，那么语言的学习是没有想象中的那么难的。我目前仍然有阅读英文原版书籍的习惯，另外，如果你想提升自己的口语水平，可以尝试一个名叫「交流电」的app。</p><h3 id="体制相关"><a href="#体制相关" class="headerlink" title="体制相关"></a>体制相关</h3><p>公务员分为国考、省考、事业单位以及地方的一些考试，还有相关的「西部计划」和「三支一扶」等等。公务员考试主要需要学习的是行政职业能力测验和申论，行政职业能力测验主要包括常识判断、言语理解与表达、数量关系、判断推理和资料分析等部分，我个人认为其中的「言语理解、判断推理、资料分析」是需要扎实掌握的。我目前是跟着「粉笔」的课程在学习。</p><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>跟大家推荐一些相关的资源吧：</p><table><thead><tr><th>善用搜索引擎</th><th>google.com/dogedoge.com</th></tr></thead><tbody><tr><td>版本控制、代码管理和开源</td><td>git以及github.com</td></tr><tr><td>it知识问答</td><td>StackOverflow.com</td></tr><tr><td>如果你想玩玩物联网或者学习Linux</td><td>树莓派</td></tr><tr><td>java学习</td><td>how2j.cn</td></tr><tr><td>我每天逛的论坛（偏it）</td><td>v2ex.com</td></tr><tr><td>考公相关</td><td>粉笔网 fenbi.com</td></tr><tr><td></td><td>qzzn论坛 bbs.qzzn.com</td></tr></tbody></table><h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>其实看到这里大家也能感觉到本文没有直接提出一些具体的建议，也没有对你产生一些实质性的帮助。大家目前尚处大一，还有足够的时间去做自己想做的事，但是一定要珍惜时间，四年的时间真的很快很快，不管你做了什么到大四也一定是会后悔的，只是希望大家能够尽量让自己的时间变得有意义一点。我在大学期间加入了学校的网络运维中心以及甲骨文俱乐部，都给我带来了很多的帮助，以后大家看到他们招新且自己有兴趣的话也可以试着加入。我虽然在大学期间没有完整的读过几本书，但是我作为一个英雄联盟和csgo一千小时以上的玩家，真的在阅读的时间里感受到了不一样的快感，希望大家能够多去图书馆坐坐，也很推荐大家去学习一门乐器，弹吉他的时候我也感觉到很快乐。最后，希望大家珍惜时光，把身体锻炼好，尽量在大学期间养成运动习惯，珍惜身边人身边事，还有，不要在包括寝室之内的公共空间外放抖音。</p><p>以上，感谢阅读。</p>]]></content>
     
     
       
