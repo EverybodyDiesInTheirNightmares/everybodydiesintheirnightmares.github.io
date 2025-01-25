@@ -1,37 +1,91 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<hr>目前这里很不优雅。提交留言可能较为困难，抱歉。
-<hr>由于排版限制，删除了默认角标，这里使用<a href="https://github.com/walinejs/waline"> waline </a>驱动。
-<hr>因不满意样式，留言已弃用。推荐使用邮箱。
-<hr>在此请教下竖排布局下如何优雅开启留言区。
+<!DOCTYPE html>
+<html lang="zh-cn">
 <head>
-  <!-- ... -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
-  />
-  <!-- ... -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style>
+    body {
+      font-family: Noto Serif SC, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #cusdis_thread {
+      width: 100%;
+      margin: 20px 0;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+      background-color: #fff;
+    }
+    .comments-count {
+      font-size: 1.2em;
+      margin-top: 20px;
+      text-align: center;
+      color: #555;
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #2f2f2f;
+        color: #f9f9f9;
+      }
+      .container {
+        background-color: #2f2f2f;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+      #cusdis_thread {
+        border: 1px solid #555;
+        background-color: #2f2f2f;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+      .comments-count {
+        color: #ccc;
+      }
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+        margin: 20px auto;
+      }
+      #cusdis_thread {
+        padding: 10px;
+      }
+      .comments-count {
+        font-size: 1em;
+      }
+    }
+  </style>
+  <script defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+  <script defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  <script defer data-host="https://cusdis.com" data-app-id="2ab81401-18ec-4001-8032-c8e33288d5d6" src="https://cusdis.com/js/cusdis-count.umd.js"></script>
 </head>
 <body>
-  <!-- ... -->
-  <div id="waline"></div>
-  <script type="module">
-    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+  <div class="container">
+    <p>此页面不很优雅。如未回复请尝试邮件。
+    <div id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="2ab81401-18ec-4001-8032-c8e33288d5d6"
+      data-page-id="comments"
+      data-page-url="https://numb.tech/comments"
+      data-page-title="Guestbook">
+    </div>
 
-    init({
-      el: '#waline',
-      serverURL: 'https://comments.numb.tech',
-	    reaction: 'false', 
-	    dark: 'auto',
-   		noCopyright: 'true',
-        avatar: 'robohash',
-     
-    });
-  </script>
- 
- <br>
- <br>
- <br>
- <br>
-
-
+    <div class="comments-count">
+      <span data-cusdis-count-page-id="comments">0</span> 条留言
+    </div>
+  </div>
 </body>
+</html>
