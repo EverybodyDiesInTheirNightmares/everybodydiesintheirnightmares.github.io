@@ -22,7 +22,7 @@ body {
   align-items: center;
 }
 .header .blog-title .logo {
-  font-family: 'Source Serif Pro', 'Noto Serif SC', serif;
+  font-family: 'KingHwa_OldSong', serif;
   color: #000;
   font-size: 1.2em;
   text-decoration: none;
@@ -496,7 +496,7 @@ body {
   flex-direction: unset;
 }
 .header .blog-title .logo {
-  font-family: Noto Serif SC, Noto Sans SC, serif;
+  font-family: "KingHwa_OldSong", "Source Serif Pro", "Noto Serif TC", serif;
   color: #000;
   font-size: 1.2em;
   text-decoration: none;
