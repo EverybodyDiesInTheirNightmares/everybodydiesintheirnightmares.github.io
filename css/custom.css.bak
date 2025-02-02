@@ -1,3 +1,7 @@
-html, body, .markdown-body, p {
+/* html, header, body, .markdown-body, p {
   font-family: 'Noto Serif SC';
+} */
+
+html, header, body, logo, .markdown-body, p {
+  font-family: 'KingHwa_OldSong';
 }
