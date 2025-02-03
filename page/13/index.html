@@ -104,112 +104,6 @@
     
     <article class="post">
         <div class="post-title">
-            <a class="post-title-link" href="/2020/04/03/customized-installation4-Ubuntu-on-win10-with-wsl/">win10下通过wsl自定义安装ubuntu及图形界面</a>
-        </div>
-        <div class="post-content">
-            
-            <blockquote>
-<p>由于各种各样的原因无法完全从Windows转向Linux，在尝试过双系统、VMware以及Hyper-V后，我个人感觉双系统便利性不高，而虚拟化技术资源占用较高，于是便想到了wsl。众所周知，「Windows Subsystem for Linux」即「windows下的Linux子系统」已经问世相当一段时间。作为微软与Canonical公司合作开发的兼容层，我(主观)认为wsl对Ubuntu的支持及优化可能要胜于其他Linux发行版，于是在考虑过微软官方列出的支持发行版本后，选择了Ubuntu。题外话，我认为人们在选择操作系统时应完全按照自己的意愿及使用习惯，对于所谓的操作系统鄙视链我本人嗤之以鼻。</p>
-</blockquote>
-<h2 id="安装环境及准备"><a href="#安装环境及准备" class="headerlink" title="安装环境及准备"></a>安装环境及准备</h2><table>
-<thead>
-<tr>
-<th>Item</th>
-<th>Location</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Windows Subsystem for Linux</td>
-<td>启用或关闭Windows功能</td>
-<td>开启wsl</td>
-</tr>
-<tr>
-<td>目标系统镜像</td>
-<td><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/wsl/install-manual">Microsoft</a></td>
-<td>Manually download Windows Subsystem for Linux distro packages</td>
-</tr>
-<tr>
-<td>LxRunOffline</td>
-<td><a target="_blank" rel="noopener" href="https://github.com/DDoSolitary/LxRunOffline">Github</a></td>
-<td>A full-featured utility for managing Windows Subsystem for Linux (WSL)，用于自定义安装路径</td>
-</tr>
-</tbody></table>
-<h2 id="开启wsl"><a href="#开启wsl" class="headerlink" title="开启wsl"></a>开启wsl</h2><blockquote>
-<p>使用Cortana搜索「程序和功能」→启用或关闭Windows功能</p>
-<p>设置→应用→程序和功能→启用或关闭Windows功能</p>
-</blockquote>
-<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200403/image-20200403201409330.png" alt="image-20200403201409330"></p>
-<p>等待重启。</p>
-<h2 id="安装LxRunOffline"><a href="#安装LxRunOffline" class="headerlink" title="安装LxRunOffline"></a>安装LxRunOffline</h2><p>参见<a target="_blank" rel="noopener" href="https://github.com/DDoSolitary/LxRunOffline/wiki">官方Wiki</a></p>
-<blockquote>
-<p>You can install via Chocolatey <code>choco install lxrunoffline</code>, Scoop <code>scoop bucket add extras</code>, <code>scoop install lxrunoffline</code>, or download the binaries directly:</p>
-<ul>
-<li>Latest releases: <a target="_blank" rel="noopener" href="https://github.com/DDoSolitary/LxRunOffline/releases">https://github.com/DDoSolitary/LxRunOffline/releases</a></li>
-<li>Development builds: <a target="_blank" rel="noopener" href="https://dl.bintray.com/ddosolitary/dev-releases/LxRunOffline/">https://dl.bintray.com/ddosolitary/dev-releases/LxRunOffline/</a></li>
-</ul>
-</blockquote>
-<p>在此我选择直接下载解压，从<a target="_blank" rel="noopener" href="https://github.com/DDoSolitary/LxRunOffline/releases">Github release</a>下载后解压得到「LxRunOffline.exe」即可。</p>
-<h2 id="安装Ubuntu"><a href="#安装Ubuntu" class="headerlink" title="安装Ubuntu"></a>安装Ubuntu</h2><p><strong>获取安装包</strong></p>
-<p>更改准备好的Ubuntu镜像文件拓展名为「.zip」，解压后得到「install.tar.gz」</p>
-<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200403/image-20200403203132739.png" alt="image-20200403203132739"></p>
-<blockquote>
-<p>Run the following command once <code>LxRunOffline</code> is registered to the OS:</p>
-<pre><code>LxRunOffline i -n UF -d c:\WSL\UFull -f  -s</code></pre>
-</blockquote>
-<p><strong>安装</strong></p>
-<p>使用powershell或其他终端输入：</p>
-<pre><code>lxrunoffline i -n &lt;WSL名称&gt; -d &lt;安装路径&gt; -f &lt;安装包路径&gt;.tar.gz</code></pre>
-<p>eg：在「D:\Ubuntu」中安装名为「Ubuntu1804」且安装包位于「D:\Ubuntu\prep\」之下的镜像，其命令为</p>
-<pre><code>lxrunoffline i -n Ubuntu1804 -d D:\Ubuntu -f D:\Ubuntu\prep\install.tar.gz</code></pre>
-<p>等待片刻，即可完成自定义安装Ubuntu。</p>
-<p><strong>设置密码</strong></p>
-<p>在此，我采用默认root用户进行操作，输入以下命令设置密码：</p>
-<pre><code>sudo passwd</code></pre>
-<p><strong>换源</strong></p>
-<p>在换源之前我挂了全局代理，奇怪的是速度依然跑不上去。无奈换源</p>
-<p>备份源文件</p>
-<pre><code>sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</code></pre>
-<p>修改源为国内阿里云</p>
-<pre><code>sudo vim /etc/apt/sources.list
-deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</code></pre>
-<p>在此可以通过「Everything」或「uTools」快速定位*<strong>sources.list*</strong></p>
-<p><strong>更新和升级</strong></p>
-<pre><code>sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get autoremove</code></pre>
-<p><strong>安装xfce和xrdp并修改端口</strong></p>
-<pre><code>sudo apt-get update
-sudo apt-get install xorg
-sudo apt-get install xfce4
-sudo apt-get install xrdp
-sudo sed -i &#39;s/port=3389/port=3390/g&#39; /etc/xrdp/xrdp.ini
-sudo echo xfce4-session &gt;~/.xsession
-sudo service xrdp restart</code></pre>
-<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200403/image-20200403205653292.png" alt="image-20200403205653292"></p>
-<hr>
-<h2 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a><strong>参考文章：</strong></h2><p><a target="_blank" rel="noopener" href="http://www.fanyingjie.com/cn/2019/11/win_linux/">http://www.fanyingjie.com/cn/2019/11/win_linux/</a></p>
-<p><a target="_blank" rel="noopener" href="https://p3terx.com/archives/manage-wsl-with-lxrunoffline.html#E5AE89E8A385LxRunOffline">https://p3terx.com/archives/manage-wsl-with-lxrunoffline.html#E5AE89E8A385LxRunOffline</a></p>
-
-            
-        </div>
-        <div class="post-meta">
-            
-            <span class="post-time">二〇二〇年四月三日</span>
-        </div>
-    </article>
-    
-    <article class="post">
-        <div class="post-title">
             <a class="post-title-link" href="/2020/03/10/writing-itself/">让写作回归于写作本身</a>
         </div>
         <div class="post-content">
@@ -224,6 +118,32 @@ sudo service xrdp restart</code></pre>
         <div class="post-meta">
             
             <span class="post-time">二〇二〇年三月十日</span>
+        </div>
+    </article>
+    
+    <article class="post">
+        <div class="post-title">
+            <a class="post-title-link" href="/2020/01/01/vomitus/">呕吐物</a>
+        </div>
+        <div class="post-content">
+            
+            <p>他平静中自见灵魂汹涌。</p>
+<p>时至今日已在人世漫漫二十载有余，呕吐的次数未有记载但在映像中不是很多。恐是太过留恋故乡稀奇的可以覆盖植被的大雪，脑海里仅有的一次晕车呕吐的记忆与那次旅程有关。说是旅程，不过就是记事起为数不多的相对温馨家庭生活里的一次回家，不过既然打上了温馨的标签，想来也不会和呕吐有何关联。可能是目的地都是那个永远朴实，严寒里被碳灰烘熟的洋芋所给予的永远暖色调的乡镇，也是骨子里永远的精神向往，一个交叉记忆罢。</p>
+<p>说花美就会有人说「也有不美的花」，预想到会有这种抱怨于是写「既有美丽的花也有不美的花」，这已经是废话了， 让所有人都认同的文字称不上表达 ，表达需要勇气。</p>
+<p>「热河」的初衷正是为了让自己正视一些言论会带来的私人后果从而限制自己的思绪及其产物，勇于表达。</p>
+<p>上上次呕吐是一次神经性呕吐。成因于短时间内摄入过量香烟 ，是尼古丁中毒的病理表现之一，俗称醉烟。醉烟主要表现为头晕恶心，有强烈的呕吐感，括约肌松弛，全身无力，会有大小便失禁的现象。一般持续十几分钟，重者会危及生命。硬要归因的话，不健全的人格，类迫害妄想的敏感神经，对既定事实仍抱有一丝幻想等等吧。那次呕吐后，即告诫自己再也不要过量抽烟。</p>
+<p>上次呕吐来源于急性酒精中毒。 一次摄入大量酒精（乙醇）后发生的机体机能异常状态，对神经系统和肝脏伤害最严重。医学上将其分为急性中毒和慢性中毒两种，前者可在短时间内给患者带来较大伤害，甚至可以直接或间接导致死亡。个人感觉醉烟和醉酒的难受程度不属一个数量级。醉酒呕吐过后居然又能回到酒桌，再次饮酒，而醉烟呕吐，能让你感受到类濒死感或者说是，濒死感。</p>
+<p>昨天是21世纪10年代的最后一天，越来越多的现代人将元旦与过年混为一谈。但在我的观念里，传统农历新年将一直作为自己的纪年方式，这也让我与周围人对「元旦」这个似是而非的节日有截然不同的看法及行动。大多数人们都陷入到年代交替，万象更新的喜庆之中。城市的主要街道车辆排行，商场人声鼎沸，摩肩接踵。未能免俗，满足口腹之欲后再也不想与闹市有任何交集，加之校规有约，便道一声「元旦快乐」，早早归寝。</p>
+<p>日历程序做过自增之后，室友提议阳台抽烟。不知何故随声附和，便带来了这次呕吐。第一根烟我看到眼前溃败的树干，看到没有一颗星星的黑夜和灼人的火红。第二根烟我看到逝去的亲人，看到背叛的婚姻，看到永无止境的争吵，看到来去日期明了的车票，看到贪婪的反噬。第三根烟我看到自己，可惜我太模糊了，我看不清自己的身份，看不清自己的关系，看不清自己为何在此处无病呻吟。没等第三根烟抽完，我已经知道自己即将重蹈覆辙，企图通过坐下来阻止狼狈的发生，可是腿部的肌肉记忆最直白不过了。</p>
+<p>尚处消化阶段的食物伴随胃酸经由胃肠道和消化道涌出，告诉口腔和大脑宿主正经历强烈的应激反应。面对可能的死亡时人类无论如何也难掩最真实的恐惧，「时间」在意识里不断重复，出生、死亡、结婚、离婚、父母、子女、男人、女人。一个又一个发生或未发生的影像在极短的时间里跃动，想到自己即将剥离所有的一切，相信我，再坚强的人此刻也会流下生理性的泪水，而那些可怜的懦弱者早已尝到了泪腺所予的咸味。</p>
+<p>在那之后，机体会感受到超乎寻常的平静，宁静，每天都会把手机关机放在脚边的长久习惯在这种平静面前不堪一击，接下来是自然而然的睡眠以及本篇文章。</p>
+<p>视线可见范围内又多了一根白发，自己实在拔不下来，也没人帮我拔下来。</p>
+
+            
+        </div>
+        <div class="post-meta">
+            
+            <span class="post-time">二〇二〇年一月一日</span>
         </div>
     </article>
     
@@ -335,7 +255,7 @@ sudo service xrdp restart</code></pre>
 
 <p class="thanks">
   <!-- 字数统计 -->
-  <span class="post-count">已记录二点五零万字 &nbsp;</span>
+  <span class="post-count">已记录二点四九万字 &nbsp;</span>
   <!--  -->
   © 双绞麻痹
 </p>
