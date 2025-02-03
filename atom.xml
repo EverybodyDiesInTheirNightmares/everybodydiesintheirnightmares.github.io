@@ -41,7 +41,7 @@
     <link href="https://numb.tech/2025/01/23/iPhone-reconnected_and-if-u-need-help/"/>
     <id>https://numb.tech/2025/01/23/iPhone-reconnected_and-if-u-need-help/</id>
     <published>2025-01-23T13:13:52.000Z</published>
-    <updated>2025-01-24T03:39:59.671Z</updated>
+    <updated>2025-02-03T08:24:32.324Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文原标题：旧版本iPhone输错密码停用的自救记录和恢复包括微信记录的iCloud云备份及请尽力帮助他人</p><p>注意：这是一篇过去发布在小红书上的「教程笔记」。今天和此前收到了感谢的反馈，很开心，想帮到更多的人，于是在这里发表，今后也许会同步其他平台的发表。由此想到了很多，本文由两大部分组成。</p><h2 id="一、教程"><a href="#一、教程" class="headerlink" title="一、教程"></a>一、教程</h2><h2 id="（一）输错密码停用"><a href="#（一）输错密码停用" class="headerlink" title="（一）输错密码停用"></a>（一）输错密码停用</h2><p>背景：iPhone SE 第三代，运行iOS15.4，已「巨魔」故不更新系统。不知何故的数字密码错误，导致iPhone不可用。此时WiFi断开，希望在不更新系统的情况下拿回控制权。</p><p>条件：完全属于自己的iPhone，sim卡及蜂窝功能正常，有同Apple id的其他iOS设备。</p><p>警告：以下操作会抹除iPhone。</p><p>步骤：很简单。在同id的其他iOS设备下对不可用的iPhone进行「查找-抹除」操作。接下来是最关键的一步：在不可用的iPhone上点击紧急情况，此时iPhone应该会打开蜂窝网络，随后自动进入上述的抹除程序。完毕</p><p>此方法属于非官方的「旁门左道」，是我在咨询Apple Support无果后自己摸索得出，操作前请务必谨慎。</p><h2 id="（二）恢复包括微信记录的iCloud云备份"><a href="#（二）恢复包括微信记录的iCloud云备份" class="headerlink" title="（二）恢复包括微信记录的iCloud云备份"></a>（二）恢复包括微信记录的iCloud云备份</h2><p>拿回控制权后，往往还需要恢复。iCloud成功恢复了除微信记录外的设置、外观、app等，但始终无法完整恢复聊天记录，更换网络环境、多次抹除还原激活均无果。此时需要联系「apple support高级顾问」，通过其后台刷新备份包的操作，应该可以恢复所有iCloud云备份。</p><h2 id="二、随想"><a href="#二、随想" class="headerlink" title="二、随想"></a>二、随想</h2><p>注意：此文写于酒后，但非「乱性」。</p><p>即使「他人即地狱」，即使常伤害他人，也请尽力帮助他人。我在帮助他人后，会获得快感，必须坦白承认，我享受这种感觉，这是有私心的。</p><p>但在需要接受帮助时，我总是犹豫，总是希望独立解决问题，也许接受帮助也是一种美德。</p><p>接上文，说到小红书及其他众多社交媒体，除了微信和长毛象外，我的使用频率已经很低了，完全不看短视频，但仍然无法逃脱奶头乐和监视资本主义。因工作和一些其他原因，我完全离不开微信，这不妨碍我对微信的憎恶。我完全无力控制，甚至做出微小贡献，这是可悲的，这也是「废话」。</p><p>流媒体太轻了，而文字是有力量的。希望这里能产出有力量的文字。</p><p>打住，说了那么多无关主题的话。若条件允许，请尽力帮助他人。</p><p>「纯爱战士」ready to serve.</p>]]></content>
     
@@ -52,6 +52,8 @@
       
     
     
+    
+    <category term="handle" scheme="https://numb.tech/categories/handle/"/>
     
     
   </entry>
@@ -241,7 +243,7 @@
     <link href="https://numb.tech/2025/01/06/eThings/"/>
     <id>https://numb.tech/2025/01/06/eThings/</id>
     <published>2025-01-06T05:14:16.000Z</published>
-    <updated>2025-01-19T03:53:39.993Z</updated>
+    <updated>2025-02-03T08:26:27.995Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>寻常的周日下午，有念头搭建一个mastodon实例，但是身体还没痊愈，暂时先搁置。闲来无事，上篇博文还停留在一年前，那就写写身边的电子设备吧。</p><p>那么从何而起呢，从正在打字的这台设备开始。</p><p>这是一台我不太常用的很老的设备，印象中可能快有20年了，那时候还在老家玩红警呢，这是母亲的设备。来自Acer，平常放在老的家里，也很有年代感，所以使用频率很低。它的机身上有着如下描述：Acer Aspire 2920Z，Intel Pentium T3400 2.16GHz，12.1” WXGA LCD，1GB DDR2。很久以前我简单地整备过，让它拥有了奇怪的3072MB RAM，运行了Windows7 LTSC。它还能够登录微信，使用Firefox播放Navidrome音乐，使用wps编辑公文，使用写字板程序写下这些文字，但它已经很老了，不是吗？</p><p>接下来是离我最近的设备，严格来说应该是小米手环7。很简单，用来看看时间，最实用的功能是用来看验证码，之前是一块戴了好几年的Casio。我的手腕上这是第四块小米手环了，它的先驱们或是故障，或是腕带常常断裂，或是飞走了，这也是我诟病小米公司的主要原因，我曾经也许是个米粉？小米5s（依然记得超声波指纹和3D Touch）、笔记本13.3、门禁、电动牙刷甚至90分旅行箱……，不过无所谓了，哈哈哈。</p><p>关于我们的现代外置器官，我已经加入iOS阵营有段时间了，但我还是会分段，一分为二、浓墨重彩地介绍Android。那么这台iPhone，其实还是很特殊的，iPhone SE 2022，4.7英寸LCD，A15以及Touch ID，也许称得上经典？没办法，我太爱小屏了，小屏LCD和不那么恼人的系统，仅有这家，仅此一机。另外，它仍然运行着iOS 15.4，其实我还是挺在意安全更新和功能更新的，但是这么些年了，更新往往意味着勤劳，而我渐渐懒惰。更重要的一个原因是我需要通话录音，这是社会亲自告诉我的，此外实时网络速率、NFC门禁卡、系统级文件管理，还有一些开发者级功能，很酷，于是，TrollStore。低版本的iOS在功耗和调度上，确实是优秀的。这是我手感很棒的设备之一，我会一直记住这种手感。</p><p>理所当然地过渡到iPad，其实使用频率很低。每每高频使用，往往沉浸学习。它好像叫iPad 9？那还是2021，我正在备考，它以及Apple pencil还有Notability、Goodnotes陪我写了不少文字，不少笔记。此外我还用它来看一些视频，后续可能会用来串流steam，不过未曾盖过泡面，也许Kindle更香，有Kindle哦！</p><p>打开查找，才想起我还有一个「胖子耳机」。是的，Powerbeats pro，它是Beats by Dr Dre.它的充电仓很胖，扁扁的，大腹便便，确实不能以貌取物，它可是为了运动而生。比起常见的入耳式，它能稳稳地附在我的双耳，如助听器那般。可是我没有用好它，没有怎么用它，以后要更好。</p><p>我曾经考虑过Apple watch，但还是希望电池技术能够有所革新。iOS硬件结束了，但是iCloud有必要一提，我使用了家庭组，之前是土耳其人，现在是国区2T，以后还没想好。iCloud有一次成功帮我在极端环境下恢复了连接，iCloud照片也能称得上有用。总的来说，iCloud还是比较稳定和易用的，可以用。</p><p>iOS结束，这台Android，也不一般。红米K30S Ultra，你知道的，它也是LCD。我为它刷入了LineageOS 21，类原生，我认为，是干净的。magsik、黑域、Accu……它太开发者了，以至于可以写太多太多而不知道从何而起。但是它实在太大太大了，6.67”，就这样吧，如果说iPhone是日常，那么Android就是想象力和瑞士军刀。以及，对我而言，联结。</p><p>到PC了，我一直都很想拥有一台高性能PC的，这是我儿时便有的梦想，还记得那天没等顺丰派送我就去快递站自提了，很开心。AMD 5600、AMD 6750 gre 12g、AMD YES！按照以前，它一定会是Windows LTSC的，但是装系统那天似乎是镜像一直有问题，加上我也愈发懒惰，它便是Windows 11 Home，也挺好的，不折腾。它于我的时光大部分是游戏，小部分是生产力。「嗨，别来无恙！」</p><p>主路由就不多着墨了，很简单的TPlink WiFi6组了两个mesh，租房够用。</p><p>有必要说说我的旁路由，相较于树莓派更加经济的香橙派OrangePi3 Lts，Arm Cortex-A53，Debian11。它目前有我自建的音乐系统Navidrome，ns加速器uubooster，局域网Samba，网络工具Openwrt。采用docker容器，采用caddy 2反代，采用ipv6和动态域名解析。毕竟是开发版嘛，折腾不止。</p><p>Nintendo Switch Oled，果不其然，吃灰的神，关键我家还有两个……在我常用它的时候，我常玩Splatoon3和巫师三，可是巫师三的画质，只能说优化地很好，能玩得下去。我的任亏券换的是喷喷和动森，有没有朋友一起玩呀！！！其实我很喜欢和朋友玩游戏，真的很喜欢。今后至少要把有氧拳击用起来，毕竟买了卡带。</p><p>就这样吧。不知不觉已经写了这么多，记录一下这些有趣的有爱的电子设备，挺有趣的，不是吗？我差不多要忘记如何发布博客了，幸得此文。</p><p>总感觉我的网络形象会给人一种nerd的感觉，那种理工的、机械的。其实不然！现实中我对我自己的评价相当人文，据测我是ISFJ，我看颐和园，我看恋爱的犀牛，我听李志，我打cs，我用长毛象，我穿carhatt，我写博客，我写诗，我也挺帅的，真的算「小帅」，算吗？对不起，我总是自恋，又病态。下次再说吧，那就等于起笔了！好事！</p><p>2025，我的元旦在病中度过，请一定保重身体，这样才能继续探索电子的世界，持续且递进。</p>]]></content>
     
@@ -252,6 +254,8 @@
       
     
     
+    
+    <category term="handle" scheme="https://numb.tech/categories/handle/"/>
     
     
   </entry>
