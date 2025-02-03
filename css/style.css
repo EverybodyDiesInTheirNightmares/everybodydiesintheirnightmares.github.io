@@ -490,15 +490,23 @@ body {
   text-align: left;
 }
 .header {
+  white-space: nowrap;
   margin: 4em auto;
   padding: 0 1em;
   justify-content: unset;
   flex-direction: unset;
 }
 .header .blog-title .logo {
+  font-weight: bold;
   font-family: 'KingHwa_OldSong', 'Source Serif Pro', 'Noto Serif TC', serif;
   font-size: 1.2em;
   text-decoration: none;
+}
+.header .menu .menu-item-link {
+  color: #818181;
+  text-decoration: none;
+  font-size: 1em;
+  padding: 0.1em;
 }
 .post {
   padding: 4em;
