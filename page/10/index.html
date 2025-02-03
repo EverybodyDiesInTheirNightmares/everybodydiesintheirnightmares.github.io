@@ -112,6 +112,83 @@
     
     <article class="post">
         <div class="post-title">
+            <a class="post-title-link" href="/2021/12/28/A-simple-smart-home-practice/">A Simple Smart Home Practice</a>
+        </div>
+        <div class="post-content">
+            
+            <blockquote>
+<p>Hey Siri,turn on my doge light and switch it to 100 percent.</p>
+<p>Hey Siri,help me disconnect the power pls.</p>
+<p><strong>Mirror mirror</strong> tell me, who is the <strong>most beautiful</strong> in the world?</p>
+</blockquote>
+<p>It’s been a really long time since I wrote my last technical article.I graduated successfully with my graduation project 《The design and implementation of the Raspberry Pi and MagicMirror based daily intelligent helper》.As for that project,the abstract of my paper says so:</p>
+<blockquote>
+<p>With the continuous development of society and technology, more and<br>more new items are getting involved in people’s family life. Under the<br>continuous leadership of national policies, the smart home industry is<br>developing strongly. However, the high price of smart devices and the<br>complicated technical details of them also make the threshold of smart home<br>rise.</p>
+<p>This paper first explores the development status of the smart home<br>industry and proposes an innovative and practical way to implement a daily<br>smart assistant that transforms existing devices on its basis; and describes<br>the corresponding feasibility and requirement analysis; finally, it introduces<br>the related technology and development process in detail.</p>
+<p>This project is rooted in the Raspberry Pi platform, combined with the <em>MagicMirror</em> framework, which is currently open source, with a large number of users and a good developer environment, supplemented by various hardware devices, to design and make a low-cost, low-threshold, low-power daily intelligent assistant.</p>
+</blockquote>
+<p>But today Im goona talk about two other smart home scenarios:</p>
+<h1 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h1><p>Note:This article just provides a general idea of smart home practice that everybody could afford and does not involve any actual coding part.It is quite friendly to non-specialists.So just take your first step and enjoy it!</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li><p><u>Scenario 1</u>: As an OCD sufferer,i am ALWAYS aware of the power condition of all the outlets in my house,especially the chargers.When the battery of various devices is charged to 100%,i always want to unplug it manually.</p>
+</li>
+<li><p><u>Scenario 2</u>: When your room doesn’t equip with a bedside light switch,all you can do is turn off the light switch by the door then reach your bed in the dark SADLY.</p>
+</li>
+</ul>
+<p>As a developer or an internet explorer you should always believe in that <em>science and technology is the first productive force</em>. Without further ado,let’s move on.</p>
+<h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><h3 id="Hardwares"><a href="#Hardwares" class="headerlink" title="Hardwares"></a>Hardwares</h3><p>I use iOS devices,so i chose <em>works with Apple HomeKit</em> devices.</p>
+<ul>
+<li><p>Yeelight smart LED filament bulb(IEEE 802.11 b/g/n 2.4GHz)</p>
+</li>
+<li><p>DoHome smart outlet(IEEE 802.11 b/g/n 2.4GHz)</p>
+</li>
+<li><p>A Cute puppy(BY FEELING LONG HAIR DOG LAMP gift for my girlfriend lol)</p>
+</li>
+</ul>
+<h3 id="Operating-Environment"><a href="#Operating-Environment" class="headerlink" title="Operating Environment"></a>Operating Environment</h3><ul>
+<li><p>iOS 15.1</p>
+</li>
+<li><p>Apple HomeKit</p>
+</li>
+<li><p>iOS Shortcuts</p>
+</li>
+<li><p>IEEE 802.11 b/g/n 2.4GHz WLAN</p>
+</li>
+</ul>
+<h3 id="Installation-Configuration"><a href="#Installation-Configuration" class="headerlink" title="Installation/Configuration"></a>Installation/Configuration</h3><p>Ensure the network is running at 2.4GHz and <strong>Take relevant safety precautions.</strong> Such as strong passcodes or MAC address whitelist or disable public network access.</p>
+<h4 id="For-Scenario-1"><a href="#For-Scenario-1" class="headerlink" title="For Scenario 1:"></a>For Scenario 1:</h4><ul>
+<li><p>Simply power up the smart outlet.</p>
+</li>
+<li><p>Download DoHome app on your iOS devices.</p>
+</li>
+<li><p>Initialize the outlet according to DoHome app guide and add it to Apple Home.</p>
+</li>
+<li><p>Open Shortcuts app,tap <em>Automation</em>,tap <em>+</em>,press <em>Create Personal Automation</em>,swipe down and tap <em>Battery Level—–When Battery Level Equals 100%—–Next—–Add Action—–serch Home—–control–outlet’s name—–Selected—–Turn off—–done—–Unselect Ask Before Running</em> <strong>DONE!</strong></p>
+</li>
+</ul>
+<h4 id="For-Scenario-2"><a href="#For-Scenario-2" class="headerlink" title="For Scenario 2"></a>For Scenario 2</h4><ul>
+<li><p>Simply put the bulb into the lamp holder and power it up.</p>
+</li>
+<li><p>Download Yeelight app on your iOS devices.</p>
+</li>
+<li><p>Initialize the bulb according to Yeelight app guide and add it to Apple Home.</p>
+</li>
+</ul>
+<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><p>「Hey Siri, turn on my doge light」:</p>
+<div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?aid=892655219&bvid=BV1bP4y1J7up&cid=471543323&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
+</div>
+
+            
+        </div>
+        <div class="post-meta">
+            
+            <span class="post-time">二〇二一年十二月廿八日</span>
+        </div>
+    </article>
+    
+    <article class="post">
+        <div class="post-title">
             <a class="post-title-link" href="/2021/10/29/emostop/">喀纳斯</a>
         </div>
         <div class="post-content">
@@ -131,31 +208,6 @@
         <div class="post-meta">
             
             <span class="post-time">二〇二一年十月廿九日</span>
-        </div>
-    </article>
-    
-    <article class="post">
-        <div class="post-title">
-            <a class="post-title-link" href="/2021/08/17/senescence/">衰老</a>
-        </div>
-        <div class="post-content">
-            
-            <p>本文题「衰老」取自Andre Gorz的《衰老》。正如译者袁筱一女士所言，「没有读过他的作品，甚至没有听过他的名。零星的资料告诉我，他是一个出色的记者，法国政论性刊物《新观察家》的“创建者”之一。」在豆瓣简单检索后并未发现书名一致的书籍，故无法用写作的第一语言标注。</p>
-<p>时年二十三周岁整，在我人生的前二十三年，我一直自诩，或者说是在内心里标榜自己「非池中之物」，这个表述的作用范围并非普世的价值判断。不去探讨这个命题在现阶段或是在以后的任何时刻成立，就今天或者说是就现在的情况来看，我正在「衰老」，事实上这是一句废话，不过这令我欣喜。</p>
-<blockquote>
-<p>放弃德勒兹-伽塔利后来所谓的“欲望的无休无止”以及乔治，巴塔耶所谓的“可能性无处不在”，这种放弃只有通过对于所有限定的根本拒绝才能够达及：想要什么也不是的愿望与想要成为一切的愿望彼此混淆。在《衰老》的结尾，是这样一段自我勉励：“必须接受结束，必须接受是在这里，而不是在别的任何地方，是在做这个而不是别的什么事情，现在，永远，永远……必须接受这份生活，唯它而已。”</p>
-</blockquote>
-<p>我想这确是值得欣喜的，在过去或许从未或是极少有过物质生活的窘境，总是给自己制造逃避现实的「法拉第笼」，原本以为学生生涯结束会带来转机，但实际情况并非如此。</p>
-<blockquote>
-<p>用整体性的视角观察当代社会、技术文化以及商业风景，对抗消费主义导向的论述，强调对技术与艺术的敏锐感受力、以及精神与肉体上的强健。</p>
-</blockquote>
-<p>对技术与艺术的敏锐感受力、以及精神与肉体上的强健。是时候了。</p>
-
-            
-        </div>
-        <div class="post-meta">
-            
-            <span class="post-time">二〇二一年八月十七日</span>
         </div>
     </article>
     
@@ -267,7 +319,7 @@
 
 <p class="thanks" style="white-space: nowrap;">
   <!-- 字数统计 -->
-  <span class="post-count">已记录二点四九万字 &nbsp;</span>
+  <span class="post-count">已记录二点五一万字 &nbsp;</span>
   <!--  -->
   © 双绞麻痹
 </p>
