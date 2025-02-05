@@ -6,7 +6,7 @@
   <link href="https://numb.tech/atom.xml" rel="self"/>
   
   <link href="https://numb.tech/"/>
-  <updated>2025-02-03T14:07:48.413Z</updated>
+  <updated>2025-02-05T03:51:58.307Z</updated>
   <id>https://numb.tech/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>此博客写些什么及一些说明</title>
+    <link href="https://numb.tech/2025/02/05/whatsnumbtech/"/>
+    <id>https://numb.tech/2025/02/05/whatsnumbtech/</id>
+    <published>2025-02-05T04:00:51.000Z</published>
+    <updated>2025-02-05T03:51:58.307Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>甲辰龙年去，乙巳蛇年至。向阁下道一声新年好。</p><p>近来更新了车机系统，也更新了博客系统，本博客也迎来了前所未有的更新频率，很好：一月初的一天，突然想写些什么，于是有了「<a href="https://numb.tech/2025/01/06/eThings/">关于我的电子产品</a>」。此后又有数篇更新，并主动加入「<a href="https://bf.zzxworld.com/">BlogFinder</a>」，让我对本站有了很多新的思考，今天便介绍下此博客写些什么。</p><p>本站建立于2019年，已经走过近六个年头。此前，博客文章寥寥无几，主要写了一些随笔，没什么限制，也没什么内容。今后，此博客将继续着重<strong>随笔类文章</strong>的书写，但力求篇幅不要过短。并将放置一些本人<strong>学习技术、利用技术、对抗技术的一些记录</strong>，好歹要对得起「双绞麻痹」。</p><p>以下是一些说明：</p><p>值此万象更新之际，本博客正式切换到了「竖排」书写模式，增加了「去过」、「箴言」、「留言」板块，将「电子技术」类文章索引到了一个独立板块，并完成了网站的若干修改。将网站字体更新为「京華老宋体」，非常中意这种字体。</p><blockquote><p>京華老宋体，风格来自于1961年北京新华字模厂改刻的老筑地体一一61-1体。桃形点、鹅头勾和三角字肩，极具老宋体风味，较之如今最常使用之宋二体更加厚重圆润，基本还原六七十年代左右的印刷风貌。比之「汇文明朝体」时代距今更近，因此排版效果更加工整秀丽，少了一些破落、古拙的质感，多了一些标致、正规的气息。但在字形上又还没受到后来新字形的规范，正经的外表下暗藏一绦叛逆，甚为妙哉。</p></blockquote><p>前几日发现了关于个人博客版权的一些争议。我个人对相关事项的见解如「<a href="https://numb.tech/words">箴言</a>」处：</p><blockquote><p>拟在此处放置一些爱看并事先通知过的链接。</p><p>如不慎对阁下造成困扰，收到<a href="mailto:hi@numb.tech">通知</a>后会尽快无条件删除。</p></blockquote><p>本站此前并未太在意「版权」，并沿用了主题默认的CC4.0协议。现已在页脚表明了新的版权立场，过去的过去便是。</p><p>若本站有任何读者，我向阁下承诺，本站不会植入任何广告。若阁下对本站排版尤其是阅读电子技术类文章时不很习惯，可尝试「订阅」。当然，这绝非一种「胁迫」，完全自愿。若本站为阁下带来任何不适或困扰，先道一声抱歉。</p><blockquote><p>这以前，我的心也曾充满过血腥的歌声：血和铁，火焰和毒，恢复和报仇。而忽而这些都空虚了，但有时故意地填以没奈何的自欺的希望。希望，希望，用这希望的盾，抗拒那空虚中的暗夜的袭来，虽然盾后面也依然是空虚中的暗夜。然而就是如此，陆续地耗尽了我的青春。<br>我早先岂不知我的青春已经逝去了？但以为身外的青春固在：星、月光、僵坠的胡蝶，暗中的花，猫头鹰的不祥之言，杜鹃的啼血，笑的渺茫，爱的翔舞……虽然是悲凉飘渺的青春罢，然而究竟是青春。</p></blockquote><p>读书太少，年纪尚浅。无法输出什观点，不能发表文学评论，更不可对历史和时事作什评价，关于技术只是浅尝辄止，好似只有虚空。我活在这世上，好似没什么拿得出手的东西。我想有那么一点东西。</p><p>青春尚未完全逝去的我，只有把此站作为某种希望，抗拒这空虚的空虚。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>红米k30su优雅使用carwith</title>
@@ -400,26 +420,6 @@
     
     
     <category term="handle" scheme="https://numb.tech/categories/handle/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>喀纳斯</title>
-    <link href="https://numb.tech/2021/10/29/emostop/"/>
-    <id>https://numb.tech/2021/10/29/emostop/</id>
-    <published>2021-10-29T14:40:42.000Z</published>
-    <updated>2022-03-23T10:04:08.059Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>今天是十月廿九日，这里难得的出太阳了。今天不想工作，也不想学习。屏幕解锁后发现昨晚没有完成充电，好在工作也不多，就给了磨洋工正大光明的借口。罢了，写博客罢。</p><p>最近的牢骚多了很多。但是「闲言流语不能帮助任何人。那写博客也算是闲言流语吗？我想是的，但又不太一样。博客的每一篇闲语都有标题，而标题是要想的」。这是博客中的闲语比评论区的牢骚更好的地方。</p><p>在此地工作已有一月，其实根本算不上「入职」，或许是「供职」。目前的状态似乎与预想不太一致。「天气不似预期」但更没有再抱怨任何的理由，因为「必须接受结束，必须接受是在这里，而不是在别的任何地方，是在做这个而不是别的什么事情，现在，永远，永远……必须接受这份生活，唯它而已。」</p><p>这是我第一次工作。省级机关的职能部门，工作远没有想象中的那么轻松，虽说不涉及太深入的专业知识，但事务确是繁杂的。但繁杂远非繁忙，更非「压榨」。事实上，只有一天加班到17:30，而这一周我也屡次在9：05后就座。但长时间的通勤以及不间断的事务仍让我感到疲累。</p><p>其实也说不上「身心俱疲」，在早晨和夜里我仍有充足的时间去复习，基本可以做到一天一套真题。好景不长，随着「学徒之心」逐渐消退，我的意志也逐渐消磨。我不再早起，每天都让闹钟在7.30响起；我也不再晚间学习，似乎又回到了一个月前。我用工作带来的倦意做挡箭牌，饮鸩止渴罢。</p><p>我的情绪变得不稳定起来，我又开始自言自语。在情绪稳定时还能做题学习，一旦心中泛起波澜，就会进入到「奶头乐」的循环以期转移视线。日复一日，我终于还是落入了过去是那么嗤之以鼻的「监视资本主义」陷阱。</p><p>我渴望像「李如一、Mag Mell」等前辈一样，他们在「<a href="https://eatradish.github.io/let-fuck-the-evil-century">恶世纪</a>」中是那么的与众不同，在他们的文字中我真切的感受到人性光辉。价值观的输出向来是一件难事。我想我不能将所有的失败、沮丧和一切消极归因于消费主义，像「Mag Mell」一样，我正「在生活中迷失，被常年累积以来的虚无、盲目、失败，加上消费主义对于我的异化，使我失明。昼夜颠倒，人魂出离。」</p><p>但基调不变也不能变：「在颓败氛围同时势，仍然保持美态咁解。」这也正是这篇博客存在的意义，我正尝试振作自己。</p><p>当然，也不全是坏事。父亲的手术还算顺利，这在相当程度上带来了慰藉。<br>现在是周五的16:55:47，我要去到「喀纳斯」了，希望你也是。<br>周末愉快。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
     
     
   </entry>
