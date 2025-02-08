@@ -235,12 +235,13 @@
         class NeoDB {
             constructor(config) {
                 this.container = config.container;
-                this.types = config.types ?? ["book", "movie", "music", "game"];
+                this.types = config.types ?? ["book", "movie", "music", "game","tv"];
                 this.typeNames = {
                     book: "书\u00A0",
                     movie: "影\u00A0",
                     music: "音\u00A0",
-                    game: "游\u00A0"
+                    game: "游\u00A0",
+                    tv: "剧\u00A0"
                 };
                 this.baseAPI = config.baseAPI;
                 this.type = "book";
@@ -393,7 +394,7 @@
             const neodb = new NeoDB({
                 container: ".neodb-container",
                 baseAPI: "https://x.numb.tech/api",
-                types: ["book", "movie", "music", "game"],
+                types: ["book", "movie", "music", "game","tv"],
             });
         });
     </script>
@@ -402,7 +403,7 @@
     </div>
     <div class="post-meta">
         
-        <span class="post-time">二〇二五年二月八日</span>
+        <span class="post-time">二〇二五年二月九日</span>
     </div>
 </article>
 <!-- 版权提醒 -->
