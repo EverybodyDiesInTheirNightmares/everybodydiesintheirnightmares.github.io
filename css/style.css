@@ -497,15 +497,14 @@ body {
   flex-direction: unset;
 }
 .header .blog-title .logo {
-  font-weight: bold;
   font-family: 'KingHwa_OldSong', 'Source Serif Pro', 'Noto Serif TC', serif;
-  font-size: 1.2em;
+  font-size: 1.5em;
   text-decoration: none;
 }
 .header .menu .menu-item-link {
   color: #818181;
   text-decoration: none;
-  font-size: 0.9em;
+  font-size: 1em;
   padding: 0.1em;
 }
 .post {
