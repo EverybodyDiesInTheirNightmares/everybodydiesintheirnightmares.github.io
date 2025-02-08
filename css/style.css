@@ -505,7 +505,7 @@ body {
 .header .menu .menu-item-link {
   color: #818181;
   text-decoration: none;
-  font-size: 1em;
+  font-size: 0.9em;
   padding: 0.1em;
 }
 .post {
