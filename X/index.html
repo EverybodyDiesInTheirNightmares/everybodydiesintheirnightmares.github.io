@@ -124,7 +124,6 @@
             --max-width: 750px;
         }
         body {
-            background-color: #fff;
             font-size: 16px;
             line-height: 1.6em;
             padding: 0 1.5em;
@@ -179,12 +178,6 @@
             color: var(--db-primary-color);
             text-decoration: underline;
         }
-        .neodb-score {
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-            color: var(--db-text-light);
-        }
         .neodb-item {
             white-space: nowrap;
             width: var(--db-item-width);
@@ -207,33 +200,6 @@
             font-size: 18px;
             margin-bottom: 5px;
         }
-        .neodb-card__list .rating {
-            margin: 0;
-            font-size: 14px;
-            line-height: 1;
-            display: flex;
-            align-items: center;
-        }
-        .neodb-card__list .rating .allstardark {
-            position: relative;
-            color: #f99b01;
-            height: 16px;
-            width: 80px;
-            background-repeat: repeat;
-            background-image: url("../images/star.svg");
-            background-size: auto 100%;
-            margin-right: 5px;
-        }
-        .neodb-card__list .rating .allstarlight {
-            position: absolute;
-            left: 0;
-            color: #f99b01;
-            height: 16px;
-            overflow: hidden;
-            background-repeat: repeat;
-            background-image: url("../images/star-fill.svg");
-            background-size: auto 100%;
-        }
         .neodb-dateList__card {
             display: flex;
             flex-wrap: wrap;
@@ -252,8 +218,18 @@
     </style>
 </head>
 <body>
-    <div class="neodb-container"></div>
-    <span>也许没有浪费光阴，数据来源</span>
+    <div class="neodb-container">
+        <nav class="neodb-nav"></nav>
+        <div class="neodb-list"></div>
+        <div class="block-more block-more__centered">
+            <div class="lds-ripple"></div>
+        </div>
+    </div>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <span>一句话短评，数据来源我的</span>
     <a href="https://neodb.social/users/oxy93n/" target="_blank">NeoDB</a>
     <script>
         class NeoDB {
@@ -334,16 +310,16 @@
             _renderListTemplate() {
                 document.querySelector(".neodb-list").innerHTML = this.subjects
                     .map((item) => {
-                        const title = item.item.title;
-                        const rating = item.item.rating;
+                        const title = "《"+item.item.title+"》";
                         const link = item.item.id;
+                        const comment_text = item.comment_text; // 获取 comment_text 属性
 
                         return `<div class="neodb-item">
-                            <div class="neodb-score">
-                                ${rating ? `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 20.1l5.82 3.682c1.066.675 2.37-.322 2.09-1.584l-1.543-6.926 5.146-4.667c.94-.85.435-2.465-.799-2.567l-6.773-.602L13.29.89a1.38 1.38 0 0 0-2.581 0l-2.65 6.53-6.774.602C.052 8.126-.453 9.74.486 10.59l5.147 4.666-1.542 6.926c-.28 1.262 1.023 2.26 2.09 1.585L12 20.099z"></path></svg>${rating}` : ""}
-                            </div>
                             <div class="neodb-title">
                                 <a href="${link}" target="_blank">${title}</a>
+                            </div>
+                            <div class="neodb-comment">
+                                ${comment_text ? `<p>${comment_text}</p>` : ""}
                             </div>
                         </div>`;
                     })
@@ -421,7 +397,6 @@
             });
         });
     </script>
-    
 </body>
 </html>
     </div>
