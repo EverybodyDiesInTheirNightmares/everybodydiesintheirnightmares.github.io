@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    
+    <title> - 双绞麻痹</title>
+    <meta charset="utf-8">
+    
+    <meta name="title" content=" - 双绞麻痹">
+    <meta name="description" content="">
+    <meta property="og:image" content="/favicon.png">
+    <meta property="og:image:width" content="200" />
+    <meta property="og:image:height" content="200" />
+    
+    <!-- 字体设置 -->
+    <!-- 20250202修改京华老宋体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200..900&display=swap" rel="stylesheet"> -->
+    <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/京華老宋体v2_002/result.css' />
+
+    <style>
+        body {
+            font-family: KingHwa_OldSong, 'KingHwa_OldSong', 'Source Serif Pro', 'Source Han Serif TC', 'Noto Serif CJK TC', 'Noto Serif TC', serif;
+        }
+    </style>
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    <!--  -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- 
+<script src="/js/jquery.min.js"></script>
+ -->
+    <!-- 将jQuery置于cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="双绞麻痹" type="application/atom+xml">
+</head>
+
+<body>
+    <header class="header">
+    <div class="blog-title">
+        <a href="/" class="logo">双绞麻痹</a>
+    </div>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/archives" class="menu-item-link">索引</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/been2" class="menu-item-link">去过</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/X" class="menu-item-link">度过</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/words" class="menu-item-link">箴言</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/comments" class="menu-item-link">留言</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/about" class="menu-item-link">关于</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="https://numb.tech/atom.xml" class="menu-item-link">订阅</a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <article class="post">
+    <div class="post-title">
+        <h1 class="title"></h1>
+    </div>
+    <div class="post-content">
+        <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>本地EPUB转MOBI</title>
+    <style>
+        #dropZone {
+            border: 2px dashed #ccc; 
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 600px;
+            cursor: pointer;
+        }
+        #status {
+            color: #666;
+            text-align: center;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="dropZone">
+        📁 拖放EPUB文件到这里或点击选择<br>
+        <small>（Chrome/Edge浏览器，文件需小于2MB）</small>
+        <input type="file" id="fileInput" accept=".epub" hidden>
+    </div>
+    <div id="status">准备就绪</div>
+
+<!-- 使用iframe加载pandoc-wasm -->
+<iframe id="pandocFrame" src="https://cdn.jsdelivr.net/npm/pandoc-wasm@0.0.2/dist/pandoc.min.js" style="display:none;"></iframe>
+
+<script>
+async function convertToMobi(file) {
+    const status = document.getElementById('status');
+    try {
+        status.textContent = '正在加载转换引擎...';
+        
+        const iframe = document.getElementById('pandocFrame');
+        const pandoc = await new Promise((resolve, reject) => {
+            iframe.onload = () => {
+                const module = iframe.contentWindow.Module;
+                if (module && module.FS && module.callMain) {
+                    resolve(module);
+                } else {
+                    reject(new Error('Pandoc模块加载失败'));
+                }
+            };
+            iframe.onerror = reject;
+        });
+        
+        status.textContent = '正在转换文件...';
+        const reader = new FileReader();
+        
+        reader.onload = async (e) => {
+            try {
+                // 写入虚拟文件系统
+                pandoc.FS.writeFile('input.epub', new Uint8Array(e.target.result));
+                
+                // 执行转换命令
+                pandoc.callMain(['input.epub', '-o', 'output.mobi', '-t', 'mobi']);
+                
+                // 读取结果
+                const mobiData = pandoc.FS.readFile('output.mobi');
+                
+                // 创建下载链接
+                const blob = new Blob([mobiData], { type: 'application/x-mobi' });
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = file.name.replace('.epub', '.mobi');
+                a.click();
+                
+                status.textContent = '转换完成！';
+            } catch (error) {
+                status.textContent = '转换失败: ' + error.message;
+            }
+        };
+        reader.readAsArrayBuffer(file);
+        
+    } catch (error) {
+        status.textContent = '错误: ' + error.message;
+    }
+}
+
+// 事件绑定
+document.getElementById('dropZone').addEventListener('click', () => {
+    document.getElementById('fileInput').click();
+});
+
+document.getElementById('fileInput').addEventListener('change', (e) => {
+    if (e.target.files[0]) convertToMobi(e.target.files[0]);
+});
+
+document.addEventListener('dragover', e => e.preventDefault());
+document.addEventListener('drop', e => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    if (file && file.name.endsWith('.epub')) {
+        convertToMobi(file);
+    } else {
+        alert('请选择EPUB文件');
+    }
+});
+</script>
+</body>
+</html>
+
+    </div>
+    <div class="post-meta">
+        
+        <span class="post-time">二〇二五年二月廿三日</span>
+    </div>
+</article>
+<!-- 版权提醒 -->
+<p class="thanks">© 双绞麻痹</p>
+<!--  -->
+<div class="prev_next">
+    <nav id="prev_next">
+
+</nav>
+</div>
+
+<div class="post-comment">
+    
+
+
+
+</div>
+
+    </main>
+</body>
+
+</html>
