@@ -112,6 +112,26 @@
     
     <article class="post">
         <div class="post-title">
+            <a class="post-title-link" href="/2022/05/27/ripple/">涟漪</a>
+        </div>
+        <div class="post-content">
+            
+            <p>我的生活自「重构」后泛起了些许涟漪。这几日，我常在间隙思考，「写些什么」？</p>
+<p>我尝试在我干瘪的思维里强硬地再挤出点什么，以达成每周三篇文章的夙愿。为赋新词强说愁，呜呼哀哉。以双绞麻痹主人之名，不空羂索观音菩萨，请像过去的任何时刻一样，请再一次宽恕你可怜的信众。</p>
+<p>我看见虚拟的十班班长说「必须考上没有选择」，我想她此刻的人生大概是幸福的。我想我也要像她一样，我要抓住这一年难遇的涟漪，我要变成逸夫楼，我要变成三〇六，我要变成「图灵机器」。</p>
+<p>此外，被污染的jsdelivr在本站范围内已得到暂时解决。</p>
+<p>那么，再会了。</p>
+
+            
+        </div>
+        <div class="post-meta">
+            
+            <span class="post-time">二〇二二年五月廿七日</span>
+        </div>
+    </article>
+    
+    <article class="post">
+        <div class="post-title">
             <a class="post-title-link" href="/2022/05/23/remake/">重构</a>
         </div>
         <div class="post-content">
@@ -134,83 +154,6 @@
         <div class="post-meta">
             
             <span class="post-time">二〇二二年五月廿三日</span>
-        </div>
-    </article>
-    
-    <article class="post">
-        <div class="post-title">
-            <a class="post-title-link" href="/2021/12/28/A-simple-smart-home-practice/">A Simple Smart Home Practice</a>
-        </div>
-        <div class="post-content">
-            
-            <blockquote>
-<p>Hey Siri,turn on my doge light and switch it to 100 percent.</p>
-<p>Hey Siri,help me disconnect the power pls.</p>
-<p><strong>Mirror mirror</strong> tell me, who is the <strong>most beautiful</strong> in the world?</p>
-</blockquote>
-<p>It’s been a really long time since I wrote my last technical article.I graduated successfully with my graduation project 《The design and implementation of the Raspberry Pi and MagicMirror based daily intelligent helper》.As for that project,the abstract of my paper says so:</p>
-<blockquote>
-<p>With the continuous development of society and technology, more and<br>more new items are getting involved in people’s family life. Under the<br>continuous leadership of national policies, the smart home industry is<br>developing strongly. However, the high price of smart devices and the<br>complicated technical details of them also make the threshold of smart home<br>rise.</p>
-<p>This paper first explores the development status of the smart home<br>industry and proposes an innovative and practical way to implement a daily<br>smart assistant that transforms existing devices on its basis; and describes<br>the corresponding feasibility and requirement analysis; finally, it introduces<br>the related technology and development process in detail.</p>
-<p>This project is rooted in the Raspberry Pi platform, combined with the <em>MagicMirror</em> framework, which is currently open source, with a large number of users and a good developer environment, supplemented by various hardware devices, to design and make a low-cost, low-threshold, low-power daily intelligent assistant.</p>
-</blockquote>
-<p>But today Im goona talk about two other smart home scenarios:</p>
-<h1 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h1><p>Note:This article just provides a general idea of smart home practice that everybody could afford and does not involve any actual coding part.It is quite friendly to non-specialists.So just take your first step and enjoy it!</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
-<li><p><u>Scenario 1</u>: As an OCD sufferer,i am ALWAYS aware of the power condition of all the outlets in my house,especially the chargers.When the battery of various devices is charged to 100%,i always want to unplug it manually.</p>
-</li>
-<li><p><u>Scenario 2</u>: When your room doesn’t equip with a bedside light switch,all you can do is turn off the light switch by the door then reach your bed in the dark SADLY.</p>
-</li>
-</ul>
-<p>As a developer or an internet explorer you should always believe in that <em>science and technology is the first productive force</em>. Without further ado,let’s move on.</p>
-<h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><h3 id="Hardwares"><a href="#Hardwares" class="headerlink" title="Hardwares"></a>Hardwares</h3><p>I use iOS devices,so i chose <em>works with Apple HomeKit</em> devices.</p>
-<ul>
-<li><p>Yeelight smart LED filament bulb(IEEE 802.11 b/g/n 2.4GHz)</p>
-</li>
-<li><p>DoHome smart outlet(IEEE 802.11 b/g/n 2.4GHz)</p>
-</li>
-<li><p>A Cute puppy(BY FEELING LONG HAIR DOG LAMP gift for my girlfriend lol)</p>
-</li>
-</ul>
-<h3 id="Operating-Environment"><a href="#Operating-Environment" class="headerlink" title="Operating Environment"></a>Operating Environment</h3><ul>
-<li><p>iOS 15.1</p>
-</li>
-<li><p>Apple HomeKit</p>
-</li>
-<li><p>iOS Shortcuts</p>
-</li>
-<li><p>IEEE 802.11 b/g/n 2.4GHz WLAN</p>
-</li>
-</ul>
-<h3 id="Installation-Configuration"><a href="#Installation-Configuration" class="headerlink" title="Installation/Configuration"></a>Installation/Configuration</h3><p>Ensure the network is running at 2.4GHz and <strong>Take relevant safety precautions.</strong> Such as strong passcodes or MAC address whitelist or disable public network access.</p>
-<h4 id="For-Scenario-1"><a href="#For-Scenario-1" class="headerlink" title="For Scenario 1:"></a>For Scenario 1:</h4><ul>
-<li><p>Simply power up the smart outlet.</p>
-</li>
-<li><p>Download DoHome app on your iOS devices.</p>
-</li>
-<li><p>Initialize the outlet according to DoHome app guide and add it to Apple Home.</p>
-</li>
-<li><p>Open Shortcuts app,tap <em>Automation</em>,tap <em>+</em>,press <em>Create Personal Automation</em>,swipe down and tap <em>Battery Level—–When Battery Level Equals 100%—–Next—–Add Action—–serch Home—–control–outlet’s name—–Selected—–Turn off—–done—–Unselect Ask Before Running</em> <strong>DONE!</strong></p>
-</li>
-</ul>
-<h4 id="For-Scenario-2"><a href="#For-Scenario-2" class="headerlink" title="For Scenario 2"></a>For Scenario 2</h4><ul>
-<li><p>Simply put the bulb into the lamp holder and power it up.</p>
-</li>
-<li><p>Download Yeelight app on your iOS devices.</p>
-</li>
-<li><p>Initialize the bulb according to Yeelight app guide and add it to Apple Home.</p>
-</li>
-</ul>
-<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><p>「Hey Siri, turn on my doge light」:</p>
-<div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?aid=892655219&bvid=BV1bP4y1J7up&cid=471543323&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
-</div>
-
-            
-        </div>
-        <div class="post-meta">
-            
-            <span class="post-time">二〇二一年十二月廿八日</span>
         </div>
     </article>
     
