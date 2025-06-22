@@ -112,266 +112,94 @@
     
     <article class="post">
         <div class="post-title">
-            <a class="post-title-link" href="/2020/05/26/simple-recommendersystem-practice/">基于协同过滤的音乐推荐系统实践</a>
+            <a class="post-title-link" href="/2021/08/17/senescence/">衰老</a>
         </div>
         <div class="post-content">
             
-            <blockquote>
-<p>废话：近年来，「人工智能/大数据/机器学习/区块链」等等词汇越发「甚嚣尘上」(误)。作为一个仅仅对web开发有些许了解并且不想成为码畜的普通计算机本科生，虽然顶着「计算机科学与技术」这样一个看似响亮的名号，但说实在的，我对上述词汇的认知可以说是「聊胜于无」(误)，直到本学期学校开了人工智能的相关课程，才逐渐对相关信息有所了解，也直到完成本次课程实践作业，我或许才算得上真正的入门「机器学习」。</p>
-</blockquote>
-<h3 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h3><blockquote>
-<p>据报道 [1]，中国有超过 9.77 亿人每周都听音乐，而 66%的人通过流媒体来听音乐。为了 给用户提供更好的体验，如何为用户推荐喜爱的音乐就变得非常重要。本项目使用的数据 集来自 Last.fm 音乐网站 [2]，数据集在 2011 推荐系统会议(ACM RecSys)中发布。——人工智能实践课程项目一 音乐推荐系统</p>
-</blockquote>
+            <p>本文题「衰老」取自Andre Gorz的《衰老》。正如译者袁筱一女士所言，「没有读过他的作品，甚至没有听过他的名。零星的资料告诉我，他是一个出色的记者，法国政论性刊物《新观察家》的“创建者”之一。」在豆瓣简单检索后并未发现书名一致的书籍，故无法用写作的第一语言标注。</p>
+<p>时年二十三周岁整，在我人生的前二十三年，我一直自诩，或者说是在内心里标榜自己「非池中之物」，这个表述的作用范围并非普世的价值判断。不去探讨这个命题在现阶段或是在以后的任何时刻成立，就今天或者说是就现在的情况来看，我正在「衰老」，事实上这是一句废话，不过这令我欣喜。</p>
 <blockquote>
-<p>Recommenders: systems, sites and software that mine data to find stuff you’ll like——reddit</p>
+<p>放弃德勒兹-伽塔利后来所谓的“欲望的无休无止”以及乔治，巴塔耶所谓的“可能性无处不在”，这种放弃只有通过对于所有限定的根本拒绝才能够达及：想要什么也不是的愿望与想要成为一切的愿望彼此混淆。在《衰老》的结尾，是这样一段自我勉励：“必须接受结束，必须接受是在这里，而不是在别的任何地方，是在做这个而不是别的什么事情，现在，永远，永远……必须接受这份生活，唯它而已。”</p>
 </blockquote>
+<p>我想这确是值得欣喜的，在过去或许从未或是极少有过物质生活的窘境，总是给自己制造逃避现实的「法拉第笼」，原本以为学生生涯结束会带来转机，但实际情况并非如此。</p>
 <blockquote>
-<p>据报道，推荐系统给亚马逊带来了35%的销售收入，给Netflix带来了高达75%的消费，并且Youtube主页上60%的浏览来自推荐服务。——msra</p>
+<p>用整体性的视角观察当代社会、技术文化以及商业风景，对抗消费主义导向的论述，强调对技术与艺术的敏锐感受力、以及精神与肉体上的强健。</p>
 </blockquote>
-<blockquote>
-<p>完成课程目标(误，其实还是很感兴趣，不然也不会专门写博客) ——citizen5</p>
-</blockquote>
-<blockquote>
-<p>通过本次项目实践，我们学会了如何为推荐系统预处理数据，通过相对简单的方法和第三方库实现了「协同过滤」和「随机梯度下降」，最终达到了普通人也能实现的「人工智能」。——总结</p>
-</blockquote>
-<h3 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h3><h6 id="什么是推荐系统"><a href="#什么是推荐系统" class="headerlink" title="什么是推荐系统"></a>什么是推荐系统</h6><blockquote>
-<p><strong>推荐系统</strong>是一种信息过滤系统，用于预测用户对物品的“评分”或“偏好”。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E8%96%A6%E7%B3%BB%E7%B5%B1#cite_note-1">1]</a></p>
-<p>推荐系统近年来非常流行，应用于各行各业。推荐的对象包括：电影、音乐、新闻、书籍、学术论文、搜索查询、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%88%86%E4%BC%97%E5%88%86%E7%B1%BB%E6%B3%95">分众分类</a>、以及其他产品。也有一些推荐系统专门为寻找专家[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E8%96%A6%E7%B3%BB%E7%B5%B1#cite_note-expertseer-2">2]</a>、合作者[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E8%96%A6%E7%B3%BB%E7%B5%B1#cite_note-collabseer-3">3]</a>、笑话、餐厅、美食、金融服务[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E8%96%A6%E7%B3%BB%E7%B5%B1#cite_note-financialrec-4">4]</a>、生命保险、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E4%BA%A4%E5%8F%8B">网络交友</a>，以及Twitter页面[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E8%96%A6%E7%B3%BB%E7%B5%B1#cite_note-twitterwtf-5">5]</a>设计。</p>
-<p>推荐系统产生推荐列表的方式通常有两种：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8D%94%E5%90%8C%E9%81%8E%E6%BF%BE">协同过滤</a>以及<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E6%8E%A8%E8%8D%90&action=edit&redlink=1">基于内容推荐</a>，或者基于个性化推荐。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E8%96%A6%E7%B3%BB%E7%B5%B1#cite_note-6">6]</a> <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8D%94%E5%90%8C%E9%81%8E%E6%BF%BE">协同过滤</a>方法根据用户历史行为（例如其购买的、选择的、评价过的物品等）结合其他用户的相似决策建立模型。这种模型可用于预测用户对哪些物品可能感兴趣（或用户对物品的感兴趣程度）。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E8%96%A6%E7%B3%BB%E7%B5%B1#cite_note-Recommender2010-7">7]</a> <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E6%8E%A8%E8%8D%90&action=edit&redlink=1">基于内容推荐</a>利用一些列有关物品的离散特征，推荐出具有类似性质的相似物品。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E8%96%A6%E7%B3%BB%E7%B5%B1#cite_note-mooney99-8">8]</a>两种方法经常互相结合（参考<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E6%B7%B7%E5%90%88%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F&action=edit&redlink=1">混合推荐系统</a>）</p>
-<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8D%94%E5%90%8C%E9%81%8E%E6%BF%BE">协同过滤</a>和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E6%8E%A8%E8%8D%90&action=edit&redlink=1">基于内容推荐</a>的区别可以比较两个流行的音乐推荐系统 — <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Last.fm">Last.fm</a> 和 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Pandora_Radio">Pandora Radio</a>.</p>
-<ul>
-<li>Last.fm 建立通过观察用户日常收听的乐队或歌手，并与其它用户的行为进行比对，建立一个“电台”，以此推荐歌曲。Last.fm 会播放不在用户曲库中，但其他相似用户经常会播放的其它音乐。鉴于这种方式利用了用户行为，因此可以认为它是协同过滤技术的一种应用范例。</li>
-<li>Pandora 使用歌曲或者艺人的属性（由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E9%9F%B3%E4%B9%90%E6%B5%81%E6%B4%BE%E9%A1%B9%E7%9B%AE&action=edit&redlink=1">音乐流派项目</a>提供的400个属性的子集）从而生成一个电台，其中的乐曲都有相似的属性。用户的反馈用于精化电台中的内容。在用户“不喜欢”某一歌曲时，弱化某一些属性；在用户喜欢某一歌曲时，强化另一些属性。这是一种基于内容推荐的方式。</li>
-</ul>
-<p>每一种系统都有其长处与弱点。在上面的例子中，为了提供精准推荐，Last.fm 需要大量用户信息。这是一个<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%86%B7%E5%95%9F%E5%8B%95">冷启动</a>问题，在协同过滤系统中是常见的问题[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E8%96%A6%E7%B3%BB%E7%B5%B1#cite_note-rubens2016-9">9]</a>[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E8%96%A6%E7%B3%BB%E7%B5%B1#cite_note-elahi2016-10">10]</a>[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E8%96%A6%E7%B3%BB%E7%B5%B1#cite_note-schein02-11">11]</a>。而 Pandora 启动时则仅需要很少信息，然而这种方法的局限性很大（例如，这类方法只能得出与原始种子相似的推荐）。</p>
-<p>推荐系统是一种有效代替搜索算法的方式，因为他们帮助用户找到一些他们自己没有办法找到的物品。有趣的是，推荐系统在实现之时通常使用搜索引擎对非传统数据索引。——Wikipedia</p>
-</blockquote>
-<h6 id="推荐系统常用算法"><a href="#推荐系统常用算法" class="headerlink" title="推荐系统常用算法"></a>推荐系统常用算法</h6><blockquote>
-<p>常用的推荐系统算法有五种，每一种都有其优点，不同场景下每一种算法效果会不一样。——zhan-bin</p>
-<ul>
-<li>1.基于内容的推荐</li>
-<li>2.协同过滤推荐</li>
-<li>3.基于关联规则的推荐</li>
-<li>4.基于知识的推荐</li>
-<li>5.混合推荐</li>
-</ul>
-</blockquote>
-<h3 id="实验方法"><a href="#实验方法" class="headerlink" title="实验方法"></a>实验方法</h3><h6 id="推荐方法选型"><a href="#推荐方法选型" class="headerlink" title="推荐方法选型"></a>推荐方法选型</h6><p>在经过大量的资料查阅和长期的小组讨论后，我们最终决定采用「Collaborative Filtering」即「协同过滤」的推荐方法。</p>
-<blockquote>
-<p><strong>协同过滤</strong>，简单来说是利用某兴趣相投、拥有共同经验之群体的喜好来推荐用户感兴趣的信息，个人透过合作的机制给予信息相当程度的回应（如评分）并记录下来以达到过滤的目的进而帮助别人筛选信息，回应不一定局限于特别感兴趣的，特别不感兴趣信息的纪录也相当重要。协同过滤又可分为<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E8%A9%95%E6%AF%94&action=edit&redlink=1">评比</a>（rating）或者<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E7%BE%A4%E9%AB%94%E9%81%8E%E6%BF%BE&action=edit&redlink=1">群体过滤</a>（social filtering）。其后成为电子商务当中很重要的一环，即根据某顾客以往的购买行为以及从具有相似购买行为的顾客群的购买行为去推荐这个顾客其“可能喜欢的品项”，也就是借由社群的喜好提供个人化的信息、商品等的推荐服务。——Wikipedia</p>
-</blockquote>
-<p>我认为，通俗的来说，你可以这样理解协同过滤：在一个无聊的漫漫长夜里，你难以入睡并打开了某听歌软件，面对如此庞大的曲库你不知道要听些什么歌来衬托黑夜。这时，或许具备传说中「artificial intelligence」能力的听歌软件会获取和你具有相似行为的用户信息，又或许它获取了你对哪些歌曲点过红心，从而根据上述两种方式找到你或许会喜欢的歌曲。「伟大的协同过滤诞生了」。</p>
-<blockquote>
-<p>A lot of research has been done on collaborative filtering (CF), and most popular approaches are based on <strong>low-dimensional factor models</strong> (model based matrix factorization. I will discuss these in detail). The CF techniques are broadly divided into 2-types:——<a target="_blank" rel="noopener" href="https://towardsdatascience.com/@pgrover3?source=post_page-----100385c6dfe0----------------------">Prince Grover</a></p>
-</blockquote>
-<p>在查阅众多资料后，我认为协同过滤可以分为 两个大类：基于记忆「memory」的协同过滤（不知道怎么翻译更准确）和基于模型的协同过滤。而「Memory-Based Collaborative Filtering」，正是我在前文中所提到的「user-item filtering」和「 item-item filtering」，在此就不再引例。</p>
-<p>而「基于模型的协同过滤」又基于「 matrix factorization」即「矩阵分解」，矩阵分解被用作一种在潜在变量分解和降维时的无人监管的学习方法，他比「Memory-Based Collaborative Filtering」更具有可扩展性和稀疏性。在查了矩阵分解的定义后我逐渐明白了到底什么是「基于模型的协同过滤」，但又被众多的定义和术语搞得云里雾里。那么有了矩阵分解或者说是「基于模型的协同过滤」后我们到底能做些什么呢？简而言之，我们可以通过「预测」的方式来模拟原始矩阵中的缺失条目，也就是下文中即将提到的「ratings」。</p>
-<blockquote>
-<h2 id="Collaborative-Filtering-CF"><a href="#Collaborative-Filtering-CF" class="headerlink" title="Collaborative Filtering (CF)"></a>Collaborative Filtering (CF)</h2><h3 id="Memory-Based-Collaborative-Filtering"><a href="#Memory-Based-Collaborative-Filtering" class="headerlink" title="Memory-Based Collaborative Filtering"></a>Memory-Based Collaborative Filtering</h3><p>Memory-Based CF methods can be divided into two sections: user-item filtering and item-item filtering. Here is the difference:</p>
-<ul>
-<li>Item-Item Collaborative Filtering: “Users who liked this item also liked …”</li>
-<li>User-Item Collaborative Filtering: “Users who are similar to you (kinda like the twin you never knew you had) also liked …”</li>
-</ul>
-<p>Both methods require user-item matrix that contain the ratings for user u<em>u</em> for item i<em>i</em>. From that, you can calculate the similarity matrix.</p>
-<p>The similarity values in Item-Item Collaborative Filtering are calculated by taking into account all users who have rated a pair of items.</p>
-<p>For User-Item Collaborative Filtering, the similarity values are calculated by observing all items that are rated by a pair of users.</p>
-<h3 id="Model-Based-Collaborative-Filtering"><a href="#Model-Based-Collaborative-Filtering" class="headerlink" title="Model-Based Collaborative Filtering"></a>Model-Based Collaborative Filtering</h3><p>Model-based CF methods are based on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Matrix_factorization_(recommender_systems)">matrix factorization (MF)</a>. MF methods are used as an unsupervised learning method for latent variable decomposition and dimensionality reduction. They can handle scalability and sparsity problems better than Memory-based CF.</p>
-<p>The goal of MF is to learn latent user preferences and item attributes from known ratings. Then use those variable to predict unknown ratings through the dot product of the latent features of users and items.</p>
-<p>Matrix factorization restructures the user-item matrix into a low-rank matrix. You can represent it by the multiplication of two low-rank matrices, where the rows contain a vector of latent variables. You want this matrix to approximate the original matrix, as closely as possible, by multiplying the low-rank matrices together. That way, you predict the missing entries in the original matrix.</p>
-</blockquote>
-<h6 id="引用第三方库"><a href="#引用第三方库" class="headerlink" title="引用第三方库"></a>引用第三方库</h6><pre><code>import graphlab as gl
-import pandas as pd
-import numpy as np
-import math
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-from math import sqrt
-from sklearn.metrics import mean_squared_error</code></pre>
-<h6 id="导入last-fm数据集并作预处理"><a href="#导入last-fm数据集并作预处理" class="headerlink" title="导入last.fm数据集并作预处理"></a>导入last.fm数据集并作预处理</h6><p>使用pd.read_csv()导入user_artists.dat和artists.dat，并将两个dframe合并为一个新的dframe:「ap」，并将weight重命名为playcount。</p>
-<pre><code>plays = pd.read_csv(&#39;C:\Users\Eric000\dataSets\dat\user_artists.dat&#39;, sep=&#39;\t&#39;)
-artists = pd.read_csv(&#39;artists.dat&#39;,sep=&#39;\t&#39;)
-
-ap = pd.merge(
-  artists, plays,
-  how=&quot;inner&quot;,
-  left_on=&quot;id&quot;,
-  right_on=&quot;artistID&quot;
-)
-ap = ap.rename(columns=&#123;&quot;weight&quot;: &quot;playCount&quot;&#125;)</code></pre>
-<h6 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h6><p>通过pandas的groupby()对播放量的相关信息进行处理，并按照playCount降序排列。</p>
-<pre><code>artist_rank = ap.groupby([&#39;name&#39;]) \
-  .agg(&#123;&#39;userID&#39; : &#39;count&#39;, &#39;playCount&#39; : &#39;sum&#39;&#125;) \
-  .rename(columns=&#123;&quot;userID&quot; : &#39;totalUniqueUsers&#39;, &quot;playCount&quot; : &quot;totalArtistPlays&quot;&#125;) \
-  .sort_values([&#39;totalArtistPlays&#39;], ascending=False)
-artist_rank[&#39;avgUserPlays&#39;] = artist_rank[&#39;totalArtistPlays&#39;] / artist_rank[&#39;totalUniqueUsers&#39;]
-
-ap = ap.join(artist_rank, on=&quot;name&quot;, how=&quot;inner&quot;) \
-  .sort_values([&#39;playCount&#39;], ascending=False)</code></pre>
-<h6 id="graphlab入场"><a href="#graphlab入场" class="headerlink" title="graphlab入场"></a>graphlab入场</h6><p>使用</p>
-<pre><code>ap.to_csv(&#39;artistsANDplays.csv&#39;)
-
-sf = gl.SFrame(&#39;artistsANDplays.csv&#39;)
-sf.remove_columns([&#39;X1&#39;,&#39;id&#39;,&#39;url&#39;, &#39;pictureURL&#39;])</code></pre>
-<p>将dfrmae输出为「artistsANDplays.csv」并实例化一个sFrme对象sf，通过remove_columns()删除暂时用不到的数据。</p>
-<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/1.png" alt="1"></p>
-<h6 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h6><p>通过graphlab的canvas，我们可以非常容易地对数据进行可视化处理，这将及其简化我们的工作，不得不再次感叹python强大的工具库。</p>
-<p>我们只需要将处理后的数据实例化为一个SFrame对象，即可通过鼠标的交互得到我们想要的可视化结果，免于手动使用代码绘制图像。</p>
-<pre><code>sf.show()</code></pre>
-<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/2.png" alt="2"></p>
-<p>总览</p>
-<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/3.png" alt="3"></p>
-<p>总播放量对应的歌手</p>
-<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/image-20200602220058235.png" alt="image-20200602220058235"></p>
-<p>有多少独立用户听过对应歌手的歌</p>
-<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/image-20200602220214830.png" alt="image-20200602220214830"></p>
-<p>通过独立用户和总播放量的对应关系基本可以看出歌手的流行程度</p>
-<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/image-20200602220506766.png" alt="image-20200602220506766"></p>
-<h6 id="推荐系统实现"><a href="#推荐系统实现" class="headerlink" title="推荐系统实现"></a>推荐系统实现</h6><p>为了实现协同过滤，我们将ap中的playCount转换为了一个矩阵，在处理过playCount以及通过assign和pivot两个方法后重新塑造dataframe后，「ratings」的概念逐渐清晰，我们将ratings赋值与[0-1]之间，基于原始数据的playCount构建了一个评价体系，并用0补齐数据缺失的地方。</p>
-<pre><code>pc = ap.playCount
-play_count_scaled = (pc - pc.min()) / (pc.max() - pc.min())
-ap = ap.assign(playCountScaled=play_count_scaled)
-
-ratings_df = ap.pivot(
-    index=&#39;userID&#39;,
-    columns=&#39;artistID&#39;,
-    values=&#39;playCountScaled&#39;
-)
-ratings = ratings_df.fillna(0).values</code></pre>
-<p>计算ratings矩阵的稀疏度</p>
-<pre><code>sparsity = float(len(ratings.nonzero()[0]))
-sparsity /= (ratings.shape[0] * ratings.shape[1])
-sparsity *= 100
-print(&#39;&#123;:.2f&#125;%&#39;.format(sparsity))</code></pre>
-<p>接下来我们通过重写后的sklearn.model_selection的train_test_split将ratings分为「训练组」和「校验组」，并用0代替了一些参考价值不大的rating。</p>
-<pre><code>train, val = train_test_split(ratings)
-
-MIN_USER_RATINGS = 35
-DELETE_RATING_COUNT = 15
-def train_test_split(ratings):
-    validation = np.zeros(ratings.shape)
-    train = ratings.copy()
-    for user in np.arange(ratings.shape[0]):
-        if len(ratings[user,:].nonzero()[0]) &gt;= MIN_USER_RATINGS:
-            val_ratings = np.random.choice(
-              ratings[user, :].nonzero()[0],
-              size=DELETE_RATING_COUNT,
-              replace=False
-            )
-            train[user, val_ratings] = 0
-            validation[user, val_ratings] = ratings[user, val_ratings]
-    return train, validation</code></pre>
-<h6 id="测量误差"><a href="#测量误差" class="headerlink" title="测量误差"></a>测量误差</h6><p>我们采用「RMSE」即「均方根误差」来测量误差，通过这一算法，我们对真值和预测值的偏差有了一个大概的认识。</p>
-<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/image-20200602220925621.png" alt="image-20200602220925621"></p>
-<h6 id="训练推荐系统"><a href="#训练推荐系统" class="headerlink" title="训练推荐系统"></a>训练推荐系统</h6><p>使用「SGD」即「随机梯度下降」训练，赋予未知对象预测值</p>
-<pre><code>def fit(self, X_train, X_val):
-  m, n = X_train.shape
-  self.P = 3 * np.random.rand(self.n_latent_features, m)
-  self.Q = 3 * np.random.rand(self.n_latent_features, n)
-  self.train_error = []
-  self.val_error = []
-  users, items = X_train.nonzero()
-  for epoch in range(self.n_epochs):
-      for u, i in zip(users, items):
-          error = X_train[u, i] - self.predictions(self.P[:,u], self.Q[:,i])
-          self.P[:, u] += self.learning_rate * \
-           (error * self.Q[:, i] - self.lmbda * self.P[:, u])
-          self.Q[:, i] += self.learning_rate * \
-           (error * self.P[:, u] - self.lmbda * self.Q[:, i])
-      train_rmse = rmse(self.predictions(self.P, self.Q), X_train)
-      val_rmse = rmse(self.predictions(self.P, self.Q), X_val)
-      self.train_error.append(train_rmse)
-      self.val_error.append(val_rmse)</code></pre>
-<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><h6 id="评估推荐结果"><a href="#评估推荐结果" class="headerlink" title="评估推荐结果"></a>评估推荐结果</h6><p>在使用RMSE比较训练组和校验组，并且通过SGD训练模型之后，我们很直观的发现两个对照组之间的差距越来越小，训练时间与预测误差呈反比例关系，即训练时间越长，误差就越小。这也是我们推荐系统的<strong>评价标准</strong>，简而言之，当「训练组」和「校验组」的差距越来越小（即二者的重合程度越来越大时），我们的推荐系统也就越精确，即项目要求文档中的「<strong>推荐的精确度</strong>」。</p>
-<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/image-20200603100501243.png" alt="image-20200603100501243">·</p>
-<h6 id="做出最后的推荐"><a href="#做出最后的推荐" class="headerlink" title="做出最后的推荐"></a>做出最后的推荐</h6><p>还记得上文中我们将矩阵中的一些对象置零吗，接下来，我们将用推荐系统获得的预测值将这些稀疏矩阵填充。</p>
-<pre><code>def predict(self, X_train, user_index):
-  y_hat = self.predictions(self.P, self.Q)
-  predictions_index = np.where(X_train[user_index, :] == 0)[0]
-  return y_hat[user_index, predictions_index].flatten()</code></pre>
-<p>这是预测前的结果</p>
-<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/image-20200602220555572.png" alt="image-20200602220555572"></p>
-<pre><code>user_id = 999
-user_index = ratings_df.index.get_loc(user_id)
-predictions_index = np.where(train[user_index, :] == 0)[0]
-rating_predictions = recommender.predict(train, user_index)
-existing_ratings_index = np.where(train[user_index, :] &gt; 0)[0]
-existing_ratings = train[user_index, existing_ratings_index]
-create_artist_ratings(
-  artists,
-  existing_ratings_index,
-  existing_ratings
-)</code></pre>
-<p>这是预测后的结果</p>
-<p><img src="https://version2.oss-cn-hangzhou.aliyuncs.com/img/20200526/image-20200602220616046.png" alt="image-20200602220616046"></p>
-<pre><code>create_artist_ratings(
-  artists,
-  predictions_index,
-  rating_predictions
-)</code></pre>
-<p>可以看出，id为999的用户，说不定不只是ColdPlay的忠实听众，Minnie Riperton或许也能让他在某个暗流涌动的寂寞之夜产生感官的愉悦。</p>
-<p>「伟大的推荐系统诞生了」。</p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] pandas-docs <a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs">https://pandas.pydata.org/pandas-docs</a></p>
-<p>[2] graphlab-docs <a target="_blank" rel="noopener" href="https://turi.com/products/create/docs/index.html">https://turi.com/products/create/docs/index.html</a></p>
-<p>[3] Wikipedia</p>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Root-mean-square_deviation">https://en.wikipedia.org/wiki/Root-mean-square_deviation</a></p>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">https://en.wikipedia.org/wiki/Stochastic_gradient_descent</a></p>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/SGD_(disambiguation)">https://en.wikipedia.org/wiki/SGD_(disambiguation)</a></p>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Recommender_system">https://en.wikipedia.org/wiki/Recommender_system</a></p>
-<p>and so on</p>
-<p>[4] smartweed <a target="_blank" rel="noopener" href="https://www.cnblogs.com/smartweed/p/7210689.html">https://www.cnblogs.com/smartweed/p/7210689.html</a></p>
-<p>[5] lastfm <a target="_blank" rel="noopener" href="https://www.last.fm/">https://www.last.fm/</a>.</p>
-<p>[6] googlecolab <a target="_blank" rel="noopener" href="https://colab.research.google.com/">https://colab.research.google.com/</a></p>
-<p>[7] google Scholar <a target="_blank" rel="noopener" href="https://scholar.google.com/">https://scholar.google.com</a></p>
-<p>[8] StackOverflow</p>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/33000061/graphlab-create-canopy-runtime-exception-unable-to-evaluate-lambdas">https://stackoverflow.com/questions/33000061/graphlab-create-canopy-runtime-exception-unable-to-evaluate-lambdas</a></p>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/38983295/issues-downloading-graphlab-dependencies-get-dependencies?r=SearchResults">https://stackoverflow.com/questions/38983295/issues-downloading-graphlab-dependencies-get-dependencies?r=SearchResults</a></p>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/search?q=Downloading+xz">https://stackoverflow.com/search?q=Downloading+xz</a>.</p>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/44994717/import-graphlab-does-not-work-properly/45596896?r=SearchResults&amp;s=6">https://stackoverflow.com/questions/44994717/import-graphlab-does-not-work-properly/45596896?r=SearchResults&amp;s=6</a></p>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/25960070/graphlab-create-importerror-no-module-named-graphlab">https://stackoverflow.com/questions/25960070/graphlab-create-importerror-no-module-named-graphlab</a></p>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/38938236/attributeerror-module-object-has-no-attribute-sframe">https://stackoverflow.com/questions/38938236/attributeerror-module-object-has-no-attribute-sframe</a></p>
-<p>and so on</p>
-<p>[9] Music artist Recommender System using Stochastic Gradient Descent | Machine Learning from Scratch <a target="_blank" rel="noopener" href="https://www.curiousily.com/posts/music-artist-recommender-system-using-stochastic-gradient-descent/">https://www.curiousily.com/posts/music-artist-recommender-system-using-stochastic-gradient-descent/</a></p>
-<p>[10] Various Implementations of Collaborative Filtering <a target="_blank" rel="noopener" href="https://towardsdatascience.com/various-implementations-of-collaborative-filtering-100385c6dfe0">https://towardsdatascience.com/various-implementations-of-collaborative-filtering-100385c6dfe0</a></p>
-<p>[11] v2ex <a target="_blank" rel="noopener" href="https://v2ex.com/">https://v2ex.com</a></p>
-<p>[12] github <a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a></p>
-<p>[13] Music Recommendation <a target="_blank" rel="noopener" href="https://www.kaggle.com/myonin/music-recommendation-random-forest-xgboost">https://www.kaggle.com/myonin/music-recommendation-random-forest-xgboost</a></p>
-<p>[14] surprise-docs <a target="_blank" rel="noopener" href="https://surprise.readthedocs.io/en/stable/">https://surprise.readthedocs.io/en/stable/</a></p>
-<p>[15] Building the optimal Book Recommender and measuring the role of Book Covers in predicting user ratings</p>
+<p>对技术与艺术的敏锐感受力、以及精神与肉体上的强健。是时候了。</p>
 
             
         </div>
         <div class="post-meta">
             
-            <span class="post-time">二〇二〇年五月廿六日</span>
+            <span class="post-time">二〇二一年八月十七日</span>
         </div>
     </article>
     
     <article class="post">
         <div class="post-title">
-            <a class="post-title-link" href="/2020/04/25/preference-right-power/">偏好与权利及权力</a>
+            <a class="post-title-link" href="/2020/12/05/jotting/">一次闲聊</a>
         </div>
         <div class="post-content">
             
-            <p>阿城「中国当代作家，非哈尔滨市阿城区」在「爱情与化学」中说：</p>
-<blockquote>
-<p>《爱情与化学》</p>
-<p>这个题目换成“化学与爱情”，也无所谓。不过，我们的秩序文化里，比如官场中接见时的名次序列，认为排在前面的一定高贵，或者比较重要，就好像判死刑之后，最先拉出去枪毙的总应该是首犯吧。鲁迅先生有过一个讲演，题目是《魏晋风度与药及酒的关系》，很少有人认为其中三者的关系是平等的，魏晋风度总是比较重要的吧。因此，把“爱情”放在前面，无非是容易被注意，查一下页数，翻到了，看下去，虽然看完了的感想可能是“煞风景”。</p>
+            <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><blockquote>
+<p>感谢陈老让我有机会跟大家聊聊我大学期间的一些经历和经验，包括但不限于「大学四年的规划，每一年的学习，考证，比赛以及四六级考试，公务员准备」。当然，写作这篇博客的目的完全不是出于说教，大家权当看个故事。</p>
 </blockquote>
-<p>那么本文写作「权利与偏好及权力」，「权力与偏好及权利」或者6种排列中的任意一种，「也无所谓」。不过本文的写作灵感抽象后的顺序即为偏好→权利→权力，题目由此而来。</p>
-<p>昨天和我爸在超市买了很多东西，顺便一提，蜀大侠的番茄锅底是真的很淡。其中五花肉花费69￥，由我爸通过微信完成支付。毫无疑问，这块五花肉的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%89%80%E6%9C%89%E6%9D%83">所有权</a>隶属于我爸，这是前提。</p>
-<p>今天，我爸做了他概念中的「回锅肉」，制作过程在此不表，制作的结果也与以往差别不大，即是连炒锅上桌，很多油，整体趋于黑色化，猪皮很硬，较大量白糖和豆瓣、豆豉带来的甜咸味，我的食欲也与以往差别不大。不过似乎我和我爸也对这种场景都已形成了下意识反应，他比我更先采用了「玷污」一词，「难道我又玷污了这块肉？」但我却与以往差别较大，我真的有「权利」表达我爸「浪费」了这块肉吗？很显然，我没有，这是「所有权」上的没有。</p>
-<blockquote>
-<p>「偏好」是实际潜藏在人们内心的一种情感和倾向，它是非直观的，引起偏好的感性因素多于理性因素。偏好有明显的个体差异，也呈现出群体特征。在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6">微观经济学</a>价值理论中，偏好是价值上相对主观的一个概念，指消费者按照自己的意愿对可供选择的商品组合进行的排列。</p>
-</blockquote>
-<p>「引起偏好的感性因素多于理性因素，偏好有明显的个体差异，也呈现出群体特征」。我爸有对他所制作的回锅肉的「偏好」，我也有对他所制作的回锅肉的「偏好」，显而易见，我们的「偏好」并不相同，就算是我妈和我的「偏好」基本一致，但是「这世上没有人和我爸同一阵营」是永假的，所以我也没有「偏好」上的「权利」去指责，我所能做的只能是不认同。简而言之，我爸享有这块肉的「所有权」，以及狭义的「使用权」和「支配权」以及「无可置疑权」。</p>
-<p>那么假设我爸不认可我的「偏好」，甚至直接无视和践踏我的「偏好」，强制将食物置于我的胃中，那么即是形成了一种「宰制（domination）与被宰制关系」，在反对情况下仍能实现自己意志的能力（米尔斯）。即为权力。权力具有强制性，很显然，人类社会始终会存在权力滥用的事实。</p>
-<p>对此，我与我爸及我们都无能无力。</p>
+<h3 id="规划"><a href="#规划" class="headerlink" title="规划"></a>规划</h3><p><strong>首先我个人认为大家应该先想清楚毕业以后从事什么样的工作，这一点至关重要。</strong>如果现在还没有一个明确的职业规划也没关系，我自己也是在大三才想清楚以后到底要干什么，不过能够越早<strong>开始</strong>规划就越好。这涉及到多方面的因素，故不做建议。我在大三之前都想做一个程序员，并且将主要精力放在了专业相关的事情上。后来由于种种因素，我决定考公务员或者事业编。</p>
+<h3 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h3><p>如果你想从事本专业相关的工作并且打算深耕，我个人认为你需要将「算法、数据结构、计算机组成原理、操作系统、计算机网络」扎实地掌握，另外，你还需要花大量的时间编码和提高你的英文水平。我自己没有做到上述这些所以给不出太多的建议。</p>
+<p>如果你想从事java（后端）开发，以下摘自实际岗位描述：</p>
+<p>熟练使用Struts2/Spring/SpringMVC/MyBatis等常见框架；精通spring及相关生态组件，熟练掌握mybatis；精通socket编程、熟悉TCP、UDP网络通信协议；对JVM性能优化有深入认知；有多线程、高并发项目经验者优先。熟悉前端相关知识（html，javascript，Jquery）。<br>熟练掌握SQL server、Oracle、MySql等主流数据库。<br>熟悉消息中间件（ActiveMQ、RocketMQ、RabbitMQ、Kafka）等框架并且对原理有一定了解，缓存（Redis/Memcached/Ehcache）系统的机制以及使用，研究过源代码并有实际项目应用经验。<br>至少熟悉一种大数据处理技术，如Hadoop、Spark；掌握HBase、Redis、Elastic Search等开源大数据存储技术的开发实践，能够独立和带领团队进行项目开发，并能结合不同的业务场景深入使用。<br>精通常用的Linux命令;熟练配置和维护Nginx/Apache，Tomcat等Web或应用服务器。<br>掌握各类技术文档的编写和整理。有设计,调试接口的相关经验。</p>
+<h3 id="考证"><a href="#考证" class="headerlink" title="考证"></a>考证</h3><p>我个人觉得没必要考太多证，如果你有这方面的需求且与计算机专业强相关，可以了解一下「ACM/MCM」，或者是在leetcode上多刷点题，或者在github上多提交几段代码。</p>
+<p>另外，我推荐大家在大学期间取得「机动车驾驶证」和「红十字救护员证」。</p>
+<h3 id="比赛"><a href="#比赛" class="headerlink" title="比赛"></a>比赛</h3><p>首当其冲推荐的是「ACM」即「国际大学生程序设计竞赛」，在计算机领域具有相当的含金量和相当的难度，如果你已经有所涉猎那么本文对你毫无价值。</p>
+<p>紧接着是「蓝桥杯」，学院每年都会组织参加蓝桥杯，大家如果想参加比赛建议可以积极准备一下蓝桥杯。</p>
+<p>其他比赛大家如果有精力也可以多多参与，出去长长见识总没坏处的。</p>
+<h3 id="四六级考试"><a href="#四六级考试" class="headerlink" title="四六级考试"></a>四六级考试</h3><p>建议大家越早通过越好，且一定要有足够的重视，至少要通过四级。即使你不从事计算机行业，英文也很重要。关于英文的学习我也没有太多<strong>具体</strong>的建议，因为我学得比较早，所以感觉只要你投入相当程度的时间，那么语言的学习是没有想象中的那么难的。我目前仍然有阅读英文原版书籍的习惯，另外，如果你想提升自己的口语水平，可以尝试一个名叫「交流电」的app。</p>
+<h3 id="体制相关"><a href="#体制相关" class="headerlink" title="体制相关"></a>体制相关</h3><p>公务员分为国考、省考、事业单位以及地方的一些考试，还有相关的「西部计划」和「三支一扶」等等。公务员考试主要需要学习的是行政职业能力测验和申论，行政职业能力测验主要包括常识判断、言语理解与表达、数量关系、判断推理和资料分析等部分，我个人认为其中的「言语理解、判断推理、资料分析」是需要扎实掌握的。我目前是跟着「粉笔」的课程在学习。</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>跟大家推荐一些相关的资源吧：</p>
+<table>
+<thead>
+<tr>
+<th>善用搜索引擎</th>
+<th>google.com/dogedoge.com</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>版本控制、代码管理和开源</td>
+<td>git以及github.com</td>
+</tr>
+<tr>
+<td>it知识问答</td>
+<td>StackOverflow.com</td>
+</tr>
+<tr>
+<td>如果你想玩玩物联网或者学习Linux</td>
+<td>树莓派</td>
+</tr>
+<tr>
+<td>java学习</td>
+<td>how2j.cn</td>
+</tr>
+<tr>
+<td>我每天逛的论坛（偏it）</td>
+<td>v2ex.com</td>
+</tr>
+<tr>
+<td>考公相关</td>
+<td>粉笔网 fenbi.com</td>
+</tr>
+<tr>
+<td></td>
+<td>qzzn论坛 bbs.qzzn.com</td>
+</tr>
+</tbody></table>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>其实看到这里大家也能感觉到本文没有直接提出一些具体的建议，也没有对你产生一些实质性的帮助。大家目前尚处大一，还有足够的时间去做自己想做的事，但是一定要珍惜时间，四年的时间真的很快很快，不管你做了什么到大四也一定是会后悔的，只是希望大家能够尽量让自己的时间变得有意义一点。我在大学期间加入了学校的网络运维中心以及甲骨文俱乐部，都给我带来了很多的帮助，以后大家看到他们招新且自己有兴趣的话也可以试着加入。我虽然在大学期间没有完整的读过几本书，但是我作为一个英雄联盟和csgo一千小时以上的玩家，真的在阅读的时间里感受到了不一样的快感，希望大家能够多去图书馆坐坐，也很推荐大家去学习一门乐器，弹吉他的时候我也感觉到很快乐。最后，希望大家珍惜时光，把身体锻炼好，尽量在大学期间养成运动习惯，珍惜身边人身边事，还有，不要在包括寝室之内的公共空间外放抖音。</p>
+<p>以上，感谢阅读。</p>
 
             
         </div>
         <div class="post-meta">
             
-            <span class="post-time">二〇二〇年四月廿五日</span>
+            <span class="post-time">二〇二〇年十二月五日</span>
         </div>
     </article>
     
@@ -483,7 +311,7 @@ create_artist_ratings(
 
 <p class="thanks" style="white-space: nowrap;">
   <!-- 字数统计 -->
-  <span class="post-count">已记录三点零六万字 &nbsp;</span>
+  <span class="post-count">已记录三点零七万字 &nbsp;</span>
   <!--  -->
   © 双绞麻痹
 </p>
