@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    
+    <title>A Simple Smart Home Practice - 双绞麻痹</title>
+    <meta charset="utf-8">
+    
+    <meta name="title" content="A Simple Smart Home Practice - 双绞麻痹">
+    <meta name="description" content="">
+    <meta property="og:image" content="/favicon.png">
+    <meta property="og:image:width" content="200" />
+    <meta property="og:image:height" content="200" />
+    
+    <!-- 字体设置 -->
+    <!-- 20250202修改京华老宋体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200..900&display=swap" rel="stylesheet"> -->
+    <link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/京華老宋体v2_002/result.css' />
+
+    <style>
+        body {
+            font-family: KingHwa_OldSong, 'KingHwa_OldSong', 'Source Serif Pro', 'Source Han Serif TC', 'Noto Serif CJK TC', 'Noto Serif TC', serif;
+        }
+    </style>
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    <!--  -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- 
+<script src="/js/jquery.min.js"></script>
+ -->
+    <!-- 将jQuery置于cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="双绞麻痹" type="application/atom+xml">
+</head>
+
+<body>
+    <header class="header">
+    <div class="blog-title">
+        <a href="/" class="logo">双绞麻痹</a>
+    </div>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/archives" class="menu-item-link">索引</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/been2" class="menu-item-link">去过</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/X" class="menu-item-link">度过</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/words" class="menu-item-link">箴言</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/comments" class="menu-item-link">留言</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="/about" class="menu-item-link">关于</a>
+                
+            </li>
+            
+            
+            
+            <li class="menu-item">
+                
+                <a href="https://numb.tech/atom.xml" class="menu-item-link">订阅</a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <article class="post">
+    <div class="post-title">
+        <h1 class="title">A Simple Smart Home Practice</h1>
+    </div>
+    <div class="post-content">
+        <blockquote>
+<p>Hey Siri,turn on my doge light and switch it to 100 percent.</p>
+<p>Hey Siri,help me disconnect the power pls.</p>
+<p><strong>Mirror mirror</strong> tell me, who is the <strong>most beautiful</strong> in the world?</p>
+</blockquote>
+<p>It’s been a really long time since I wrote my last technical article.I graduated successfully with my graduation project 《The design and implementation of the Raspberry Pi and MagicMirror based daily intelligent helper》.As for that project,the abstract of my paper says so:</p>
+<blockquote>
+<p>With the continuous development of society and technology, more and<br>more new items are getting involved in people’s family life. Under the<br>continuous leadership of national policies, the smart home industry is<br>developing strongly. However, the high price of smart devices and the<br>complicated technical details of them also make the threshold of smart home<br>rise.</p>
+<p>This paper first explores the development status of the smart home<br>industry and proposes an innovative and practical way to implement a daily<br>smart assistant that transforms existing devices on its basis; and describes<br>the corresponding feasibility and requirement analysis; finally, it introduces<br>the related technology and development process in detail.</p>
+<p>This project is rooted in the Raspberry Pi platform, combined with the <em>MagicMirror</em> framework, which is currently open source, with a large number of users and a good developer environment, supplemented by various hardware devices, to design and make a low-cost, low-threshold, low-power daily intelligent assistant.</p>
+</blockquote>
+<p>But today Im goona talk about two other smart home scenarios:</p>
+<h1 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h1><p>Note:This article just provides a general idea of smart home practice that everybody could afford and does not involve any actual coding part.It is quite friendly to non-specialists.So just take your first step and enjoy it!</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li><p><u>Scenario 1</u>: As an OCD sufferer,i am ALWAYS aware of the power condition of all the outlets in my house,especially the chargers.When the battery of various devices is charged to 100%,i always want to unplug it manually.</p>
+</li>
+<li><p><u>Scenario 2</u>: When your room doesn’t equip with a bedside light switch,all you can do is turn off the light switch by the door then reach your bed in the dark SADLY.</p>
+</li>
+</ul>
+<p>As a developer or an internet explorer you should always believe in that <em>science and technology is the first productive force</em>. Without further ado,let’s move on.</p>
+<h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><h3 id="Hardwares"><a href="#Hardwares" class="headerlink" title="Hardwares"></a>Hardwares</h3><p>I use iOS devices,so i chose <em>works with Apple HomeKit</em> devices.</p>
+<ul>
+<li><p>Yeelight smart LED filament bulb(IEEE 802.11 b/g/n 2.4GHz)</p>
+</li>
+<li><p>DoHome smart outlet(IEEE 802.11 b/g/n 2.4GHz)</p>
+</li>
+<li><p>A Cute puppy(BY FEELING LONG HAIR DOG LAMP gift for my girlfriend lol)</p>
+</li>
+</ul>
+<h3 id="Operating-Environment"><a href="#Operating-Environment" class="headerlink" title="Operating Environment"></a>Operating Environment</h3><ul>
+<li><p>iOS 15.1</p>
+</li>
+<li><p>Apple HomeKit</p>
+</li>
+<li><p>iOS Shortcuts</p>
+</li>
+<li><p>IEEE 802.11 b/g/n 2.4GHz WLAN</p>
+</li>
+</ul>
+<h3 id="Installation-Configuration"><a href="#Installation-Configuration" class="headerlink" title="Installation/Configuration"></a>Installation/Configuration</h3><p>Ensure the network is running at 2.4GHz and <strong>Take relevant safety precautions.</strong> Such as strong passcodes or MAC address whitelist or disable public network access.</p>
+<h4 id="For-Scenario-1"><a href="#For-Scenario-1" class="headerlink" title="For Scenario 1:"></a>For Scenario 1:</h4><ul>
+<li><p>Simply power up the smart outlet.</p>
+</li>
+<li><p>Download DoHome app on your iOS devices.</p>
+</li>
+<li><p>Initialize the outlet according to DoHome app guide and add it to Apple Home.</p>
+</li>
+<li><p>Open Shortcuts app,tap <em>Automation</em>,tap <em>+</em>,press <em>Create Personal Automation</em>,swipe down and tap <em>Battery Level—–When Battery Level Equals 100%—–Next—–Add Action—–serch Home—–control–outlet’s name—–Selected—–Turn off—–done—–Unselect Ask Before Running</em> <strong>DONE!</strong></p>
+</li>
+</ul>
+<h4 id="For-Scenario-2"><a href="#For-Scenario-2" class="headerlink" title="For Scenario 2"></a>For Scenario 2</h4><ul>
+<li><p>Simply put the bulb into the lamp holder and power it up.</p>
+</li>
+<li><p>Download Yeelight app on your iOS devices.</p>
+</li>
+<li><p>Initialize the bulb according to Yeelight app guide and add it to Apple Home.</p>
+</li>
+</ul>
+<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><p>「Hey Siri, turn on my doge light」:</p>
+<div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?aid=892655219&bvid=BV1bP4y1J7up&cid=471543323&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
+</div>
+
+    </div>
+    <div class="post-meta">
+        
+        <span class="post-time">二〇二一年十二月廿八日</span>
+    </div>
+</article>
+<!-- 版权提醒 -->
+<p class="thanks">© 双绞麻痹</p>
+<!--  -->
+<div class="prev_next">
+    <nav id="prev_next">
+
+<div class="prev">
+    
+    <p>上一篇</p>
+    <a href="/2022/05/23/remake/"><div class="article-nav-title">重构</div></a>
+    
+</div>
+<div class="next">
+    
+    <p>下一篇</p>
+    <a href="/2021/10/29/emostop/"><div class="article-nav-title">喀纳斯</div></a>
+    
+</div>
+
+</nav>
+</div>
+
+<div class="post-comment">
+    
+
+
+
+</div>
+
+    </main>
+</body>
+
+</html>
