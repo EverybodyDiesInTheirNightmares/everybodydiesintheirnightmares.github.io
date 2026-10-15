@@ -1,0 +1,45 @@
+body {
+    background-color: #ffffff;
+    font-size: 16px;
+    line-height: 3em;
+    padding: 0 1.5em;
+    margin: 0 auto;
+    max-width: 750px;
+    word-break: break-word;
+}
+
+@media screen and (min-width: 750px) {
+    body {
+        margin-left: calc((100vw - 3em - 750px) / 2);
+    }
+}
+
+@import "_partial/header";
+@import "_partial/post";
+@import "_partial/archive";
+@import "_partial/normalize";
+
+darkmode = hexo-config("darkmode");
+always_darkmode = hexo-config("always_darkmode");
+vertical = hexo-config("vertical");
+
+if darkmode {
+    @import "_partial/darkmode_follow_system";
+}
+
+if always_darkmode {
+    @import "_partial/dark";
+}
+
+if vertical {
+    @import "_partial/style_vertical";
+    @import "_partial/header_vertical";
+    @import "_partial/post_vertical";
+    @import "_partial/archive_vertical";
+} else {
+    @media screen and (min-width: 320px) {
+        body {
+            font-size: calc(16px + 2 * ((100vw - 320px) / 960));
+        }
+    }
+}
